@@ -18,6 +18,7 @@ if (class_exists('Carbon_Pagination')) {
 // include the pagination classes
 $includes_dir = dirname(__FILE__) . '/includes/';
 include_once($includes_dir . 'Carbon_Pagination.php');
+include_once($includes_dir . 'Carbon_Pagination_Exception.php');
 include_once($includes_dir . 'Carbon_Pagination_Builder.php');
 include_once($includes_dir . 'Carbon_Pagination_Posts.php');
 include_once($includes_dir . 'Carbon_Pagination_Post.php');

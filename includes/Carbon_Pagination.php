@@ -840,6 +840,32 @@ abstract class Carbon_Pagination {
 	}
 
 	/**
+	 * Build, configure and display a new pagination.
+	 *
+	 * @static
+	 * @access public
+	 *
+	 * @param string $pagination The pagination type, can be one of the following:
+	 *    - Posts
+	 *    - Post
+	 *    - Comments
+	 *    - Custom
+	 * @param array $args Configuration options to modify the pagination settings.
+	 *
+	 * @see Carbon_Pagination::__construct()
+	 */
+	public static function display($pagination, $args = array()) {
+		$classname = 'Carbon_Pagination_' . $pagination;
+
+		if ( !class_exists($classname) ) {
+			throw new Carbon_Pagination_Exception('Unexisting pagination type: "' . $pagination . '".');
+		}
+
+		$pagination = new $classname($args);
+		$pagination->render();
+	}
+
+	/**
 	 * Render the pagination.
 	 *
 	 * @abstract
