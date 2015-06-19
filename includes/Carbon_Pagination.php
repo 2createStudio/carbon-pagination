@@ -246,6 +246,70 @@ abstract class Carbon_Pagination {
 	public $default_args = array();
 
 	/**
+	 * Constructor.
+	 *
+	 * Creates and configures a new pagination with the provided settings.
+	 *
+	 * @access public
+	 *
+	 * @param array $args Configuration options to modify the pagination settings.
+	 * @return Carbon_Pagination
+	 */
+	public function __construct( $args = array() ) {
+
+		// default configuration options
+		$defaults = array(
+			'wrapper_before' => '<div class="paging">',
+			'wrapper_after' => '</div>',
+			'pages' => array(),
+			'current_page' => 1,
+			'total_pages' => 1,
+			'enable_prev' => true,
+			'enable_next' => true,
+			'enable_first' => false,
+			'enable_last' => false,
+			'enable_numbers' => false,
+			'enable_current_page_text' => false,
+			'number_limit' => 0,
+			'large_page_number_limit' => 0,
+			'large_page_number_interval' => 10,
+			'numbers_wrapper_before' => '<ul>',
+			'numbers_wrapper_after' => '</ul>',
+			'prev_html' => '<a href="{URL}" class="paging-prev"></a>',
+			'next_html' => '<a href="{URL}" class="paging-next"></a>',
+			'first_html' => '<a href="{URL}" class="paging-first"></a>',
+			'last_html' => '<a href="{URL}" class="paging-last"></a>',
+			'number_html' => '<li><a href="{URL}">{PAGE_NUMBER}</a></li>',
+			'limiter_html' => '<li class="paging-spacer">...</li>',
+			'current_page_html' => '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
+		);
+
+		// apply default options from the inheriting classes
+		$defaults = wp_parse_args( $this->default_args, $defaults );
+
+		// allow default options to be filtered
+		$defaults = apply_filters('carbon_pagination_default_options', $defaults);
+
+		// parse configuration options
+		$args = wp_parse_args( $args, $defaults );
+
+		// set configuration options
+		foreach ($args as $arg_name => $arg_value) {
+			$method = 'set_' . $arg_name;
+			if (array_key_exists($arg_name, $defaults) && method_exists($this, $method)) {
+				call_user_func(array($this, $method), $arg_value);
+			}
+		}
+
+		// if pages are not defined, generate them
+		if (!$this->get_pages()) {
+			$pages = range(1, $this->get_total_pages());
+			$this->set_pages($pages);
+		}
+
+	}
+
+	/**
 	 * Retrieve the pagination wrapper - before.
 	 *
 	 * @access public
@@ -753,6 +817,26 @@ abstract class Carbon_Pagination {
 	 */
 	public function set_current_page_html($current_page_html) {
 		$this->current_page_html = $current_page_html;
+	}
+
+	/**
+	 * Get the current URL, in WordPress style.
+	 *
+	 * @access public
+	 *
+	 * @return string $url The current page URL.
+	 */
+	public function get_current_url() {
+		global $wp;
+		$query_vars = array();
+
+		foreach ($wp->query_vars as $qv_key => $qv_value) {
+			if (isset($_GET[$qv_key])) {
+				$query_vars[$qv_key] = $qv_value;
+			}
+		}
+
+		return add_query_arg( $query_vars, '', home_url( '/' . $wp->request ) );
 	}
 
 	/**
