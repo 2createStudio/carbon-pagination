@@ -24,3 +24,19 @@ include_once($includes_dir . 'Carbon_Pagination_Posts.php');
 include_once($includes_dir . 'Carbon_Pagination_Post.php');
 include_once($includes_dir . 'Carbon_Pagination_Comments.php');
 include_once($includes_dir . 'Carbon_Pagination_Custom.php');
+
+/**
+ * A lazy way to build, configure and display a new pagination.
+ *
+ * @param string $pagination The pagination type, can be one of the following:
+ *    - Posts
+ *    - Post
+ *    - Comments
+ *    - Custom
+ * @param array $args Configuration options to modify the pagination settings.
+ *
+ * @see Carbon_Pagination::__construct()
+ */
+function carbon_pagination($pagination, $args = array()) {
+	Carbon_Pagination::display($pagination, $args);
+}
