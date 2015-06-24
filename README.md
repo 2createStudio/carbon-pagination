@@ -106,3 +106,10 @@ Then you can use any of the methods, as documented in the **Class Reference** be
 Finally, once you want to render your pagination, you can simply call:
 
 	$pagination->render();
+
+- - -
+
+Configuration Options
+---------------------
+
+**TBD**
