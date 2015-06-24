@@ -37,3 +37,48 @@ Of course, if using Carbon Pagination as a plugin, it would be best to check if 
 		Carbon_Pagination::display('posts');
 	}
 	?>
+
+#### Specifying parameters
+
+You can specify your preferred parameters as the second argument of `carbon_pagination()` and Carbon_Pagination::display(). Example:
+
+	<?php 
+	carbon_pagination('posts', array(
+		'wrapper_before' => '<div class="paging">',
+		'wrapper_after' => '</div>',
+		'enable_first' => false,
+		'enable_last' => false,
+		'enable_numbers' => false,
+		'number_limit' => 5,
+	)); 
+	?>
+
+Below is an example, containing all possible settings that you can specify, along with their default values.
+
+	<?php 
+	carbon_pagination('posts', array(
+		'wrapper_before' => '<div class="paging">',
+		'wrapper_after' => '</div>',
+		'pages' => array(),
+		'current_page' => 1,
+		'total_pages' => 1,
+		'enable_prev' => true,
+		'enable_next' => true,
+		'enable_first' => false,
+		'enable_last' => false,
+		'enable_numbers' => false,
+		'enable_current_page_text' => false,
+		'number_limit' => 0,
+		'large_page_number_limit' => 0,
+		'large_page_number_interval' => 10,
+		'numbers_wrapper_before' => '<ul>',
+		'numbers_wrapper_after' => '</ul>',
+		'prev_html' => '<a href="{URL}" class="paging-prev"></a>',
+		'next_html' => '<a href="{URL}" class="paging-next"></a>',
+		'first_html' => '<a href="{URL}" class="paging-first"></a>',
+		'last_html' => '<a href="{URL}" class="paging-last"></a>',
+		'number_html' => '<li><a href="{URL}">{PAGE_NUMBER}</a></li>',
+		'limiter_html' => '<li class="paging-spacer">...</li>',
+		'current_page_html' => '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
+	)); 
+	?>
