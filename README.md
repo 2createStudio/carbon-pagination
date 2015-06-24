@@ -82,3 +82,27 @@ Below is an example, containing all possible settings that you can specify, alon
 		'current_page_html' => '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
 	)); 
 	?>
+
+#### Using and manipulating pagination as an object
+
+In case you need to manipulate the pagination you can define the pagination as an object:
+
+	$pagination = new Carbon_Pagination_Posts(array(
+		'wrapper_before' => '<div class="paging">',
+		'wrapper_after' => '</div>',
+	));
+
+Then you can use any of the methods, as documented in the **Class Reference** below. Example:
+	
+	// whether the first link is enabled
+	$first_link_enabled = $pagination->get_enable_first();
+
+	// specify certain pagination settings
+	$pagination->set_enable_first(false);
+	$pagination->set_enable_last(false);
+	$pagination->set_enable_numbers(false);
+	$pagination->set_number_limit(5);
+
+Finally, once you want to render your pagination, you can simply call:
+
+	$pagination->render();
