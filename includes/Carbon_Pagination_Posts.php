@@ -20,10 +20,18 @@ class Carbon_Pagination_Posts extends Carbon_Pagination_Builder {
 	public function __construct( $args = array() ) {
 		global $wp_query;
 
+		// specify the default args for the Posts pagination
 		$this->default_args = array(
+			// get the current page from the query
 			'current_page' => max(get_query_var('paged'), 1),
+
+			// get the total pages from the query
 			'total_pages' => max($wp_query->max_num_pages, 1),
+
+			// modify the text of the previous page link
 			'prev_html' => '<a href="{URL}" class="paging-prev">' . __('&laquo; Previous Entries', 'crb') . '</a>',
+
+			// modify the text of the next page link
 			'next_html' => '<a href="{URL}" class="paging-next">' . __('Next Entries &raquo;', 'crb') . '</a>',
 		);
 
@@ -41,7 +49,9 @@ class Carbon_Pagination_Posts extends Carbon_Pagination_Builder {
 	 */
 	public function get_page_url($page_number, $old_url = '') {
 		$pages = $this->get_pages();
-		return get_pagenum_link( $pages[$page_number] );
+		$url = get_pagenum_link( $pages[$page_number] );
+
+		return $url;
 	}
 
 }

@@ -141,7 +141,7 @@ abstract class Carbon_Pagination {
 	protected $large_page_number_interval = 10;
 
 	/**
-	 * Numbers wrapper - before
+	 * The wrapper before the page number links (1, 2, 3, etc).
 	 *
 	 * @access protected
 	 *
@@ -150,7 +150,7 @@ abstract class Carbon_Pagination {
 	protected $numbers_wrapper_before = '<ul>';
 
 	/**
-	 * Numbers wrapper - after
+	 * The wrapper after the page number links (1, 2, 3, etc).
 	 *
 	 * @access protected
 	 *
@@ -238,6 +238,8 @@ abstract class Carbon_Pagination {
 	/**
 	 * The default argument values.
 	 * Can be declared in the inheriting classes.
+	 * Will override the default configuration options in Carbon_Pagination::__construct
+	 * but can be overriden by the $args parameter
 	 *
 	 * @access public
 	 *
@@ -830,6 +832,7 @@ abstract class Carbon_Pagination {
 		global $wp;
 		$query_vars = array();
 
+		// preserve all query vars that are in the GET as well
 		foreach ($wp->query_vars as $qv_key => $qv_value) {
 			if (isset($_GET[$qv_key])) {
 				$query_vars[$qv_key] = $qv_value;
@@ -857,10 +860,12 @@ abstract class Carbon_Pagination {
 	public static function display($pagination, $args = array()) {
 		$classname = 'Carbon_Pagination_' . $pagination;
 
+		// handle unexisting pagination types
 		if ( !class_exists($classname) ) {
 			throw new Carbon_Pagination_Exception('Unexisting pagination type: "' . $pagination . '".');
 		}
 
+		// initialize & render pagination
 		$pagination = new $classname($args);
 		$pagination->render();
 	}
