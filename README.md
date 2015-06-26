@@ -83,6 +83,8 @@ Below is an example, containing all possible settings that you can specify, alon
 	)); 
 	?>
 
+You can read more about each setting in the **Configuration Settings* section belo.
+
 #### Using and manipulating pagination as an object
 
 In case you need to manipulate the pagination you can define the pagination as an object:
