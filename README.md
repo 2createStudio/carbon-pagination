@@ -83,7 +83,7 @@ Below is an example, containing all possible settings that you can specify, alon
 	)); 
 	?>
 
-You can read more about each setting in the **Configuration Settings* section belo.
+You can read more about each setting in the **Configuration Settings* section below.
 
 #### Using and manipulating pagination as an object
 
