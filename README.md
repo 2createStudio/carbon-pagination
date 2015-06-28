@@ -122,3 +122,10 @@ Class Reference
 ---------------------
 
 **TBD**
+
+- - -
+
+Extending Guidelines & Examples
+---------------------
+
+**TBD**
