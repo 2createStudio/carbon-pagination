@@ -83,7 +83,7 @@ Below is an example, containing all possible settings that you can specify, alon
 	)); 
 	?>
 
-You can read more about each setting in the **Configuration Settings* section below.
+You can read more about each setting in the **Configuration Options** section.
 
 #### Using and manipulating pagination as an object
 
@@ -94,7 +94,7 @@ In case you need to manipulate the pagination you can define the pagination as a
 		'wrapper_after' => '</div>',
 	));
 
-Then you can use any of the methods, as documented in the **Class Reference** below. Example:
+Then you can use any of the methods, as documented in the **Class Reference**. Example:
 	
 	// whether the first link is enabled
 	$first_link_enabled = $pagination->get_enable_first();
