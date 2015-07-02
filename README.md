@@ -122,13 +122,13 @@ The available configuration options are:
 
 #### wrapper_before
 
-_(string). Default: **'<div class="paging">'**_.
+_(string). Default: **'&lt;div class="paging"&gt;'**_.
 
 The HTML, displayed before the entire pagination.
 
 #### wrapper_after
 
-_(string). Default: **'</div>'**_.
+_(string). Default: **'&lt;/div&gt;'**_.
 
 The HTML, displayed after the entire pagination.
 
