@@ -116,7 +116,7 @@ Configuration Options
 
 You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to the **Class Reference** section).
 
-For examples on how to pass these configuration options, please refer to either the **Usage & Examples** section.
+Within some of the configurations options (the ones that are HTML) you can use tokens. These tokens will be automatically replaced with dynamic content that comes from the pagination (for example page number, page link URL, total number of pages, etc). 
 
 The available configuration options are:
 
@@ -271,6 +271,8 @@ The current page text HTML. You can use the following tokens:
 
 - **{CURRENT_PAGE}** - the current page number
 - **{TOTAL_PAGES}** - the total number of pages
+
+For examples on how to pass these configuration options, please refer to either the **Usage & Examples** section.
 
 - - -
 
