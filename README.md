@@ -281,6 +281,44 @@ The current page text HTML. You can use the following tokens:
 Class Reference
 ---------------
 
+### Carbon_Pagination
+
+**TBD**
+
+- - - 
+
+### Carbon_Pagination_Builder
+
+**TBD**
+
+- - - 
+
+### Carbon_Pagination_Posts
+
+**TBD**
+
+- - - 
+
+### Carbon_Pagination_Post
+
+**TBD**
+
+- - - 
+
+### Carbon_Pagination_Comments
+
+**TBD**
+
+- - - 
+
+### Carbon_Pagination_Custom
+
+**TBD**
+
+- - - 
+
+### Carbon_Pagination_Exception
+
 **TBD**
 
 - - -
