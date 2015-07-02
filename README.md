@@ -136,8 +136,73 @@ The HTML, displayed after the entire pagination.
 
 _(array). Optional. Default: **array()**_.
 
-Can be used to contain IDs if you want to loop through particular IDs instead of consecutive page numbers.
-If not defined, falls back to an array of all pages from `1` to `$total_pages`.
+Can be used to contain IDs if you want to loop through particular IDs instead of consecutive page numbers. If not defined, falls back to an array of all pages from `1` to `$total_pages`.
+
+#### current_page
+
+_(int). Default: **1**_.
+
+The current page number.
+
+#### total_pages
+
+_(int). Default: **1**_.
+
+The total number of available pages. Not necessary if you have specified `pages`.
+
+#### enable_prev
+
+_(bool). Default: **true**_.
+
+Whether the previous page link should be displayed.
+
+#### enable_next
+
+_(bool). Default: **true**_.
+
+Whether the next page link should be displayed.
+
+#### enable_first
+
+_(bool). Default: **false**_.
+
+Whether the first page link should be displayed.
+
+#### enable_last
+
+_(bool). Default: **false**_.
+
+Whether the last page link should be displayed.
+
+#### enable_numbers
+
+_(bool). Default: **false**_.
+
+Whether the page number links should be displayed.
+
+#### enable_current_page_text
+
+_(bool). Default: **false**_.
+
+Whether the current page text `Page X of Y` should be displayed.
+
+#### number_limit
+
+_(bool). Default: **0**_.
+
+The number of page number links that should be displayed. Using `0` means no limit (all page number links will be displayed).
+
+#### large_page_number_limit
+
+_(bool). Default: **0**_.
+
+The number of larger page number links that should be displayed. Larger page numbers can be: 10, 20, 30, etc. Using 0 means none (no larger page number links will be displayed).
+
+#### large_page_number_interval
+
+_(bool). Default: **10**_.
+
+The interval between larger page number links. If set to 5, larger page numbers will be 5, 10, 15, 20, etc.
 
 - - -
 
