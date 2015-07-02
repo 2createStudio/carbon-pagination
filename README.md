@@ -188,21 +188,89 @@ Whether the current page text `Page X of Y` should be displayed.
 
 #### number_limit
 
-_(bool). Default: **0**_.
+_(int). Default: **0**_.
 
 The number of page number links that should be displayed. Using `0` means no limit (all page number links will be displayed).
 
 #### large_page_number_limit
 
-_(bool). Default: **0**_.
+_(int). Default: **0**_.
 
-The number of larger page number links that should be displayed. Larger page numbers can be: 10, 20, 30, etc. Using 0 means none (no larger page number links will be displayed).
+The number of larger page number links that should be displayed. Larger page numbers can be: `10`, `20`, `30`, etc. Using `0` means none (no larger page number links will be displayed).
 
 #### large_page_number_interval
 
-_(bool). Default: **10**_.
+_(int). Default: **10**_.
 
-The interval between larger page number links. If set to 5, larger page numbers will be 5, 10, 15, 20, etc.
+The interval between larger page number links. If set to `5`, larger page numbers will be `5`, `10`, `15`, `20`, etc.
+
+#### numbers_wrapper_before
+
+_(string). Default: **'&lt;ul&gt;'**_.
+
+The wrapper before the page number links.
+
+#### numbers_wrapper_after
+
+_(string). Default: **'&lt;/ul&gt;'**_.
+
+The wrapper after the page number links.
+
+#### prev_html
+
+_(string). Default: **'&lt;a href="{URL}" class="paging-prev"&gt;&lt;/a&gt;'**_.
+
+The HTML of the previous page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### next_html
+
+_(string). Default: **'&lt;a href="{URL}" class="paging-next"&gt;&lt;/a&gt;'**_.
+
+The HTML of the next page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### first_html
+
+_(string). Default: **'&lt;a href="{URL}" class="paging-first"&gt;&lt;/a&gt;'**_.
+
+The HTML of the first page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### last_html
+
+_(string). Default: **'&lt;a href="{URL}" class="paging-last"&gt;&lt;/a&gt;'**_.
+
+The HTML of the last page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### number_html
+
+_(string). Default: **'&lt;li&gt;&lt;a href="{URL}"&gt;{PAGE_NUMBER}&lt;/a&gt;&lt;/li&gt;'**_.
+
+The HTML of the page number link. You can use the following tokens:
+
+- **{URL}** - the link URL
+- **{PAGE_NUMBER}** - the particular page number
+
+#### limiter_html
+
+_(string). Default: **'&lt;li class="paging-spacer"&gt;...&lt;/li&gt;'**_.
+
+The HTML of limiter between page number links.
+
+#### current_page_html
+
+_(string). Default: **'&lt;span class="paging-label"&gt;Page {CURRENT_PAGE} of {TOTAL_PAGES}&lt;/span&gt;'**_.
+
+The current page text HTML. You can use the following tokens:
+
+- **{CURRENT_PAGE}** - the current page number
+- **{TOTAL_PAGES}** - the total number of pages
 
 - - -
 
