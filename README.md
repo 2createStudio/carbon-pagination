@@ -120,6 +120,25 @@ For examples on how to pass these configuration options, please refer to either 
 
 The available configuration options are:
 
+#### wrapper_before
+
+_(string). Default: **'<div class="paging">'**_.
+
+The HTML, displayed before the entire pagination.
+
+#### wrapper_after
+
+_(string). Default: **'</div>'**_.
+
+The HTML, displayed after the entire pagination.
+
+#### pages
+
+_(array). Optional. Default: **array()**_.
+
+Can be used to contain IDs if you want to loop through particular IDs instead of consecutive page numbers.
+If not defined, falls back to an array of all pages from `1` to `$total_pages`.
+
 - - -
 
 Class Reference
