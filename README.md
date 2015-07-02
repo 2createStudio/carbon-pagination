@@ -118,6 +118,8 @@ You can specify these configuration options by passing them as an associative ar
 
 Within some of the configurations options (the ones that are HTML) you can use tokens. These tokens will be automatically replaced with dynamic content that comes from the pagination (for example page number, page link URL, total number of pages, etc). 
 
+For examples on how to pass these configuration options, please refer to either the **Usage & Examples** section.
+
 The available configuration options are:
 
 #### wrapper_before
@@ -271,8 +273,6 @@ The current page text HTML. You can use the following tokens:
 
 - **{CURRENT_PAGE}** - the current page number
 - **{TOTAL_PAGES}** - the total number of pages
-
-For examples on how to pass these configuration options, please refer to either the **Usage & Examples** section.
 
 - - -
 
