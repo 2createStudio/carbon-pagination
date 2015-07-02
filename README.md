@@ -114,7 +114,11 @@ Finally, once you want to render your pagination, you can simply call:
 Configuration Options
 ---------------------
 
-**TBD**
+You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to the **Class Reference** section).
+
+For examples on how to pass these configuration options, please refer to either the **Usage & Examples** section.
+
+The available configuration options are:
 
 - - -
 
