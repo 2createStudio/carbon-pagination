@@ -101,10 +101,16 @@ Then you can use any of the methods, as documented in the **Class Reference**. E
 	// whether the first link is enabled
 	$first_link_enabled = $pagination->get_enable_first();
 
-	// specify certain pagination settings
+	// disable first page link
 	$pagination->set_enable_first(false);
-	$pagination->set_enable_last(false);
+
+	// enable last page link
+	$pagination->set_enable_last(true);
+
+	// disable page number links
 	$pagination->set_enable_numbers(false);
+
+	// set the limit of page number links to 5
 	$pagination->set_number_limit(5);
 
 Finally, once you want to render your pagination, you can simply call:
