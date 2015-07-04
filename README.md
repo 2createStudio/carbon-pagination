@@ -509,6 +509,14 @@ Constructor. Creates and configures a new pagination with the provided settings.
 
 Retrieve the pagination wrapper - before.
 
+#### set_wrapper_before()
+
+**@access** _public_
+
+**@param** *(string) $wrapper_before. The new pagination wrapper - before.*
+
+Modify the pagination wrapper - before.
+
 #### get_wrapper_after()
 
 **@access** _public_
@@ -516,6 +524,14 @@ Retrieve the pagination wrapper - before.
 **@return** *(string) $wrapper_after. The pagination wrapper - after.*
 
 Retrieve the pagination wrapper - after.
+
+#### set_wrapper_after()
+
+**@access** _public_
+
+**@param** *(string) $wrapper_after. The new pagination wrapper - after.*
+
+Modify the pagination wrapper - after.
 
 - - - 
 
