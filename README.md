@@ -501,7 +501,7 @@ The current page text HTML. You can use the following tokens:
 
 Constructor. Creates and configures a new pagination with the provided settings.
 
-#### get_wrapper_before()
+#### get\_wrapper\_before()
 
 **@access** _public_
 
@@ -509,7 +509,7 @@ Constructor. Creates and configures a new pagination with the provided settings.
 
 Retrieve the pagination wrapper - before.
 
-#### set_wrapper_before()
+#### set\_wrapper\_before()
 
 **@access** _public_
 
@@ -517,7 +517,7 @@ Retrieve the pagination wrapper - before.
 
 Modify the pagination wrapper - before.
 
-#### get_wrapper_after()
+#### get\_wrapper\_after()
 
 **@access** _public_
 
@@ -525,7 +525,7 @@ Modify the pagination wrapper - before.
 
 Retrieve the pagination wrapper - after.
 
-#### set_wrapper_after()
+#### set\_wrapper\_after()
 
 **@access** _public_
 
@@ -549,7 +549,7 @@ Retrieve the pages array.
 
 Modify the pages array.
 
-#### get_current_page()
+#### get\_current\_page()
 
 **@access** _public_
 
@@ -557,7 +557,7 @@ Modify the pages array.
 
 Retrieve the current page number.
 
-#### set_current_page()
+#### set\_current\_page()
 
 **@access** _public_
 
@@ -565,7 +565,7 @@ Retrieve the current page number.
 
 Modify the current page number.
 
-#### get_total_pages()
+#### get\_total\_pages()
 
 **@access** _public_
 
@@ -573,7 +573,7 @@ Modify the current page number.
 
 Retrieve the total number of pages.
 
-#### set_total_pages()
+#### set\_total\_pages()
 
 **@access** _public_
 
@@ -581,7 +581,7 @@ Retrieve the total number of pages.
 
 Modify the total number of pages.
 
-#### get_enable_prev()
+#### get\_enable\_prev()
 
 **@access** _public_
 
@@ -589,7 +589,7 @@ Modify the total number of pages.
 
 Whether the previous page link should be displayed.
 
-#### set_enable_prev()
+#### set\_enable\_prev()
 
 **@access** _public_
 
@@ -597,7 +597,7 @@ Whether the previous page link should be displayed.
 
 Specify whether the previous page link should be displayed.
 
-#### get_enable_next()
+#### get\_enable\_next()
 
 **@access** _public_
 
@@ -605,7 +605,7 @@ Specify whether the previous page link should be displayed.
 
 Whether the next page link should be displayed.
 
-#### set_enable_next()
+#### set\_enable\_next()
 
 **@access** _public_
 
@@ -613,7 +613,7 @@ Whether the next page link should be displayed.
 
 Specify whether the next page link should be displayed.
 
-#### get_enable_first()
+#### get\_enable\_first()
 
 **@access** _public_
 
@@ -621,7 +621,7 @@ Specify whether the next page link should be displayed.
 
 Whether the first page link should be displayed.
 
-#### set_enable_first()
+#### set\_enable\_first()
 
 **@access** _public_
 
@@ -629,7 +629,7 @@ Whether the first page link should be displayed.
 
 Specify whether the first page link should be displayed.
 
-#### get_enable_last()
+#### get\_enable\_last()
 
 **@access** _public_
 
@@ -637,13 +637,268 @@ Specify whether the first page link should be displayed.
 
 Whether the last page link should be displayed.
 
-#### set_enable_last()
+#### set\_enable\_last()
 
 **@access** _public_
 
 **@param** *(bool) $enable_last. True if the last page link should be displayed, false otherwise.*
 
 Specify whether the last page link should be displayed.
+
+#### get\_enable\_numbers()
+
+**@access** _public_
+
+**@return** *(bool) $enable_numbers. True if the page number links should be displayed, false otherwise.*
+
+Whether the page number links should be displayed.
+
+#### set\_enable\_numbers()
+
+**@access** _public_
+
+**@param** *(bool) $enable_numbers. True if the page number links should be displayed, false otherwise.*
+
+Specify whether the page number links should be displayed.
+
+#### get\_enable\_current\_page\_text()
+
+**@access** _public_
+
+**@return** *(bool) $enable_current_page_text. True if the current page text should be displayed, false otherwise.*
+
+Whether the current page text should be displayed.
+
+#### set\_enable\_current\_page\_text()
+
+**@access** _public_
+
+**@param** *(bool) $enable_current_page_text. True if the current page text should be displayed, false otherwise.*
+
+Specify whether the current page text should be displayed.
+
+#### get\_number\_limit()
+
+**@access** _public_
+
+**@return** *(int) $number_limit. The page number links limit.*
+
+Retrieve the page number links limit.
+
+#### set\_number\_limit()
+
+**@access** _public_
+
+**@param** *(int) $number_limit. The new page number links limit.*
+
+Modify the page number links limit.
+
+#### get\_large\_page\_number\_limit()
+
+**@access** _public_
+
+**@return** *(int) $large_page_number_limit. The large page number links limit.*
+
+Retrieve the large page number links limit.
+
+#### set\_large\_page\_number\_limit()
+
+**@access** _public_
+
+**@param** *(int) $large_page_number_limit. The new large page number links limit.*
+
+Modify the large page number links limit.
+
+#### get\_large\_page\_number\_interval()
+
+**@access** _public_
+
+**@return** *(int) $large_page_number_interval. The large page number links interval.*
+
+Retrieve the large page number links interval.
+
+#### set\_large\_page\_number\_interval()
+
+**@access** _public_
+
+**@param** *(int) $large_page_number_interval. The new large page number links interval.*
+
+Modify the large page number links interval.
+
+#### get\_numbers\_wrapper\_before()
+
+**@access** _public_
+
+**@return** *(string) $numbers_wrapper_before. The pagination numbers wrapper - before.*
+
+Retrieve the pagination numbers wrapper - before.
+
+#### set\_numbers\_wrapper\_before()
+
+**@access** _public_
+
+**@param** *(string) $numbers_wrapper_before. The new pagination numbers wrapper - before.*
+
+Modify the pagination numbers wrapper - before.
+
+#### get\_numbers\_wrapper\_after()
+
+**@access** _public_
+
+**@return** *(string) $numbers_wrapper_after. The pagination numbers wrapper - after.*
+
+Retrieve the pagination numbers wrapper - after.
+
+#### set\_numbers\_wrapper\_after()
+
+**@access** _public_
+
+**@param** *(string) $numbers_wrapper_after. The new pagination numbers wrapper - after.*
+
+Modify the pagination numbers wrapper - after.
+
+#### get\_prev\_html()
+
+**@access** _public_
+
+**@return** *(string) $prev_html. The previous page link HTML.*
+
+Retrieve the previous page link HTML.
+
+#### set\_prev\_html()
+
+**@access** _public_
+
+**@param** *(string) $prev_html. The new previous page link HTML.*
+
+Modify the previous page link HTML.
+
+#### get\_next\_html()
+
+**@access** _public_
+
+**@return** *(string) $next_html. The next page link HTML.*
+
+Retrieve the next page link HTML.
+
+#### set\_next\_html()
+
+**@access** _public_
+
+**@param** *(string) $next_html. The new next page link HTML.*
+
+Modify the next page link HTML.
+
+#### get\_first\_html()
+
+**@access** _public_
+
+**@return** *(string) $first_html. The first page link HTML.*
+
+Retrieve the first page link HTML.
+
+#### set\_first\_html()
+
+**@access** _public_
+
+**@param** *(string) $first_html. The new first page link HTML.*
+
+Modify the first page link HTML.
+
+#### get\_last\_html()
+
+**@access** _public_
+
+**@return** *(string) $last_html. The last page link HTML.*
+
+Retrieve the last page link HTML.
+
+#### set\_last\_html()
+
+**@access** _public_
+
+**@param** *(string) $last_html. The new last page link HTML.*
+
+Modify the last page link HTML.
+
+#### get\_number\_html()
+
+**@access** _public_
+
+**@return** *(string) $number_html. The HTML of a page number link.*
+
+Retrieve the HTML of a page number link.
+
+#### set\_number\_html()
+
+**@access** _public_
+
+**@param** *(string) $number_html. The new HTML of a page number link.*
+
+Modify the HTML of a page number link.
+
+#### get\_limiter\_html()
+
+**@access** _public_
+
+**@return** *(string) $limiter_html. The HTML of a limiter.*
+
+Retrieve the HTML of a limiter.
+
+#### set\_limiter\_html()
+
+**@access** _public_
+
+**@param** *(string) $limiter_html. The new HTML of a limiter.*
+
+Modify the HTML of a limiter.
+
+#### get\_current\_page\_html\_html()
+
+**@access** _public_
+
+**@return** *(string) $current_page_html_html. The HTML of the current page text.*
+
+Retrieve the HTML of the current page text.
+
+#### set\_current\_page\_html\_html()
+
+**@access** _public_
+
+**@param** *(string) $current_page_html_html. The new HTML of the current page text.*
+
+Modify the HTML of the current page text.
+
+#### get\_current\_url()
+
+**@access** _public_
+
+**@return** *(string) $url. The current page URL.*
+
+Get the current URL, in WordPress style.
+
+#### display()
+
+**@static**
+
+**@access** _public_
+
+**@param** *(string) $pagination. The pagination type, can be one of the following:*
+
+* **'Posts'**
+* **'Post'**
+* **'Comments'**
+* **'Custom'**
+
+**@param** *(array) $args. Configuration options to modify the pagination settings.*
+
+#### render()
+
+**@abstract**
+
+**@access** _public_
+
+Render the pagination.
 
 - - - 
 
