@@ -495,11 +495,27 @@ The current page text HTML. You can use the following tokens:
 
 **@access** _public_
 
-**@param** *(array) $args Configuration options to modify the pagination settings.*
+**@param** *(array) $args. Configuration options to modify the pagination settings.*
 
 **@return** _Carbon_Pagination_
 
 Constructor. Creates and configures a new pagination with the provided settings.
+
+#### get_wrapper_before()
+
+**@access** _public_
+
+**@return** *(string) $wrapper_before. The pagination wrapper - before.*
+
+Retrieve the pagination wrapper - before.
+
+#### get_wrapper_after()
+
+**@access** _public_
+
+**@return** *(string) $wrapper_after. The pagination wrapper - after.*
+
+Retrieve the pagination wrapper - after.
 
 - - - 
 
