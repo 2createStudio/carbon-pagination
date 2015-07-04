@@ -190,7 +190,7 @@ _(bool). Default: **false**_.
 
 Whether the page number links should be displayed.
 
-#### enable_current_page_text
+#### enable\_current\_page\_text
 
 _(bool). Default: **false**_.
 
@@ -202,25 +202,25 @@ _(int). Default: **0**_.
 
 The number of page number links that should be displayed. Using `0` means no limit (all page number links will be displayed).
 
-#### large_page_number_limit
+#### large\_page\_number\_limit
 
 _(int). Default: **0**_.
 
 The number of larger page number links that should be displayed. Larger page numbers can be: `10`, `20`, `30`, etc. Using `0` means none (no larger page number links will be displayed).
 
-#### large_page_number_interval
+#### large\_page\_number\_interval
 
 _(int). Default: **10**_.
 
 The interval between larger page number links. If set to `5`, larger page numbers will be `5`, `10`, `15`, `20`, etc.
 
-#### numbers_wrapper_before
+#### numbers\_wrapper\_before
 
 _(string). Default: **'&lt;ul&gt;'**_.
 
 The wrapper before the page number links.
 
-#### numbers_wrapper_after
+#### numbers\_wrapper\_after
 
 _(string). Default: **'&lt;/ul&gt;'**_.
 
@@ -273,7 +273,7 @@ _(string). Default: **'&lt;li class="paging-spacer"&gt;...&lt;/li&gt;'**_.
 
 The HTML of limiter between page number links.
 
-#### current_page_html
+#### current\_page\_html
 
 _(string). Default: **'&lt;span class="paging-label"&gt;Page {CURRENT_PAGE} of {TOTAL_PAGES}&lt;/span&gt;'**_.
 
@@ -289,41 +289,241 @@ Class Reference
 
 ### Carbon_Pagination
 
+**@abstract**
+
+The Carbon Pagination base class. Contains and manages all of the pagination settings. Abstract, can be extended by all specific pagination types.
+
+#### $wrapper_before
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;div class="paging"&gt;'**_.
+
+The HTML, displayed before the entire pagination.
+
+#### $wrapper_after
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;/div&gt;'**_.
+
+The HTML, displayed after the entire pagination.
+
+#### $pages
+
+**@protected**
+
+**@var** _(array). Optional. Default: **array()**_.
+
+Can be used to contain IDs if you want to loop through particular IDs instead of consecutive page numbers. If not defined, falls back to an array of all pages from `1` to `$total_pages`.
+
+#### $current_page
+
+**@protected**
+
+**@var** _(int). Default: **1**_.
+
+The current page number.
+
+#### $total_pages
+
+**@protected**
+
+**@var** _(int). Default: **1**_.
+
+The total number of available pages. Not necessary if you have specified `pages`.
+
+#### $enable_prev
+
+**@protected**
+
+**@var** _(bool). Default: **true**_.
+
+Whether the previous page link should be displayed.
+
+#### $enable_next
+
+**@protected**
+
+**@var** _(bool). Default: **true**_.
+
+Whether the next page link should be displayed.
+
+#### $enable_first
+
+**@protected**
+
+**@var** _(bool). Default: **false**_.
+
+Whether the first page link should be displayed.
+
+#### $enable_last
+
+**@protected**
+
+**@var** _(bool). Default: **false**_.
+
+Whether the last page link should be displayed.
+
+#### $enable_numbers
+
+**@protected**
+
+**@var** _(bool). Default: **false**_.
+
+Whether the page number links should be displayed.
+
+#### $enable\_current\_page\_text
+
+**@protected**
+
+**@var** _(bool). Default: **false**_.
+
+Whether the current page text `Page X of Y` should be displayed.
+
+#### $number_limit
+
+**@protected**
+
+**@var** _(int). Default: **0**_.
+
+The number of page number links that should be displayed. Using `0` means no limit (all page number links will be displayed).
+
+#### $large\_page\_number\_limit
+
+**@protected**
+
+**@var** _(int). Default: **0**_.
+
+The number of larger page number links that should be displayed. Larger page numbers can be: `10`, `20`, `30`, etc. Using `0` means none (no larger page number links will be displayed).
+
+#### $large\_page\_number\_interval
+
+**@protected**
+
+**@var** _(int). Default: **10**_.
+
+The interval between larger page number links. If set to `5`, larger page numbers will be `5`, `10`, `15`, `20`, etc.
+
+#### $numbers\_wrapper\_before
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;ul&gt;'**_.
+
+The wrapper before the page number links.
+
+#### $numbers\_wrapper\_after
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;/ul&gt;'**_.
+
+The wrapper after the page number links.
+
+#### $prev_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;a href="{URL}" class="paging-prev"&gt;&lt;/a&gt;'**_.
+
+The HTML of the previous page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### $next_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;a href="{URL}" class="paging-next"&gt;&lt;/a&gt;'**_.
+
+The HTML of the next page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### $first_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;a href="{URL}" class="paging-first"&gt;&lt;/a&gt;'**_.
+
+The HTML of the first page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### $last_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;a href="{URL}" class="paging-last"&gt;&lt;/a&gt;'**_.
+
+The HTML of the last page link. You can use the following tokens:
+
+- **{URL}** - the link URL
+
+#### $number_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;li&gt;&lt;a href="{URL}"&gt;{PAGE_NUMBER}&lt;/a&gt;&lt;/li&gt;'**_.
+
+The HTML of the page number link. You can use the following tokens:
+
+- **{URL}** - the link URL
+- **{PAGE_NUMBER}** - the particular page number
+
+#### $limiter_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;li class="paging-spacer"&gt;...&lt;/li&gt;'**_.
+
+The HTML of limiter between page number links.
+
+#### $current\_page\_html
+
+**@protected**
+
+**@var** _(string). Default: **'&lt;span class="paging-label"&gt;Page {CURRENT_PAGE} of {TOTAL_PAGES}&lt;/span&gt;'**_.
+
+The current page text HTML. You can use the following tokens:
+
+- **{CURRENT_PAGE}** - the current page number
+- **{TOTAL_PAGES}** - the total number of pages
+
+- - - 
+
+### Carbon\_Pagination\_Builder
+
 **TBD**
 
 - - - 
 
-### Carbon_Pagination_Builder
+### Carbon\_Pagination\_Posts
 
 **TBD**
 
 - - - 
 
-### Carbon_Pagination_Posts
+### Carbon\_Pagination\_Post
 
 **TBD**
 
 - - - 
 
-### Carbon_Pagination_Post
+### Carbon\_Pagination\_Comments
 
 **TBD**
 
 - - - 
 
-### Carbon_Pagination_Comments
+### Carbon\_Pagination\_Custom
 
 **TBD**
 
 - - - 
 
-### Carbon_Pagination_Custom
-
-**TBD**
-
-- - - 
-
-### Carbon_Pagination_Exception
+### Carbon\_Pagination\_Exception
 
 **TBD**
 
