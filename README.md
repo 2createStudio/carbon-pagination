@@ -491,6 +491,14 @@ The current page text HTML. You can use the following tokens:
 - **{CURRENT_PAGE}** - the current page number
 - **{TOTAL_PAGES}** - the total number of pages
 
+#### $default_args
+
+**@access** _public_
+
+**@var** _(array). Default: **array()**_.
+
+The default argument values. Can be declared in the inheriting classes. Will override the default configuration options in `Carbon_Pagination::__construct` but can be overriden by the `$args` parameter specifically.
+
 #### __construct()
 
 **@access** _public_
