@@ -912,7 +912,121 @@ Render the pagination.
 
 ### Carbon\_Pagination\_Builder
 
-**TBD**
+The Carbon Pagination main class. Contains and manages all of the pagination settings and handles rendering. Abstract, can be extended by all specific pagination types.
+
+**@abstract**
+
+**@uses** *Carbon_Pagination*
+
+#### render()
+
+**@access** _public_
+
+**@param** *(bool) $echo. Whether to display (true) or return (false) the HTML.*
+
+**@return** *(string|NULL). If `$echo` is `false`, the pagination HTML, `NULL` otherwise.*
+
+Build and render the pagination.
+
+#### build\_current\_page\_text()
+
+**@access** _public_
+
+**@return** *(string) $html. The current page text HTML.*
+
+Build the current page text. Applies the `carbon_pagination_current_page_text` filter on the output.
+
+#### build\_prev\_page\_link()
+
+**@access** _public_
+
+**@return** *(string) $link. The previous page link HTML.*
+
+Build the previous page link. Applies the `carbon_pagination_prev_page_link` filter on the output.
+
+#### build\_next\_page\_link()
+
+**@access** _public_
+
+**@return** *(string) $link. The next page link HTML.*
+
+Build the next page link. Applies the `carbon_pagination_next_page_link` filter on the output.
+
+#### build\_first\_page\_link()
+
+**@access** _public_
+
+**@return** *(string) $link. The first page link HTML.*
+
+Build the first page link. Applies the `carbon_pagination_first_page_link` filter on the output.
+
+#### build\_last\_page\_link()
+
+**@access** _public_
+
+**@return** *(string) $link. The last page link HTML.*
+
+Build the last page link. Applies the `carbon_pagination_last_page_link` filter on the output.
+
+#### build\_page\_links()
+
+**@access** _public_
+
+**@return** *(string) $output. The page number links HTML.*
+
+Build the page number links. Loops through the pages themselves, allowing them to be IDs or anything else. Applies the `carbon_pagination_page_number_link` filter on each link.
+
+#### build_limiter()
+
+**@access** _public_
+
+**@return** *(string) $html. The limiter HTML.*
+
+Build the limiter between page links. Applies the `carbon_pagination_limiter` filter on the output.
+
+#### build\_page\_link()
+
+**@access** _public_
+
+**@param** *(int) $page_number. The page number.*
+
+**@param** *(string) $html. Optional. The text of the link.*
+
+**@return** *(string) $link. The link HTML.*
+
+Build the link for a certain page number. Applies the `carbon_pagination_page_link` filter on the output.
+
+#### parse_tokens()
+
+**@access** _protected_
+
+**@param** *(string) $string. The unparsed string.*
+
+**@param** *(array) $tokens. An array of tokens and their values.*
+
+**@return** *(string) $string. The parsed string.*
+
+Parse all tokens within a string.
+
+Tokens should be passed in the array in the following way:
+`array( 'TOKENNAME' => 'tokenvalue' )`
+
+Tokens should be used in the string in the following way:
+`'lorem {TOKENNAME} ipsum'`
+
+#### get\_page\_url()
+
+**@abstract**
+
+**@access** _public_
+
+**@param** *(int) $page_number. The page number.*
+
+**@param** *(string) $old_url. Optional. The URL to add the page number to.*
+
+**@return** *(string) $url. The URL to the page number.*
+
+Get the URL to a certain page.
 
 - - - 
 
