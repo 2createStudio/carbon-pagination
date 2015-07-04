@@ -295,7 +295,7 @@ The Carbon Pagination base class. Contains and manages all of the pagination set
 
 #### $wrapper_before
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;div class="paging"&gt;'**_.
 
@@ -303,7 +303,7 @@ The HTML, displayed before the entire pagination.
 
 #### $wrapper_after
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;/div&gt;'**_.
 
@@ -311,7 +311,7 @@ The HTML, displayed after the entire pagination.
 
 #### $pages
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(array). Optional. Default: **array()**_.
 
@@ -319,7 +319,7 @@ Can be used to contain IDs if you want to loop through particular IDs instead of
 
 #### $current_page
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(int). Default: **1**_.
 
@@ -327,7 +327,7 @@ The current page number.
 
 #### $total_pages
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(int). Default: **1**_.
 
@@ -335,7 +335,7 @@ The total number of available pages. Not necessary if you have specified `pages`
 
 #### $enable_prev
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(bool). Default: **true**_.
 
@@ -343,7 +343,7 @@ Whether the previous page link should be displayed.
 
 #### $enable_next
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(bool). Default: **true**_.
 
@@ -351,7 +351,7 @@ Whether the next page link should be displayed.
 
 #### $enable_first
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(bool). Default: **false**_.
 
@@ -359,7 +359,7 @@ Whether the first page link should be displayed.
 
 #### $enable_last
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(bool). Default: **false**_.
 
@@ -367,7 +367,7 @@ Whether the last page link should be displayed.
 
 #### $enable_numbers
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(bool). Default: **false**_.
 
@@ -375,7 +375,7 @@ Whether the page number links should be displayed.
 
 #### $enable\_current\_page\_text
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(bool). Default: **false**_.
 
@@ -383,7 +383,7 @@ Whether the current page text `Page X of Y` should be displayed.
 
 #### $number_limit
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(int). Default: **0**_.
 
@@ -391,7 +391,7 @@ The number of page number links that should be displayed. Using `0` means no lim
 
 #### $large\_page\_number\_limit
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(int). Default: **0**_.
 
@@ -399,7 +399,7 @@ The number of larger page number links that should be displayed. Larger page num
 
 #### $large\_page\_number\_interval
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(int). Default: **10**_.
 
@@ -407,7 +407,7 @@ The interval between larger page number links. If set to `5`, larger page number
 
 #### $numbers\_wrapper\_before
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;ul&gt;'**_.
 
@@ -415,7 +415,7 @@ The wrapper before the page number links.
 
 #### $numbers\_wrapper\_after
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;/ul&gt;'**_.
 
@@ -423,7 +423,7 @@ The wrapper after the page number links.
 
 #### $prev_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;a href="{URL}" class="paging-prev"&gt;&lt;/a&gt;'**_.
 
@@ -433,7 +433,7 @@ The HTML of the previous page link. You can use the following tokens:
 
 #### $next_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;a href="{URL}" class="paging-next"&gt;&lt;/a&gt;'**_.
 
@@ -443,7 +443,7 @@ The HTML of the next page link. You can use the following tokens:
 
 #### $first_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;a href="{URL}" class="paging-first"&gt;&lt;/a&gt;'**_.
 
@@ -453,7 +453,7 @@ The HTML of the first page link. You can use the following tokens:
 
 #### $last_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;a href="{URL}" class="paging-last"&gt;&lt;/a&gt;'**_.
 
@@ -463,7 +463,7 @@ The HTML of the last page link. You can use the following tokens:
 
 #### $number_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;li&gt;&lt;a href="{URL}"&gt;{PAGE_NUMBER}&lt;/a&gt;&lt;/li&gt;'**_.
 
@@ -474,7 +474,7 @@ The HTML of the page number link. You can use the following tokens:
 
 #### $limiter_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;li class="paging-spacer"&gt;...&lt;/li&gt;'**_.
 
@@ -482,7 +482,7 @@ The HTML of limiter between page number links.
 
 #### $current\_page\_html
 
-**@access protected**
+**@access** _protected_
 
 **@var** _(string). Default: **'&lt;span class="paging-label"&gt;Page {CURRENT_PAGE} of {TOTAL_PAGES}&lt;/span&gt;'**_.
 
@@ -493,11 +493,11 @@ The current page text HTML. You can use the following tokens:
 
 #### __construct()
 
-**@access public**
+**@access** _public_
 
-**@param array $args Configuration options to modify the pagination settings.**
+**@param** *(array) $args Configuration options to modify the pagination settings.*
 
-**@return Carbon_Pagination**
+**@return** _Carbon_Pagination_
 
 Constructor. Creates and configures a new pagination with the provided settings.
 
