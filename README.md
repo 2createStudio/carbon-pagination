@@ -533,6 +533,118 @@ Retrieve the pagination wrapper - after.
 
 Modify the pagination wrapper - after.
 
+#### get_pages()
+
+**@access** _public_
+
+**@return** *(array) $pages. The pages array.*
+
+Retrieve the pages array.
+
+#### set_pages()
+
+**@access** _public_
+
+**@param** *(array) $pages. The new pages array.*
+
+Modify the pages array.
+
+#### get_current_page()
+
+**@access** _public_
+
+**@return** *(int) $current_page. The current page number.*
+
+Retrieve the current page number.
+
+#### set_current_page()
+
+**@access** _public_
+
+**@param** *(int) $current_page. The new current page number.*
+
+Modify the current page number.
+
+#### get_total_pages()
+
+**@access** _public_
+
+**@return** *(int) $total_pages. The total number of pages.*
+
+Retrieve the total number of pages.
+
+#### set_total_pages()
+
+**@access** _public_
+
+**@param** *(int) $total_pages. The new total number of pages.*
+
+Modify the total number of pages.
+
+#### get_enable_prev()
+
+**@access** _public_
+
+**@return** *(bool) $enable_prev. True if the previous page link should be displayed, false otherwise.*
+
+Whether the previous page link should be displayed.
+
+#### set_enable_prev()
+
+**@access** _public_
+
+**@param** *(bool) $enable_prev. True if the previous page link should be displayed, false otherwise.*
+
+Specify whether the previous page link should be displayed.
+
+#### get_enable_next()
+
+**@access** _public_
+
+**@return** *(bool) $enable_next. True if the next page link should be displayed, false otherwise.*
+
+Whether the next page link should be displayed.
+
+#### set_enable_next()
+
+**@access** _public_
+
+**@param** *(bool) $enable_next. True if the next page link should be displayed, false otherwise.*
+
+Specify whether the next page link should be displayed.
+
+#### get_enable_first()
+
+**@access** _public_
+
+**@return** *(bool) $enable_first. True if the first page link should be displayed, false otherwise.*
+
+Whether the first page link should be displayed.
+
+#### set_enable_first()
+
+**@access** _public_
+
+**@param** *(bool) $enable_first. True if the first page link should be displayed, false otherwise.*
+
+Specify whether the first page link should be displayed.
+
+#### get_enable_last()
+
+**@access** _public_
+
+**@return** *(bool) $enable_last. True if the last page link should be displayed, false otherwise.*
+
+Whether the last page link should be displayed.
+
+#### set_enable_last()
+
+**@access** _public_
+
+**@param** *(bool) $enable_last. True if the last page link should be displayed, false otherwise.*
+
+Specify whether the last page link should be displayed.
+
 - - - 
 
 ### Carbon\_Pagination\_Builder
