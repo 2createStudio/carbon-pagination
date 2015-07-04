@@ -56,7 +56,7 @@ abstract class Carbon_Pagination_Builder extends Carbon_Pagination {
 	 *
 	 * @access public
 	 *
-	 * @return string $link The current page text HTML.
+	 * @return string $html The current page text HTML.
 	 */
 	public function build_current_page_text() {
 		// bail if this feature is disabled
