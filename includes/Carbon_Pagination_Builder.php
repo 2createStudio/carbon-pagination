@@ -15,6 +15,7 @@ abstract class Carbon_Pagination_Builder extends Carbon_Pagination {
 	 * @access public
 	 *
 	 * @param string $echo Whether to display (true) or return (false) the HTML.
+	 * @return string|null If $echo is false, the pagination HTML, NULL otherwise.
 	 */
 	public function render($echo = true) {
 		$output = '';
