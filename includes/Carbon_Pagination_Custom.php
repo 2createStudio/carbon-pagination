@@ -7,17 +7,6 @@
  */
 class Carbon_Pagination_Custom extends Carbon_Pagination_Builder {
 	/**
-	 * The default argument values.
-	 * This array has higher priority than the general default values, but has
-	 * lesser priority than the specific arguments, passed to the constructor.
-	 *
-	 * @access public
-	 *
-	 * @var array
-	 */
-	public $default_args = array();
-
-	/**
 	 * The query var that is used to specify the pagination number.
 	 *
 	 * @access protected
