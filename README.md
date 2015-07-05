@@ -1074,7 +1074,43 @@ Get the URL to a certain page, by using `get_pagenum_link()`.
 
 ### Carbon\_Pagination\_Post
 
-**TBD**
+Single post pagination class. Provides the pagination for the singular post.
+
+#### __construct()
+
+**@see** *Carbon_Pagination::__construct()*
+
+**@access** _public_
+
+**@param** *(array) $args. Configuration options to modify the pagination settings.*
+
+**@return** *Carbon_Pagination_Post*
+
+Constructor. Creates and configures a new pagination with the provided settings.
+
+In addition to `Carbon_Pagination::__construct()`, this constructor specifies the expected `$default_args`, which are:
+
+* **current_page** - the index of the current post, relative to the total posts in the post pagination query
+
+* **total_pages** - the total number of post results in the post pagination query
+
+* **prev_html** - the HTML of the link to the previous post, with `&laquo; Previous Entry` text
+
+* **next_html** - the HTML of the link to the next post, with `Next Entry &raquo;` text
+
+These can be overridden by the `$args` parameter of `__construct()`.
+
+#### get\_page\_url()
+
+**@access** _public_
+
+**@param** *(int) $page_number. The post index in the pagination query results.*
+
+**@param** *(string) $old_url. Optional. The URL to add the page number to.*
+
+**@return** *(string) $url. The URL to the post.*
+
+Get the URL to the post, corresponding to a certain index in the post pagination query results. Uses `get_permalink()`.
 
 - - - 
 
