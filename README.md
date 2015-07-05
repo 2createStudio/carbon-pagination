@@ -1032,7 +1032,43 @@ Get the URL to a certain page.
 
 ### Carbon\_Pagination\_Posts
 
-**TBD**
+Posts pagination class. Provides the pagination for non-singular post loops (index, search, archives).
+
+#### __construct()
+
+**@see** *Carbon_Pagination::__construct()*
+
+**@access** _public_
+
+**@param** *(array) $args. Configuration options to modify the pagination settings.*
+
+**@return** *Carbon_Pagination_Posts*
+
+Constructor. Creates and configures a new pagination with the provided settings.
+
+In addition to `Carbon_Pagination::__construct()`, this constructor specifies the expected `$default_args`, which are:
+
+* **current_page** - the current page, as specified in the global `$wp_query` object
+
+* **total_pages** - the total number of pages, as specified in the global `$wp_query` object
+
+* **prev_html** - the HTML of the link to the previous page, with `&laquo; Previous Entries` text
+
+* **next_html** - the HTML of the link to the next page, with `Next Entries &raquo;` text
+
+These can be overridden by the `$args` parameter of `__construct()`.
+
+#### get\_page\_url()
+
+**@access** _public_
+
+**@param** *(int) $page_number. The page number.*
+
+**@param** *(string) $old_url. Optional. The URL to add the page number to.*
+
+**@return** *(string) $url. The URL to the page number.*
+
+Get the URL to a certain page, by using `get_pagenum_link()`.
 
 - - - 
 
