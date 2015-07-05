@@ -1158,7 +1158,55 @@ Get the URL to a certain comments page, by using `get_comments_pagenum_link()`.
 
 ### Carbon\_Pagination\_Custom
 
-**TBD**
+Custom pagination class. Allows to create and maintain a custom pagination.
+
+#### $query_var
+
+**@access** _protected_
+
+**@var** _(string). Default: **'page'**_.
+
+The query var that is used to specify the current page number.
+
+#### __construct()
+
+**@see** *Carbon_Pagination::__construct()*
+
+**@access** _public_
+
+**@param** *(array) $args. Configuration options to modify the pagination settings.*
+
+**@return** *Carbon_Pagination_Custom*
+
+Constructor. Creates and configures a new pagination with the provided settings.
+
+#### get\_page\_url()
+
+**@access** _public_
+
+**@param** *(int) $page_number. The page number.*
+
+**@param** *(string) $old_url. Optional. The URL to add the page number to.*
+
+**@return** *(string) $url. The URL to the page.*
+
+Get the URL to a certain page, by using the specified query var and `add_query_arg()` for building the URL.
+
+#### get\_query\_var()
+
+**@access** _public_
+
+**@return** *(string) $query_var. The query var name.*
+
+Retrieve the query var name.
+
+#### set\_query\_var()
+
+**@access** _public_
+
+**@param** *(string) $query_var. The new query var name.*
+
+Modify the query var name.
 
 - - - 
 
