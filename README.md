@@ -1212,7 +1212,7 @@ Modify the query var name.
 
 ### Carbon\_Pagination\_Exception
 
-**TBD**
+Used for pagination exceptions. Can be used to indicate that the exception comes from within the pagination code. Nothing special here.
 
 - - -
 
