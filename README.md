@@ -1116,7 +1116,43 @@ Get the URL to the post, corresponding to a certain index in the post pagination
 
 ### Carbon\_Pagination\_Comments
 
-**TBD**
+Comments pagination class. Provides the pagination for comments within a post/page.
+
+#### __construct()
+
+**@see** *Carbon_Pagination::__construct()*
+
+**@access** _public_
+
+**@param** *(array) $args. Configuration options to modify the pagination settings.*
+
+**@return** *Carbon_Pagination_Comments*
+
+Constructor. Creates and configures a new pagination with the provided settings.
+
+In addition to `Carbon_Pagination::__construct()`, this constructor specifies the expected `$default_args`, which are:
+
+* **current_page** - the current comments page, as specified in the global `$wp_query` object
+
+* **total_pages** - the total number of comment pages, as specified in the global `$wp_query` object
+
+* **prev_html** - the HTML of the link to the previous comments page, with `&laquo; Older Comments` text
+
+* **next_html** - the HTML of the link to the next comments page, with `Newer Comments &raquo;` text
+
+These can be overridden by the `$args` parameter of `__construct()`.
+
+#### get\_page\_url()
+
+**@access** _public_
+
+**@param** *(int) $page_number. The comments page number.*
+
+**@param** *(string) $old_url. Optional. The URL to add the page number to.*
+
+**@return** *(string) $url. The URL to the comments page.*
+
+Get the URL to a certain comments page, by using `get_comments_pagenum_link()`.
 
 - - - 
 
