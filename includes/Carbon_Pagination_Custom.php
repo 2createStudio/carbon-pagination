@@ -2,6 +2,7 @@
 /**
  * Carbon Pagination - custom pagination class.
  * Allows to create and maintain a custom pagination.
+ * By default it takes advantage of the post content pagination (<!--nextpage--> Quicktag)
  *
  * @uses Carbon_Pagination_Builder
  */
