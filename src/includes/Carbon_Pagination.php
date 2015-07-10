@@ -862,7 +862,7 @@ abstract class Carbon_Pagination {
 
 		// handle unexisting pagination types
 		if ( !class_exists($classname) ) {
-			throw new Carbon_Pagination_Exception('Unexisting pagination type: "' . $pagination . '".');
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( "Unexisting pagination type.", "carbon_pagination" ) );
 		}
 
 		// initialize & render pagination
