@@ -264,8 +264,8 @@ abstract class Carbon_Pagination {
 			'wrapper_before' => '<div class="paging">',
 			'wrapper_after' => '</div>',
 			'pages' => array(),
-			'current_page' => 1,
 			'total_pages' => 1,
+			'current_page' => 1,
 			'enable_prev' => true,
 			'enable_next' => true,
 			'enable_first' => false,
@@ -374,7 +374,11 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param array $pages The new pages array.
 	 */
-	public function set_pages($pages) {
+	public function set_pages($pages = array()) {
+		if (!is_array($pages)) {
+			$pages = array($pages);
+		}
+
 		$this->pages = array_values($pages);
 	}
 
@@ -397,9 +401,14 @@ abstract class Carbon_Pagination {
 	 * @param int $current_page The new current page number.
 	 */
 	public function set_current_page($current_page = 1) {
-		$current_page = absint($current_page);
+		$current_page = intval($current_page);
 		if ($current_page < 1) {
 			$current_page = 1;
+		}
+
+		$total_pages = $this->get_total_pages();
+		if ($current_page > $total_pages) {
+			$current_page = $total_pages;
 		}
 
 		$this->current_page = $current_page;
@@ -424,7 +433,7 @@ abstract class Carbon_Pagination {
 	 * @param int $total_pages The new total number of pages.
 	 */
 	public function set_total_pages($total_pages) {
-		$total_pages = absint($total_pages);
+		$total_pages = intval($total_pages);
 		if ($total_pages < 1) {
 			$total_pages = 1;
 		}
