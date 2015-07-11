@@ -2,7 +2,7 @@
 /**
  * The path to the main plugin directory.
  */
-define( 'PLUGIN_SRC_PATH', dirname(dirname(__FILE__)) . '/src/' );
+define( 'PLUGIN_SRC_PATH', dirname(dirname(__FILE__)) . '/' );
 
 /**
  * Include main plugin file.
