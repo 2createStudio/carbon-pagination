@@ -360,7 +360,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @access public
 	 *
-	 * @return string $pages The pages array.
+	 * @return array $pages The pages array.
 	 */
 	public function get_pages() {
 		return $this->pages;
@@ -372,7 +372,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @access public
 	 *
-	 * @param string $pages The new pages array.
+	 * @param array $pages The new pages array.
 	 */
 	public function set_pages($pages) {
 		$this->pages = array_values($pages);
