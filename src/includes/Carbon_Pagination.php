@@ -397,9 +397,11 @@ abstract class Carbon_Pagination {
 	 * @param int $current_page The new current page number.
 	 */
 	public function set_current_page($current_page = 1) {
+		$current_page = absint($current_page);
 		if ($current_page < 1) {
 			$current_page = 1;
 		}
+
 		$this->current_page = $current_page;
 	}
 
@@ -422,6 +424,11 @@ abstract class Carbon_Pagination {
 	 * @param int $total_pages The new total number of pages.
 	 */
 	public function set_total_pages($total_pages) {
+		$total_pages = absint($total_pages);
+		if ($total_pages < 1) {
+			$total_pages = 1;
+		}
+
 		$this->total_pages = $total_pages;
 	}
 
@@ -444,7 +451,7 @@ abstract class Carbon_Pagination {
 	 * @param bool $enable_prev Whether the previous page link should be displayed.
 	 */
 	public function set_enable_prev($enable_prev) {
-		$this->enable_prev = $enable_prev;
+		$this->enable_prev = (bool)$enable_prev;
 	}
 
 	/**
@@ -466,7 +473,7 @@ abstract class Carbon_Pagination {
 	 * @param bool $enable_next Whether the next page link should be displayed.
 	 */
 	public function set_enable_next($enable_next) {
-		$this->enable_next = $enable_next;
+		$this->enable_next = (bool)$enable_next;
 	}
 
 	/**
@@ -488,7 +495,7 @@ abstract class Carbon_Pagination {
 	 * @param bool $enable_first Whether the first page link should be displayed.
 	 */
 	public function set_enable_first($enable_first) {
-		$this->enable_first = $enable_first;
+		$this->enable_first = (bool)$enable_first;
 	}
 
 	/**
@@ -510,7 +517,7 @@ abstract class Carbon_Pagination {
 	 * @param bool $enable_last Whether the last page link should be displayed.
 	 */
 	public function set_enable_last($enable_last) {
-		$this->enable_last = $enable_last;
+		$this->enable_last = (bool)$enable_last;
 	}
 
 	/**
@@ -532,7 +539,7 @@ abstract class Carbon_Pagination {
 	 * @param bool $enable_numbers Whether the page number links should be displayed.
 	 */
 	public function set_enable_numbers($enable_numbers) {
-		$this->enable_numbers = $enable_numbers;
+		$this->enable_numbers = (bool)$enable_numbers;
 	}
 
 	/**
@@ -554,7 +561,7 @@ abstract class Carbon_Pagination {
 	 * @param bool $enable_current_page_text Whether the current page text should be displayed.
 	 */
 	public function set_enable_current_page_text($enable_current_page_text) {
-		$this->enable_current_page_text = $enable_current_page_text;
+		$this->enable_current_page_text = (bool)$enable_current_page_text;
 	}
 
 	/**
@@ -576,7 +583,7 @@ abstract class Carbon_Pagination {
 	 * @param int $number_limit The new page number links limit.
 	 */
 	public function set_number_limit($number_limit) {
-		$this->number_limit = $number_limit;
+		$this->number_limit = absint($number_limit);
 	}
 
 	/**
@@ -598,7 +605,7 @@ abstract class Carbon_Pagination {
 	 * @param int $large_page_number_limit The new large page number links limit.
 	 */
 	public function set_large_page_number_limit($large_page_number_limit) {
-		$this->large_page_number_limit = $large_page_number_limit;
+		$this->large_page_number_limit = absint($large_page_number_limit);
 	}
 
 	/**
@@ -620,7 +627,7 @@ abstract class Carbon_Pagination {
 	 * @param int $large_page_number_interval The new large page number links interval.
 	 */
 	public function set_large_page_number_interval($large_page_number_interval) {
-		$this->large_page_number_interval = $large_page_number_interval;
+		$this->large_page_number_interval = absint($large_page_number_interval);
 	}
 
 	/**
