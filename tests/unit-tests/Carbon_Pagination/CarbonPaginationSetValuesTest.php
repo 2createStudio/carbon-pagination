@@ -5,6 +5,9 @@ class CarbonPaginationSetValuesTest extends WP_UnitTestCase {
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
 		$this->pagination = $paginationStub;
+
+		$paginationStub2 = $this->getMockForAbstractClass('Carbon_Pagination', array(), '', TRUE, TRUE, TRUE, array('get_total_pages'));
+		$this->pagination2 = $paginationStub2;
 	}
 
 	public function tearDown() {
@@ -51,15 +54,21 @@ class CarbonPaginationSetValuesTest extends WP_UnitTestCase {
 	}
 
 	public function testSetCurrentPageStringNumber() {
-		$this->pagination->set_total_pages( 20 );
-		$this->pagination->set_current_page( '10' );
-		$this->assertSame( 10, $this->pagination->get_current_page() );
+		$this->pagination2->expects( $this->any() )
+			->method( 'get_total_pages' )
+			->will( $this->returnValue( 20 ) );
+
+		$this->pagination2->set_current_page( '10' );
+		$this->assertSame( 10, $this->pagination2->get_current_page() );
 	}
 
 	public function testSetCurrentPageLargerThanTotal() {
-		$this->pagination->set_total_pages( 10 );
-		$this->pagination->set_current_page( 20 );
-		$this->assertSame( 10, $this->pagination->get_current_page() );
+		$this->pagination2->expects( $this->any() )
+			->method( 'get_total_pages' )
+			->will( $this->returnValue( 10 ) );
+
+		$this->pagination2->set_current_page( 20 );
+		$this->assertSame( 10, $this->pagination2->get_current_page() );
 	}
 
 	public function testSetTotalPagesNegative() {
