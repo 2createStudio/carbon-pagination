@@ -48,6 +48,7 @@ abstract class Carbon_Pagination {
 
 	/**
 	 * The total number of pages.
+	 * If $pages is passed upon initialization, this will be set automatically.
 	 *
 	 * @access protected
 	 *
