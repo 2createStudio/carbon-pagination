@@ -12,7 +12,7 @@
 
 Sample usage:
 
-    $ tests/bin/install.sh woocommerce_tests root root
+    $ tests/bin/install.sh carbon_pagination_tests root root
 
 **Important**: Make sure that the `<db-name>` database has been created. Note that all data will be removed during testing.
 
@@ -20,4 +20,4 @@ Sample usage:
 
 Simply change to the plugin root directory and type:
 
-    $ PHPUnit
+    $ phpunit
