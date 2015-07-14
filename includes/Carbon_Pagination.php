@@ -303,10 +303,13 @@ abstract class Carbon_Pagination {
 			}
 		}
 
-		// if pages are not defined, generate them
 		if (!$this->get_pages()) {
+			// if pages are not defined, generate them
 			$pages = range(1, $this->get_total_pages());
 			$this->set_pages($pages);
+		} else {
+			// if pages are defined, set their count as our total pages setting
+			$this->set_total_pages( count( $this->get_pages() ) );
 		}
 
 	}
