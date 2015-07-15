@@ -96,7 +96,7 @@ In case you need to manipulate the pagination you can define the pagination as a
 		'wrapper_after' => '</div>',
 	));
 
-Then you can use any of the methods, as documented in the **Class Reference**. Example:
+Then you can use any of the `get`/`set` methods of the `Carbon_Pagination` class. Example:
 	
 	// whether the first link is enabled
 	$first_link_enabled = $pagination->get_enable_first();
@@ -122,7 +122,7 @@ Finally, once you want to render your pagination, you can simply call:
 Configuration Options
 ---------------------
 
-You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to the **Class Reference** section).
+You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to `Carbon_Pagination::__construct()`).
 
 Within some of the configurations options (the ones that are HTML) you can use tokens. These tokens will be automatically replaced with dynamic content that comes from the pagination (for example page number, page link URL, total number of pages, etc). 
 
