@@ -859,7 +859,7 @@ abstract class Carbon_Pagination {
 			}
 		}
 
-		return add_query_arg( $query_vars, '', home_url( '/' . $wp->request ) );
+		return add_query_arg( $query_vars, home_url( '/' . $wp->request ) );
 	}
 
 	/**
