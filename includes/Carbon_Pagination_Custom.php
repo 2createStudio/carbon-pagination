@@ -4,9 +4,9 @@
  * Allows to create and maintain a custom pagination.
  * By default it takes advantage of the post content pagination (<!--nextpage--> Quicktag)
  *
- * @uses Carbon_Pagination_Builder
+ * @uses Carbon_Pagination
  */
-class Carbon_Pagination_Custom extends Carbon_Pagination_Builder {
+class Carbon_Pagination_Custom extends Carbon_Pagination {
 	/**
 	 * The query var that is used to specify the pagination number.
 	 *

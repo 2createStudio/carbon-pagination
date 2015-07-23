@@ -3,9 +3,9 @@
  * Carbon Pagination - comments pagination class.
  * Provides the pagination for comments within a post/page.
  *
- * @uses Carbon_Pagination_Builder
+ * @uses Carbon_Pagination
  */
-class Carbon_Pagination_Comments extends Carbon_Pagination_Builder {
+class Carbon_Pagination_Comments extends Carbon_Pagination {
 
 	/**
 	 * Constructor.

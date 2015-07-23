@@ -111,14 +111,15 @@ abstract class Carbon_Pagination {
 	protected $enable_current_page_text = false;
 
 	/**
-	 * How much page number links should be displayed.
-	 * Using 0 means no limit (all page number links will be displayed).
+	 * How much page number links should be displayed (on each side of the current page item).
+	 * Using 0 means only the current page item will be displayed.
+	 * Using -1 means no limit (all page number links will be displayed).
 	 *
 	 * @access protected
 	 *
 	 * @var int
 	 */
-	protected $number_limit = 0;
+	protected $number_limit = -1;
 
 	/**
 	 * How much larger page number links should be displayed.
@@ -216,6 +217,18 @@ abstract class Carbon_Pagination {
 	protected $number_html = '<li><a href="{URL}">{PAGE_NUMBER}</a></li>';
 
 	/**
+	 * The HTML of the current page number link.
+	 * You can use the following tokens:
+	 * - {URL} - the link URL
+	 * - {PAGE_NUMBER} - the particular page number
+	 *
+	 * @access protected
+	 *
+	 * @var string
+	 */
+	protected $current_number_html = '<li class="current"><a href="{URL}">{PAGE_NUMBER}</a></li>';
+
+	/**
 	 * The HTML of limiter between page number links.
 	 *
 	 * @access protected
@@ -235,6 +248,24 @@ abstract class Carbon_Pagination {
 	 * @var string
 	 */
 	protected $current_page_html = '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>';
+
+	/**
+	 * The class name of the pagination collection object.
+	 *
+	 * @access protected
+	 *
+	 * @var string
+	 */
+	protected $collection = 'Carbon_Pagination_Collection';
+
+	/**
+	 * The class name of the pagination renderer object.
+	 *
+	 * @access protected
+	 *
+	 * @var string
+	 */
+	protected $renderer = 'Carbon_Pagination_Renderer';
 
 	/**
 	 * The default argument values.
@@ -283,8 +314,11 @@ abstract class Carbon_Pagination {
 			'first_html' => '<a href="{URL}" class="paging-first"></a>',
 			'last_html' => '<a href="{URL}" class="paging-last"></a>',
 			'number_html' => '<li><a href="{URL}">{PAGE_NUMBER}</a></li>',
+			'current_number_html' => '<li class="current"><a href="{URL}">{PAGE_NUMBER}</a></li>',
 			'limiter_html' => '<li class="paging-spacer">...</li>',
 			'current_page_html' => '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
+			'collection' => 'Carbon_Pagination_Collection',
+			'renderer' => 'Carbon_Pagination_Renderer',
 		);
 
 		// apply default options from the inheriting classes
@@ -596,7 +630,7 @@ abstract class Carbon_Pagination {
 	 * @param int $number_limit The new page number links limit.
 	 */
 	public function set_number_limit($number_limit) {
-		$this->number_limit = absint($number_limit);
+		$this->number_limit = intval($number_limit);
 	}
 
 	/**
@@ -798,6 +832,28 @@ abstract class Carbon_Pagination {
 	}
 
 	/**
+	 * Retrieve the HTML of the current page number link.
+	 *
+	 * @access public
+	 *
+	 * @return string $current_number_html The HTML of the current page number link.
+	 */
+	public function get_current_number_html() {
+		return $this->current_number_html;
+	}
+
+	/**
+	 * Modify the HTML of the current page number link.
+	 *
+	 * @access public
+	 *
+	 * @param string $current_number_html The new HTML of the current page number link.
+	 */
+	public function set_current_number_html($current_number_html) {
+		$this->current_number_html = $current_number_html;
+	}
+
+	/**
 	 * Retrieve the HTML of a limiter.
 	 *
 	 * @access public
@@ -842,6 +898,50 @@ abstract class Carbon_Pagination {
 	}
 
 	/**
+	 * Retrieve the collection object class name.
+	 *
+	 * @access public
+	 *
+	 * @return string $collection The collection object class name.
+	 */
+	public function get_collection() {
+		return $this->collection;
+	}
+
+	/**
+	 * Modify the collection object class name.
+	 *
+	 * @access public
+	 *
+	 * @param string $collection The new collection object class name.
+	 */
+	public function set_collection($collection) {
+		$this->collection = $collection;
+	}
+
+	/**
+	 * Retrieve the renderer object class name.
+	 *
+	 * @access public
+	 *
+	 * @return string $renderer The renderer object class name.
+	 */
+	public function get_renderer() {
+		return $this->renderer;
+	}
+
+	/**
+	 * Modify the renderer object class name.
+	 *
+	 * @access public
+	 *
+	 * @param string $renderer The new renderer object class name.
+	 */
+	public function set_renderer($renderer) {
+		$this->renderer = $renderer;
+	}
+
+	/**
 	 * Get the current URL, in WordPress style.
 	 *
 	 * @access public
@@ -851,15 +951,53 @@ abstract class Carbon_Pagination {
 	public function get_current_url() {
 		global $wp;
 		$query_vars = array();
+		$permalink_structure = get_option('permalink_structure');
 
 		// preserve all query vars that are in the GET as well
+		// if the default permalink structure is used, all query vars should be added
 		foreach ($wp->query_vars as $qv_key => $qv_value) {
-			if (isset($_GET[$qv_key])) {
+			if ( isset($_GET[$qv_key]) || !$permalink_structure ) {
 				$query_vars[$qv_key] = $qv_value;
 			}
 		}
 
-		return add_query_arg( $query_vars, '', home_url( '/' . $wp->request ) );
+		return add_query_arg( $query_vars, home_url( '/' . $wp->request ) );
+	}
+
+	/**
+	 * Render the pagination.
+	 *
+	 * @access public
+	 *
+	 * @param bool $echo Whether to display or return the output. True will display, false will return.
+	 */
+	public function render($echo = true) {
+		// get collection & renderer class names
+		$collection_classname = $this->get_collection();
+		$renderer_classname = $this->get_renderer();
+
+		// handle unexisting pagination collection classes
+		if ( !class_exists($collection_classname) ) {
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_collection', __( "Unexisting pagination collection class.", "carbon_pagination" ) );
+		}
+
+		// handle unexisting pagination renderer classes
+		if ( !class_exists($renderer_classname) ) {
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( "Unexisting pagination renderer class.", "carbon_pagination" ) );
+		}
+
+		// initialize & generate pagination item collection
+		$collection = new $collection_classname($this);
+
+		// render the pagination item collection
+		$renderer = new $renderer_classname($collection);
+		$output = $renderer->render(array(), false);
+
+		if (!$echo) {
+			return $output;
+		}
+
+		echo $output;
 	}
 
 	/**
@@ -874,28 +1012,38 @@ abstract class Carbon_Pagination {
 	 *    - Comments
 	 *    - Custom
 	 * @param array $args Configuration options to modify the pagination settings.
+	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 *
 	 * @see Carbon_Pagination::__construct()
 	 */
-	public static function display($pagination, $args = array()) {
-		$classname = 'Carbon_Pagination_' . $pagination;
+	public static function display($pagination, $args = array(), $echo = true) {
+		$pagination_classname = 'Carbon_Pagination_' . $pagination;
 
 		// handle unexisting pagination types
-		if ( !class_exists($classname) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( "Unexisting pagination type.", "carbon_pagination" ) );
+		if ( !class_exists($pagination_classname) ) {
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( "Unexisting pagination type class.", "carbon_pagination" ) );
 		}
 
-		// initialize & render pagination
-		$pagination = new $classname($args);
-		$pagination->render();
+		// initialize pagination
+		$pagination = new $pagination_classname($args);
+		$output = $pagination->render(false);
+
+		if (!$echo) {
+			return $output;
+		}
+
+		echo $output;
 	}
 
 	/**
-	 * Render the pagination.
+	 * Get the URL to a certain page.
 	 *
-	 * @abstract
 	 * @access public
+	 *
+	 * @param int $page_number The page number.
+	 * @param string $old_url Optional. The URL to add the page number to.
+	 * @return string $url The URL to the page number.
 	 */
-	public abstract function render();
+	public abstract function get_page_url($page_number, $old_url = '');
 
 }
