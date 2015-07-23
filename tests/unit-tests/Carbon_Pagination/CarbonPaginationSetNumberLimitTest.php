@@ -12,8 +12,8 @@ class CarbonPaginationSetNumberLimitTest extends WP_UnitTestCase {
 	}
 
 	public function testNegative() {
-		$this->pagination->set_number_limit( -5 );
-		$this->assertSame( 5, $this->pagination->get_number_limit() );
+		$this->pagination->set_number_limit( -1 );
+		$this->assertSame( -1, $this->pagination->get_number_limit() );
 	}
 
 	public function testZero() {
