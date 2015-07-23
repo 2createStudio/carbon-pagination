@@ -70,7 +70,7 @@ Below is an example, containing all possible settings that you can specify, alon
 		'enable_last' => false,
 		'enable_numbers' => false,
 		'enable_current_page_text' => false,
-		'number_limit' => 0,
+		'number_limit' => -1,
 		'large_page_number_limit' => 0,
 		'large_page_number_interval' => 10,
 		'numbers_wrapper_before' => '<ul>',
@@ -80,8 +80,11 @@ Below is an example, containing all possible settings that you can specify, alon
 		'first_html' => '<a href="{URL}" class="paging-first"></a>',
 		'last_html' => '<a href="{URL}" class="paging-last"></a>',
 		'number_html' => '<li><a href="{URL}">{PAGE_NUMBER}</a></li>',
+		'current_number_html' => '<li class="current"><a href="{URL}">{PAGE_NUMBER}</a></li>',
 		'limiter_html' => '<li class="paging-spacer">...</li>',
 		'current_page_html' => '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
+		'renderer' => 'Carbon_Pagination_Renderer',
+		'collection' => 'Carbon_Pagination_Collection',
 	)); 
 	?>
 
@@ -96,7 +99,7 @@ In case you need to manipulate the pagination you can define the pagination as a
 		'wrapper_after' => '</div>',
 	));
 
-Then you can use any of the methods, as documented in the **Class Reference**. Example:
+Then you can use any of the `get`/`set` methods of the `Carbon_Pagination` class. Example:
 	
 	// whether the first link is enabled
 	$first_link_enabled = $pagination->get_enable_first();
@@ -122,7 +125,7 @@ Finally, once you want to render your pagination, you can simply call:
 Configuration Options
 ---------------------
 
-You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to the **Class Reference** section).
+You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to `Carbon_Pagination::__construct()`).
 
 Within some of the configurations options (the ones that are HTML) you can use tokens. These tokens will be automatically replaced with dynamic content that comes from the pagination (for example page number, page link URL, total number of pages, etc). 
 
@@ -198,9 +201,9 @@ Whether the current page text `Page X of Y` should be displayed.
 
 #### number_limit
 
-_(int). Default: **0**_.
+_(int). Default: **-1**_.
 
-The number of page number links that should be displayed. Using `0` means no limit (all page number links will be displayed).
+The number of page number links that should be displayed. Using `0` means only the current page item will be displayed. Using `-1` means no limit (all page number links will be displayed).
 
 #### large\_page\_number\_limit
 
@@ -267,6 +270,15 @@ The HTML of the page number link. You can use the following tokens:
 - **{URL}** - the link URL
 - **{PAGE_NUMBER}** - the particular page number
 
+#### current\_number\_html
+
+_(string). Default: **'&lt;li class="current"&gt;&lt;a href="{URL}"&gt;{PAGE_NUMBER}&lt;/a&gt;&lt;/li&gt;'**_.
+
+The HTML of the current page number link. You can use the following tokens:
+
+- **{URL}** - the link URL
+- **{PAGE_NUMBER}** - the particular page number
+
 #### limiter_html
 
 _(string). Default: **'&lt;li class="paging-spacer"&gt;...&lt;/li&gt;'**_.
@@ -281,6 +293,18 @@ The current page text HTML. You can use the following tokens:
 
 - **{CURRENT_PAGE}** - the current page number
 - **{TOTAL_PAGES}** - the total number of pages
+
+#### renderer
+
+_(string). Default: **'Carbon\_Pagination\_Renderer'**_.
+
+The class name of the pagination renderer object.
+
+#### collection
+
+_(string). Default: **'Carbon\_Pagination\_Collection'**_.
+
+The class name of the pagination item collection object.
 
 - - -
 
