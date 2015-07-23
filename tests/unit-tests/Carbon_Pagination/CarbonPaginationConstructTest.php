@@ -72,4 +72,8 @@ class CarbonPaginationConstructTest extends WP_UnitTestCase {
 		$this->assertSame( 3, $paginationStub->get_total_pages() );
 	}
 
+	public function testRenderUnexistingPaginationType() {
+		$this->assertWPError( Carbon_Pagination::display('foo') );
+	}
+
 }
