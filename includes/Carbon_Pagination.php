@@ -330,21 +330,21 @@ abstract class Carbon_Pagination {
 		// parse configuration options
 		$args = wp_parse_args( $args, $defaults );
 
+		// handle pages & total pages constraints
+		if ( !$args['pages'] ) {
+			// if pages are not defined, generate them
+			$args['pages'] = range(1, $args['total_pages']);
+		} else {
+			// if pages are defined, set their count as our total pages setting
+			$args['total_pages'] = count($args['pages']);
+		}
+
 		// set configuration options
 		foreach ($args as $arg_name => $arg_value) {
 			$method = 'set_' . $arg_name;
 			if (array_key_exists($arg_name, $defaults) && method_exists($this, $method)) {
 				call_user_func(array($this, $method), $arg_value);
 			}
-		}
-
-		if (!$this->get_pages()) {
-			// if pages are not defined, generate them
-			$pages = range(1, $this->get_total_pages());
-			$this->set_pages($pages);
-		} else {
-			// if pages are defined, set their count as our total pages setting
-			$this->set_total_pages( count( $this->get_pages() ) );
 		}
 
 	}
