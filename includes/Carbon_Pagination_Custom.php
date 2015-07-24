@@ -17,6 +17,27 @@ class Carbon_Pagination_Custom extends Carbon_Pagination {
 	protected $query_var = 'page';
 
 	/**
+	 * Constructor.
+	 *
+	 * Creates and configures a new pagination with the provided settings.
+	 *
+	 * @access public
+	 *
+	 * @param array $args Configuration options to modify the pagination settings.
+	 * @return Carbon_Pagination
+	 */
+	public function __construct( $args = array() ) {
+		global $post;
+
+		// specify the default args for the Custom pagination
+		$this->default_args = array(
+			'current_page' => get_query_var( $this->get_query_var() ),
+		);
+
+		parent::__construct( $args );
+	}
+
+	/**
 	 * Get the URL to a certain page.
 	 *
 	 * @access public
