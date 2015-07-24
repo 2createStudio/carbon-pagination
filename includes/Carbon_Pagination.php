@@ -951,9 +951,7 @@ abstract class Carbon_Pagination {
 	public function get_current_page_index() {
 		$pages = $this->get_pages();
 		$current_page = $this->get_current_page();
-		$current_page_idx = array_search($current_page, $pages);
-		
-		return $current_page_idx;
+		return $current_page - 1;
 	}
 
 	/**
