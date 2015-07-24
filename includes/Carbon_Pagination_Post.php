@@ -39,7 +39,7 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 			'pages' => $posts,
 
 			// the current post/page is the current page
-			'current_page' => get_the_ID(),
+			'current_page' => array_search(get_the_ID(), $posts) + 1,
 
 			// the total number of pages is the number of sibling posts/pages
 			'total_pages' => count($posts),
