@@ -15,10 +15,7 @@ class Carbon_Pagination_Item_Current_Page_Text extends Carbon_Pagination_Item {
 	 */
 	public function setup() {
 		$pagination = $this->get_collection()->get_pagination();
-
-		$pages = $pagination->get_pages();
-		$current_page = $pagination->get_current_page();
-		$current_page_idx = array_search($current_page, $pages);
+		$current_page_idx = $pagination->get_current_page_index();
 
 		$tokens = array(
 			'CURRENT_PAGE' => $current_page_idx + 1,

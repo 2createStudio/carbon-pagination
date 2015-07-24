@@ -17,9 +17,7 @@ class Carbon_Pagination_Item_First_Page extends Carbon_Pagination_Item {
 		$pagination = $collection->get_pagination();
 
 		// get various pagination variables that we need
-		$pages = $pagination->get_pages();
-		$current_page = $pagination->get_current_page();
-		$current_page_idx = array_search($current_page, $pages);
+		$current_page_idx = $pagination->get_current_page_index();
 		$first_page = 0;
 
 		// bail if we are already on the first page

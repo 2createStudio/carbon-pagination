@@ -942,6 +942,21 @@ abstract class Carbon_Pagination {
 	}
 
 	/**
+	 * Get the index of the current page, zero-based.
+	 *
+	 * @access public
+	 *
+	 * @return int $current_page_idx The index of the current page.
+	 */
+	public function get_current_page_index() {
+		$pages = $this->get_pages();
+		$current_page = $this->get_current_page();
+		$current_page_idx = array_search($current_page, $pages);
+		
+		return $current_page_idx;
+	}
+
+	/**
 	 * Get the current URL, in WordPress style.
 	 *
 	 * @access public

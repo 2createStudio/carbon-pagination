@@ -17,9 +17,7 @@ class Carbon_Pagination_Item_Next_Page extends Carbon_Pagination_Item {
 		$pagination = $collection->get_pagination();
 
 		// get various pagination variables that we need
-		$pages = $pagination->get_pages();
-		$current_page = $pagination->get_current_page();
-		$current_page_idx = array_search($current_page, $pages);
+		$current_page_idx = $pagination->get_current_page_index();
 		$total_pages = $pagination->get_total_pages();
 
 		// bail if there is no next page

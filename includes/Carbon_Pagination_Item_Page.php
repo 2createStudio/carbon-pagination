@@ -58,9 +58,7 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	 */
 	public function render() {
 		$pagination = $this->get_collection()->get_pagination();
-		$pages = $pagination->get_pages();
-		$current_page = $pagination->get_current_page();
-		$current_page_idx = array_search($current_page, $pages);
+		$current_page_idx = $pagination->get_current_page_index();
 
 		// if there is no text/HTML for the link, use the default one
 		$html = $this->get_html();
