@@ -22,7 +22,7 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$this->set_fragments_collection($fragments_collection);
 
 		// get various pagination variables that we need
-		$current_page_idx = $pagination->get_current_page_index();
+		$current_page_idx = $pagination->get_current_page() - 1;
 		$total_pages = $pagination->get_total_pages();
 		$number_limit = $pagination->get_number_limit();
 		$large_page_number_limit = $pagination->get_large_page_number_limit();
