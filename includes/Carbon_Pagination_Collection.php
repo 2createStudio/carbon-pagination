@@ -140,6 +140,8 @@ class Carbon_Pagination_Collection {
 	public function add_items($new_items = array()) {
 		if ( !is_array( $new_items ) ) {
 			$new_items = array($new_items);
+		} else {
+			$new_items = array_values($new_items);
 		}
 
 		$items = $this->get_items();
