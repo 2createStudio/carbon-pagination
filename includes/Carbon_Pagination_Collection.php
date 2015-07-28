@@ -145,7 +145,7 @@ class Carbon_Pagination_Collection {
 		$items = $this->get_items();
 		$items = array_merge($items, $new_items);
 
-		$this->items = $items;
+		$this->set_items($items);
 	}
 
 	/**
