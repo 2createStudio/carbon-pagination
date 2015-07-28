@@ -72,6 +72,15 @@ class CarbonPaginationConstructTest extends WP_UnitTestCase {
 		$this->assertSame( 3, $paginationStub->get_total_pages() );
 	}
 
+	public function testAutoTotalPagesSettingNonConsecutive() {
+		$args = array(
+			'pages' => array(100, 200, 300)
+		);
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
+
+		$this->assertSame( 3, $paginationStub->get_total_pages() );
+	}
+
 	public function testRenderUnexistingPaginationType() {
 		$this->assertWPError( Carbon_Pagination::display('foo') );
 	}
