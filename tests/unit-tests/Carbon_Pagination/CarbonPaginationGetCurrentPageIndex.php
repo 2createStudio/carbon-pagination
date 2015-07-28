@@ -9,7 +9,7 @@ class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
 		);
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
 
-		$this->assertSame( 2, $paginationStub->get_current_page_index() );
+		$this->assertSame( 3, $paginationStub->get_current_page() );
 	}
 
 	public function testWithIncrementalPageNumbersPagesSetting() {
@@ -19,7 +19,7 @@ class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
 		);
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
 
-		$this->assertSame( 2, $paginationStub->get_current_page_index() );
+		$this->assertSame( 3, $paginationStub->get_current_page() );
 	}
 
 	public function testWithNonIncrementalPageNumbers() {
@@ -29,6 +29,6 @@ class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
 		);
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
 
-		$this->assertSame( 2, $paginationStub->get_current_page_index() );
+		$this->assertSame( 3, $paginationStub->get_current_page() );
 	}
 }

@@ -17,7 +17,7 @@ class Carbon_Pagination_Item_Previous_Page extends Carbon_Pagination_Item {
 		$pagination = $collection->get_pagination();
 
 		// get various pagination variables that we need
-		$current_page_idx = $pagination->get_current_page_index();
+		$current_page_idx = $pagination->get_current_page() - 1;
 		$first_page = 0;
 
 		// bail if there is no previous page
