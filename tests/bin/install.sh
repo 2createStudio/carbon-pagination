@@ -58,12 +58,12 @@ install_test_suite() {
 	# make sure colons are escaped (they might exist in Windows environments)
 	WP_CORE_DIR=$(echo $WP_CORE_DIR | sed -r 's/:/\\:/g')
 
-	sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR':" wp-tests-config.php
-	sed $ioption "s/youremptytestdbnamehere/$DB_NAME/" wp-tests-config.php
-	sed $ioption "s/yourusernamehere/$DB_USER/" wp-tests-config.php
-	sed $ioption "s/yourpasswordhere/$DB_PASS/" wp-tests-config.php
-	sed $ioption "s|localhost|${DB_HOST}|" wp-tests-config.php
-	sed $ioption "s/Test Blog/Carbon Pagination Unit Tests/" wp-tests-config.php
+	sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR':" wp-tests-config.php 2> /dev/null
+	sed $ioption "s/youremptytestdbnamehere/$DB_NAME/" wp-tests-config.php 2> /dev/null
+	sed $ioption "s/yourusernamehere/$DB_USER/" wp-tests-config.php 2> /dev/null
+	sed $ioption "s/yourpasswordhere/$DB_PASS/" wp-tests-config.php 2> /dev/null
+	sed $ioption "s|localhost|${DB_HOST}|" wp-tests-config.php 2> /dev/null
+	sed $ioption "s/Test Blog/Carbon Pagination Unit Tests/" wp-tests-config.php 2> /dev/null
 }
 
 install_wp
