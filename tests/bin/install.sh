@@ -55,6 +55,9 @@ install_test_suite() {
 
 	curl http://develop.svn.wordpress.org/trunk/wp-tests-config-sample.php --output wp-tests-config.php --silent
 
+	# make sure colons are escaped (they might exist in Windows environments)
+	WP_CORE_DIR=$(echo $WP_CORE_DIR | sed -r 's/:/\\:/g')
+
 	sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR':" wp-tests-config.php
 	sed $ioption "s/youremptytestdbnamehere/$DB_NAME/" wp-tests-config.php
 	sed $ioption "s/yourusernamehere/$DB_USER/" wp-tests-config.php
