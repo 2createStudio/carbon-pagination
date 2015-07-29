@@ -12,9 +12,15 @@ DB_PASS=$3
 DB_HOST=${4-localhost}
 WP_VERSION=${5-latest}
 
-# TODO: allow environment vars for WP_TESTS_DIR & WP_CORE_DIR
-WP_TESTS_DIR="${PWD}/tmp/wordpress-tests-lib"
-WP_CORE_DIR="${PWD}/tmp/wordpress/"
+BASEDIR="${PWD}"
+
+# handle Windows drive paths
+if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+	BASEDIR=$(echo $BASEDIR | sed -r 's/\/([a-zA-Z])\//\1:\//g')
+fi
+
+WP_TESTS_DIR="${BASEDIR}/tmp/wordpress-tests-lib"
+WP_CORE_DIR="${BASEDIR}/tmp/wordpress/"
 
 set -ex
 
