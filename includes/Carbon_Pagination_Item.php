@@ -50,7 +50,7 @@ class Carbon_Pagination_Item {
 	 * @param Carbon_Pagination_Collection $collection Pagination collection object.
 	 * @return Carbon_Pagination_Item
 	 */
-	public function __construct( $collection ) {
+	public function __construct( Carbon_Pagination_Collection $collection ) {
 		$this->set_collection( $collection );
 
 		$this->init();
@@ -74,7 +74,7 @@ class Carbon_Pagination_Item {
 	 *
 	 * @param Carbon_Pagination_Collection $collection The new collection object.
 	 */
-	public function set_collection(Carbon_Pagination_Collection $collection) {
+	public function set_collection( Carbon_Pagination_Collection $collection ) {
 		$this->collection = $collection;
 	}
 
@@ -96,7 +96,7 @@ class Carbon_Pagination_Item {
 	 *
 	 * @param Carbon_Pagination_Collection $fragments_collection The new item fragments collection.
 	 */
-	public function set_fragments_collection($fragments_collection) {
+	public function set_fragments_collection( Carbon_Pagination_Collection $fragments_collection ) {
 		$this->fragments_collection = $fragments_collection;
 	}
 

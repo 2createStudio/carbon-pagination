@@ -24,7 +24,7 @@ class Carbon_Pagination_Renderer {
 	 * @param Carbon_Pagination_Collection $collection Pagination collection object.
 	 * @return Carbon_Pagination_Renderer
 	 */
-	public function __construct( $collection ) {
+	public function __construct( Carbon_Pagination_Collection $collection ) {
 		$this->set_collection( $collection );
 	}
 
@@ -46,7 +46,7 @@ class Carbon_Pagination_Renderer {
 	 *
 	 * @param Carbon_Pagination_Collection $collection The new collection object.
 	 */
-	public function set_collection(Carbon_Pagination_Collection $collection) {
+	public function set_collection( Carbon_Pagination_Collection $collection ) {
 		$this->collection = $collection;
 	}
 
@@ -65,7 +65,7 @@ class Carbon_Pagination_Renderer {
 	 * @param array $tokens An array of tokens and their values.
 	 * @return string $string The parsed string.
 	 */
-	protected function parse_tokens($string, $tokens = array()) {
+	protected function parse_tokens( $string, $tokens = array() ) {
 		foreach ($tokens as $find => $replace) {
 			$string = str_replace('{' . $find . '}', $replace, $string);
 		}
@@ -82,7 +82,7 @@ class Carbon_Pagination_Renderer {
 	 * @param array $items Items to render. If not specified, will render the collection items.
 	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 */
-	public function render($items = array(), $echo = true) {
+	public function render( $items = array(), $echo = true ) {
 		// if no items are specified, use the ones from the collection
 		if (!$items) {
 			$items = $this->get_collection()->get_items();
