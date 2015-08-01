@@ -132,6 +132,8 @@ class Carbon_Pagination_Collection {
 
 	/**
 	 * Add item(s) to the collection.
+	 * If $new_items is not an array, it will be treated as one item.
+	 * If $new_items is an array, it will be treated as a set of items.
 	 *
 	 * @access public
 	 *
@@ -152,10 +154,12 @@ class Carbon_Pagination_Collection {
 
 	/**
 	 * Insert item(s) at a specified index in the collection.
+	 * If the $item is an array, it will be treated as a set of items.
+	 * If the $item is not an array, it will be treated as a single item.
 	 *
 	 * @access public
 	 *
-	 * @param mixed $item The item to insert.
+	 * @param mixed $item The item(s) to insert.
 	 * @param int $index The index to insert the item at.
 	 */
 	function insert_item_at($item, $index) {
