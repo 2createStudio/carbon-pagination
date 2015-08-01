@@ -92,6 +92,11 @@ class Carbon_Pagination_Renderer {
 
 		// loop through items
 		foreach ($items as $item) {
+			// allow only Carbon_Pagination_Item instances here
+			if ( !( $item instanceof Carbon_Pagination_Item ) ) {
+				continue;
+			}
+
 			$fragments_collection = $item->get_fragments_collection();
 			if ($fragments_collection && $items = $fragments_collection->get_items()) {
 				// loop the fragment collection items
