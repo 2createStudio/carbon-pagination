@@ -14,49 +14,20 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	 * @access public
 	 */
 	public function init() {
-		$collection = $this->get_collection();
-		$pagination = $collection->get_pagination();
+		$pagination = $this->get_collection()->get_pagination();
 
 		// initialize fragments collection
 		$fragments_collection = new Carbon_Pagination_Collection($pagination, false);
 		$this->set_fragments_collection($fragments_collection);
 
-		// get various pagination variables that we need
-		$current_page_idx = $pagination->get_current_page() - 1;
-		$total_pages = $pagination->get_total_pages();
-		$number_limit = $pagination->get_number_limit();
-		$large_page_number_limit = $pagination->get_large_page_number_limit();
-		$large_page_number_interval = $pagination->get_large_page_number_interval();
-
 		// generate large numbers - before
-		if ($large_page_number_limit > 0) {
-			$from = $large_page_number_interval - 1;
-			$to = $current_page_idx - $number_limit;
-			$this->generate_pages($from, $to, $large_page_number_interval, $large_page_number_limit);
-		}
+		$this->generate_large_number_pages_before();
 
 		// generate page numbers
-		if ($number_limit >= 0) {
-			$from = max(0, $current_page_idx - $number_limit);
-			$to = min($total_pages, $current_page_idx + $number_limit + 1);
-		} else {
-			$from = 0;
-			$to = $total_pages;
-		}
-		$this->generate_pages($from, $to);
+		$this->generate_regular_number_pages();
 
 		// generate large numbers - after
-		if ($large_page_number_limit > 0) {
-			$from_raw = ($current_page_idx + $number_limit + 1);
-			$from = ceil($from_raw / $large_page_number_interval) * $large_page_number_interval - 1;
-			if ($from == $current_page_idx + 1) {
-				$from += $large_page_number_interval;
-			}
-
-			$to = $total_pages - 1;
-
-			$this->generate_pages($from, $to, $large_page_number_interval, $large_page_number_limit, true);
-		}
+		$this->generate_large_number_pages_after();
 
 		// generate & add limiters
 		$this->generate_limiters();
@@ -96,6 +67,78 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		// update the fragments collection with the new items
 		$fragments_collection = $this->get_fragments_collection();
 		$fragments_collection->add_items( $new_fragments );
+	}
+
+	/**
+	 * Generate the regular consecutive number pages.
+	 *
+	 * @access public
+	 */
+	public function generate_regular_number_pages() {
+		// get various pagination variables that we need
+		$pagination = $this->get_collection()->get_pagination();
+		$current_page_idx = $pagination->get_current_page() - 1;
+		$number_limit = $pagination->get_number_limit();
+		$total_pages = $pagination->get_total_pages();
+
+		// determine the range and generate the pages
+		if ($number_limit >= 0) {
+			$from = max(0, $current_page_idx - $number_limit);
+			$to = min($total_pages, $current_page_idx + $number_limit + 1);
+		} else {
+			$from = 0;
+			$to = $total_pages;
+		}
+		$this->generate_pages($from, $to);
+	}
+
+	/**
+	 * Generate the large number page items - before the regular number pages.
+	 *
+	 * @access public
+	 */
+	public function generate_large_number_pages_before() {
+		// get various pagination variables that we need
+		$pagination = $this->get_collection()->get_pagination();
+		$current_page_idx = $pagination->get_current_page() - 1;
+		$number_limit = $pagination->get_number_limit();
+		$large_page_number_limit = $pagination->get_large_page_number_limit();
+		$large_page_number_interval = $pagination->get_large_page_number_interval();
+
+		// if enabled, determine the range and generate the pages
+		if ($large_page_number_limit > 0) {
+			$from = $large_page_number_interval - 1;
+			$to = $current_page_idx - $number_limit;
+			$this->generate_pages($from, $to, $large_page_number_interval, $large_page_number_limit);
+		}
+	}
+
+	/**
+	 * Generate the large number page items - after the regular number pages.
+	 *
+	 * @access public
+	 */
+	public function generate_large_number_pages_after() {
+		// get various pagination variables that we need
+		$pagination = $this->get_collection()->get_pagination();
+		$current_page_idx = $pagination->get_current_page() - 1;
+		$total_pages = $pagination->get_total_pages();
+		$number_limit = $pagination->get_number_limit();
+		$large_page_number_limit = $pagination->get_large_page_number_limit();
+		$large_page_number_interval = $pagination->get_large_page_number_interval();
+
+		// if enabled, determine the range and generate the pages
+		if ($large_page_number_limit > 0) {
+			$from_raw = ($current_page_idx + $number_limit + 1);
+			$from = ceil($from_raw / $large_page_number_interval) * $large_page_number_interval - 1;
+			if ($from == $current_page_idx + 1) {
+				$from += $large_page_number_interval;
+			}
+
+			$to = $total_pages - 1;
+
+			$this->generate_pages($from, $to, $large_page_number_interval, $large_page_number_limit, true);
+		}
 	}
 
 	/**
