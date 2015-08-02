@@ -1,5 +1,4 @@
-Carbon Pagination
-=================
+# Carbon Pagination [![Build Status](https://travis-ci.org/2createStudio/carbon-pagination.svg?branch=master)](https://travis-ci.org/2createStudio/carbon-pagination)
 
 ### About
 
