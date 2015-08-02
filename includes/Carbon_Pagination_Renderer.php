@@ -75,7 +75,7 @@ class Carbon_Pagination_Renderer {
 
 	/**
 	 * Render the current collection items.
-	 * Each item can have sub items (fragments), which are rendered recursively.
+	 * Each item can have sub items, which are rendered recursively.
 	 *
 	 * @access public
 	 *
@@ -97,9 +97,9 @@ class Carbon_Pagination_Renderer {
 				continue;
 			}
 
-			$fragments_collection = $item->get_fragments_collection();
-			if ($fragments_collection && $items = $fragments_collection->get_items()) {
-				// loop the fragment collection items
+			$subitems_collection = $item->get_subitems_collection();
+			if ($subitems_collection && $items = $subitems_collection->get_items()) {
+				// loop the subitem collection items
 				$output .= $this->render( $items, false );
 			} else {
 				// setup the item

@@ -9,16 +9,16 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 
 	/**
 	 * Initialize the item.
-	 * Generate the sub items (fragments) of this item.
+	 * Generate the sub items of this item.
 	 *
 	 * @access public
 	 */
 	public function init() {
 		$pagination = $this->get_collection()->get_pagination();
 
-		// initialize fragments collection
-		$fragments_collection = new Carbon_Pagination_Collection($pagination, false);
-		$this->set_fragments_collection($fragments_collection);
+		// initialize subitems collection
+		$subitems_collection = new Carbon_Pagination_Collection($pagination, false);
+		$this->set_subitems_collection($subitems_collection);
 
 		// generate large numbers - before
 		$this->generate_large_number_pages_before();
@@ -37,7 +37,7 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	}
 
 	/**
-	 * Generate number pages (fragments) in a certain range.
+	 * Generate number pages (subitems) in a certain range.
 	 *
 	 * @access public
 	 *
@@ -49,24 +49,24 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	public function generate_pages($from, $to, $interval = 1, $limit = 0, $from_end = false) {
 		// get various pagination variables that we need
 		$collection = $this->get_collection();
-		$new_fragments = array();
+		$new_subitems = array();
 
 		// generate items for the current range, using the specified interval
 		for($i = $from; $i < $to; $i += $interval) {
 			$page_item = new Carbon_Pagination_Item_Page( $collection );
 			$page_item->set_page_number( $i );
-			$new_fragments[] = $page_item;
+			$new_subitems[] = $page_item;
 		}
 
 		// limit items if necessary
 		if ($limit) {
 			$start = $from_end ? -1 * $limit : 0;
-			$new_fragments = array_slice($new_fragments, $start, $limit);
+			$new_subitems = array_slice($new_subitems, $start, $limit);
 		}
 
-		// update the fragments collection with the new items
-		$fragments_collection = $this->get_fragments_collection();
-		$fragments_collection->add_items( $new_fragments );
+		// update the subitems collection with the new items
+		$subitems_collection = $this->get_subitems_collection();
+		$subitems_collection->add_items( $new_subitems );
 	}
 
 	/**
@@ -150,24 +150,24 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		// get various pagination variables that we need
 		$collection = $this->get_collection();
 		$pagination = $collection->get_pagination();
-		$fragments_collection = $this->get_fragments_collection();
-		$fragments = $fragments_collection->get_items();
+		$subitems_collection = $this->get_subitems_collection();
+		$subitems = $subitems_collection->get_items();
 		$large_page_number_interval = $pagination->get_large_page_number_interval();
 
 		// generate a prototype limiter item
 		$limiter_item = new Carbon_Pagination_Item_Limiter( $collection );
 
 		// insert limiters before & after the page numbers
-		for($i = count($fragments) - 1; $i > 0; $i--) {
-			$prev = $fragments[$i - 1]->get_page_number();
-			$current = $fragments[$i]->get_page_number();
+		for($i = count($subitems) - 1; $i > 0; $i--) {
+			$prev = $subitems[$i - 1]->get_page_number();
+			$current = $subitems[$i]->get_page_number();
 			if ($current > $prev + 1 && $current - $prev != $large_page_number_interval) {
-				$fragments_collection->insert_item_at(clone $limiter_item, $i);
+				$subitems_collection->insert_item_at(clone $limiter_item, $i);
 			}
 		}
 
-		// get the updated set of fragments
-		$fragments = $fragments_collection->get_items();
+		// get the updated set of subitems
+		$subitems = $subitems_collection->get_items();
 
 	}
 
@@ -180,20 +180,20 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		// get various pagination variables that we need
 		$collection = $this->get_collection();
 		$pagination = $collection->get_pagination();
-		$fragments_collection = $this->get_fragments_collection();
-		$total_fragments = count($fragments_collection->get_items());
+		$subitems_collection = $this->get_subitems_collection();
+		$total_subitems = count($subitems_collection->get_items());
 
-		// if there is at least one fragment in the collection
-		if ( $total_fragments ) {
-			// insert wrapper before the fragments
+		// if there is at least one subitem in the collection
+		if ( $total_subitems ) {
+			// insert wrapper before the subitems
 			$wrapper_before = new Carbon_Pagination_Item_HTML( $collection );
 			$wrapper_before->set_html( $pagination->get_numbers_wrapper_before() );
-			$fragments_collection->insert_item_at($wrapper_before, 0);
+			$subitems_collection->insert_item_at($wrapper_before, 0);
 
-			// insert wrapper after the fragments
+			// insert wrapper after the subitems
 			$wrapper_after = new Carbon_Pagination_Item_HTML( $collection );
 			$wrapper_after->set_html( $pagination->get_numbers_wrapper_after() );
-			$fragments_collection->insert_item_at($wrapper_after, $total_fragments + 1);
+			$subitems_collection->insert_item_at($wrapper_after, $total_subitems + 1);
 		}
 	}
 }

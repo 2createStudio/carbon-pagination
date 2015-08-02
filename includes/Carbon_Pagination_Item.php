@@ -15,7 +15,7 @@ class Carbon_Pagination_Item {
 	protected $collection;
 
 	/**
-	 * The fragments collection.
+	 * The subitems collection.
 	 * Contains the sub items that this item consists of.
 	 * Can be false if this item is a standalone single item.
 	 *
@@ -23,7 +23,7 @@ class Carbon_Pagination_Item {
 	 *
 	 * @var Carbon_Pagination_Collection|bool
 	 */
-	protected $fragments_collection = false;
+	protected $subitems_collection = false;
 
 	/**
 	 * Tokens that can be auto replaced in the HTML of an item.
@@ -79,25 +79,25 @@ class Carbon_Pagination_Item {
 	}
 
 	/**
-	 * Retrieve the item fragments collection.
+	 * Retrieve the item subitems collection.
 	 *
 	 * @access public
 	 *
-	 * @return Carbon_Pagination_Collection $fragments_collection The item fragments collection.
+	 * @return Carbon_Pagination_Collection $subitems_collection The item subitems collection.
 	 */
-	public function get_fragments_collection() {
-		return $this->fragments_collection;
+	public function get_subitems_collection() {
+		return $this->subitems_collection;
 	}
 
 	/**
-	 * Modify the item fragments collection.
+	 * Modify the item subitems collection.
 	 *
 	 * @access public
 	 *
-	 * @param Carbon_Pagination_Collection $fragments_collection The new item fragments collection.
+	 * @param Carbon_Pagination_Collection $subitems_collection The new item subitems collection.
 	 */
-	public function set_fragments_collection( Carbon_Pagination_Collection $fragments_collection ) {
-		$this->fragments_collection = $fragments_collection;
+	public function set_subitems_collection( Carbon_Pagination_Collection $subitems_collection ) {
+		$this->subitems_collection = $subitems_collection;
 	}
 
 	/**
