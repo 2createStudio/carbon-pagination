@@ -82,4 +82,14 @@ class CarbonPaginationRendererParseTokensTest extends WP_UnitTestCase {
 		$this->assertSame( $string, $result );
 	}
 
+	public function testParseExistingTokensWithIncorrectSyntax() {
+		$string = 'Lorem { FOO}ipsum {FOO } { FOO } {FOO dolor FOO} sit FOO amet.';
+		$tokens = array(
+			'FOO' => 'bar'
+		);
+
+		$result = $this->renderer->parse_tokens( $string, $tokens );
+		$this->assertSame( $string, $result );
+	}
+
 }
