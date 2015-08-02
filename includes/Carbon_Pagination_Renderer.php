@@ -59,13 +59,13 @@ class Carbon_Pagination_Renderer {
 	 * Tokens should be used in the string in the following way:
 	 * 'lorem {TOKENNAME} ipsum'
 	 *
-	 * @access protected
+	 * @access public
 	 *
 	 * @param string $string The unparsed string.
 	 * @param array $tokens An array of tokens and their values.
 	 * @return string $string The parsed string.
 	 */
-	protected function parse_tokens( $string, $tokens = array() ) {
+	public function parse_tokens( $string, $tokens = array() ) {
 		foreach ($tokens as $find => $replace) {
 			$string = str_replace('{' . $find . '}', $replace, $string);
 		}
