@@ -92,4 +92,24 @@ class CarbonPaginationRendererParseTokensTest extends WP_UnitTestCase {
 		$this->assertSame( $string, $result );
 	}
 
+	public function testParseExistingTokensWithDoubleCurlyBrackets() {
+		$string = 'Lorem {{FOO}} amet.';
+		$tokens = array(
+			'FOO' => 'bar'
+		);
+
+		$result = $this->renderer->parse_tokens( $string, $tokens );
+		$this->assertSame( 'Lorem {bar} amet.', $result );
+	}
+
+	public function testParseExistingTokensWithDoubleCurlyBracketsRecursion() {
+		$string = 'Lorem {{FOO}} amet.';
+		$tokens = array(
+			'FOO' => 'FOO'
+		);
+
+		$result = $this->renderer->parse_tokens( $string, $tokens );
+		$this->assertSame( 'Lorem {FOO} amet.', $result );
+	}
+
 }
