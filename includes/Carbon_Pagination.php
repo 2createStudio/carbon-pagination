@@ -304,7 +304,7 @@ abstract class Carbon_Pagination {
 			'enable_last' => false,
 			'enable_numbers' => false,
 			'enable_current_page_text' => false,
-			'number_limit' => 0,
+			'number_limit' => -1,
 			'large_page_number_limit' => 0,
 			'large_page_number_interval' => 10,
 			'numbers_wrapper_before' => '<ul>',
