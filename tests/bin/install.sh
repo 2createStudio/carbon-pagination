@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# see https://github.com/wp-cli/wp-cli/blob/master/templates/install-wp-tests.sh
+# See https://github.com/wp-cli/wp-cli/blob/master/templates/install-wp-tests.sh
 
+# MySQL settings
 if [ $# -lt 3 ]; then
 	echo "usage: $0 <db-name> <db-user> <db-pass> [db-host] [wp-version]"
 	exit 1
@@ -14,7 +15,7 @@ WP_VERSION=${5-latest}
 
 BASEDIR="${PWD}"
 
-# handle Windows drive paths
+# Handle Windows drive paths
 if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
 	BASEDIR=$(echo $BASEDIR | sed -r 's/\/([a-zA-Z])\//\1:\//g')
 fi
@@ -24,6 +25,7 @@ WP_CORE_DIR="${BASEDIR}/tmp/wordpress/"
 
 set -ex
 
+# Used to download a file to a certain location
 download() {
     if [ `which curl` ]; then
         curl -s "$1" > "$2";
@@ -32,40 +34,48 @@ download() {
     fi
 }
 
+# Install a certain version (or the latest one) of WordPress 
 install_wp() {
 	mkdir -p $WP_CORE_DIR
 
+	# Determine which version to download
 	if [ $WP_VERSION == 'latest' ]; then
 		local ARCHIVE_NAME='latest'
 	else
 		local ARCHIVE_NAME="wordpress-$WP_VERSION"
 	fi
 
+	# Perform the download
 	download https://wordpress.org/${ARCHIVE_NAME}.tar.gz  /tmp/wordpress.tar.gz
 
+	# Extract 
 	tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR
 
+	# Copy the database settings (wp-content/db.php)
 	cp $BASEDIR/tests/misc/db.php $WP_CORE_DIR/wp-content/db.php
 }
 
+# Install the WordPress test suite
 install_test_suite() {
-	# portable in-place argument for both GNU sed and Mac OSX sed
+	# Portable in-place argument for both GNU sed and Mac OSX sed
 	if [[ $(uname -s) == 'Darwin' ]]; then
 		local ioption='-i .bak'
 	else
 		local ioption='-i'
 	fi
 
-	# set up testing suite
+	# Prepare target directory and checkout WP test suite
 	mkdir -p $WP_TESTS_DIR
 	cd $WP_TESTS_DIR
 	svn co --quiet http://develop.svn.wordpress.org/trunk/tests/phpunit/includes/
 
+	# Download base configuration file
 	download http://develop.svn.wordpress.org/trunk/wp-tests-config-sample.php wp-tests-config.php
 
-	# make sure colons are escaped (they might exist in Windows environments)
+	# Make sure colons are escaped (they might exist in Windows environments)
 	WP_CORE_DIR=$(echo $WP_CORE_DIR | sed -r 's/:/\\:/g')
 
+	# Replace variables in the config file
 	sed $ioption "s:dirname( __FILE__ ) . '/src/':'$WP_CORE_DIR':" wp-tests-config.php 2> /dev/null
 	sed $ioption "s/youremptytestdbnamehere/$DB_NAME/" wp-tests-config.php 2> /dev/null
 	sed $ioption "s/yourusernamehere/$DB_USER/" wp-tests-config.php 2> /dev/null
