@@ -21,3 +21,5 @@ Sample usage:
 Simply change to the plugin root directory and type:
 
     $ phpunit
+
+Refer to the [phpunit command line test runner reference](https://phpunit.de/manual/current/en/phpunit-book.html#textui) for more information and command line options.
