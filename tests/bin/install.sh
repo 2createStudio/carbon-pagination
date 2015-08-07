@@ -37,7 +37,7 @@ install_wp() {
 
 	tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR
 
-	curl https://raw.github.com/markoheijnen/wp-mysqli/master/db.php --output $WP_CORE_DIR/wp-content/db.php --silent
+	cp $BASEDIR/tests/misc/db.php $WP_CORE_DIR/wp-content/db.php
 }
 
 install_test_suite() {
