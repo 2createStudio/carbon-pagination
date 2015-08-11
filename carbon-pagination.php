@@ -7,7 +7,7 @@
  * Author URI: http://2create.bg/
  * License: GPL2
  * Requires at least: 3.8
- * Tested up to: 4.2.2
+ * Tested up to: 4.3
  */
 
 // allows the plugin to be included as a library in themes

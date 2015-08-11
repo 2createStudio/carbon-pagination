@@ -2,7 +2,7 @@
 Contributors: tyxla
 Tags: pagination, paging, page, comments, loop, pages, prev, next, first, last, carbon, admin, developer, configuration, extend, advanced
 Requires at least: 3.8
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
