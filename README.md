@@ -128,39 +128,39 @@ Various terms that are used within this library are explained and briefly descri
 
 #### Pagination
 
-A pagination is an entire set of functionality that builds the markup, which is used to display links to certain pages of multi-page content. These links can include (but are not limited to) previous page, next page, first page, last page or a specific page - 2nd, 6th, etc.
+A pagination is an entire set of functionality that builds the markup, which is used to display links to certain pages of multi-page content. These links can include (but are not limited to) *previous page*, *next page*, *first page*, *last page* or a specific page - *2nd*, *6th*, etc.
 
 #### Wrapper
 
-Used to display some HTML before or after a certain item. A wrapper "before" and a wrapper "after" together form an entire HTML wrap around an item. Wrappers are usually composed by one or more HTML tags. The "before" wrapper usually contain the opening tags and the "after" wrapper contain the closing tags.
+Used to display some HTML before or after a certain item. A wrapper *"before"* and a wrapper *"after"* together form an entire HTML wrap around an item. Wrappers are usually composed by one or more HTML tags. The *"before"* wrapper usually contains the opening tags and the *"after"* wrapper contains the closing tags.
 
 #### Pages
 
-This term can be used in various context, but in the context of Carbon Pagination it usually refers to the items that you're paginating (navigating) through. Usually, these will be numbers - from 1 to the total number of pages, but in some cases these can be post IDs or objects - whetever you want to paginate through.
+This term can be used in various context, but in the context of Carbon Pagination it usually refers to the items that you're paginating (navigating) through. Usually, these will be numbers - from `1` to the *total number of pages*, but in some cases these can be post `ID`s or `object`s - whetever you want to paginate through.
 
 #### Item / Pagination Item
 
-Represents a specific fragment or piece of the pagination. Examples for different pagination items are: "prev", 1, 20, "last", "...", "Page 1 of 20" and so on.
+Represents a specific fragment or piece of the pagination. Examples for different pagination items are: `prev`, `1`, `20`, `last`, `...`, `Page 1 of 20` and so on.
 
 #### Number Page
 
-Number page, or sometimes called only number, represents a specific type of pagination item, which is identified by a certain page number. For example Number Page 20 will be the item that will lead to the 20th page. Number pages can be limited by the "number limit", which specifies how many items will be displayed on each side of the current number page (-1 for all, 0 for none, and a positive integer for a specific number of items).
+Number page, or sometimes called only number, represents a specific type of pagination item, which is identified by a certain page number. For example Number Page `20` will be the item that will lead to the `20`th page. Number pages can be limited by the *"number limit"*, which specifies how many items will be displayed on each side of the current number page (`-1` for all, `0` for none, and a positive integer (for example `5`) for a specific number of items).
 
 #### Large Number Page / Large Page Number
 
-A specific type of Number Page, representing a large page number item. Large number pages are displayed in a certain interval (10 by default), so an example set of large number pages will be: 10, 20, 30, and so on. Large number pages can be limited by the "large number page limit", which specifies how many large page number items will be displayed - for example 4 will display: 10, 20, 30, 40. You can also alter the interval that the large page numbers grow by - it is 10 by default, but if you change it to 5, the large number pages would be: 5, 10, 15, 20.
+A specific type of Number Page, representing a large page number item. Large number pages are displayed in a certain interval (`10` by default), so an example set of large number pages will be: `10`, `20`, `30`, and so on. Large number pages can be limited by the *"large number page limit"*, which specifies how many large page number items will be displayed - for example `4` will display: `10`, `20`, `30`, `40`. You can also alter the interval that the large page numbers grow by - it is `10` by default, but if you change it to `5`, the large number pages would be: `5`, `10`, `15`, `20`.
 
 #### Limiter
 
-A specific type of pagination item, usually represented by an ellipsis ("..."), a limiter is displayed when there are pages that will not be displayed for some reason. For example, 2, 3, 4, ..., 10, 20, 30 - notice the "..." limiter between the number pages and the large number pages.
+A specific type of pagination item, usually represented by an ellipsis *("...")*, a limiter is displayed when there are pages that will not be displayed for some reason. For example, `2`, `3`, `4`, `...`, `10`, `20`, `30` - notice the `...` limiter between the number pages and the large number pages.
 
 #### Numbers wrapper
 
-Represents a before or after wrapper, but when wrapping the number page items. The number page items include: the number pages, the large numbers and the corresponding limiters.
+Represents a *"before"* or *"after"* wrapper, but when wrapping the number page items. The number page items include: the *number pages*, the *large numbers* and the corresponding *limiters*.
 
 #### Current Page HTML
 
-A specific type of pagination item, representing a text that indicates the current page among the total number of pages. It is usually displayed the following way: "Page 1 of 20".
+A specific type of pagination item, representing a text that indicates the *current page* among the *total number of pages*. It is usually displayed the following way: `Page 1 of 20`.
 
 #### Collection
 
