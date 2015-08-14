@@ -23,5 +23,11 @@ matrix:
 
 before_script:
   - bash tests/bin/install.sh carbon_pagination_tests root '' localhost $WP_VERSION
+  - bash tests/bin/travis.sh before
 
 script: phpunit -c phpunit.xml
+
+after_script:
+  - bash tests/bin/travis.sh after
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover ./tmp/clover.xml
