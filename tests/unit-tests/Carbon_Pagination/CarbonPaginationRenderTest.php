@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group pagination
+ */
 class CarbonPaginationRenderTest extends WP_UnitTestCase {
 
 	public function testRenderUnexistingPaginationCollection() {

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group collection
+ */
 class CarbonPaginationCollectionGenerateTest extends WP_UnitTestCase {
 
 	private $mock_methods = array(

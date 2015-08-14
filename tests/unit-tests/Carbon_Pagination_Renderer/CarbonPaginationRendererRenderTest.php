@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group renderer
+ */
 class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 
 	public function setUp() {

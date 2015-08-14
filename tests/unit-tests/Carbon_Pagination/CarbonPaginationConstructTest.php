@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @group pagination
+ * @group constructors
+ */
 class CarbonPaginationConstructTest extends WP_UnitTestCase {
 
 	public function carbon_pagination_default_options($defaults) {

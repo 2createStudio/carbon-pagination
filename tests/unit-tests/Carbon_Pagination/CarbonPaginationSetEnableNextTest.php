@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group pagination
+ */
 class CarbonPaginationSetEnableNextTest extends WP_UnitTestCase {
 
 	public function setUp() {

@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @group collection
+ * @group constructors
+ */
 class CarbonPaginationCollectionConstructTest extends WP_UnitTestCase {
 
 	public function setUp() {

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group collection
+ */
 class CarbonPaginationCollectionAddItemsTest extends WP_UnitTestCase {
 
 	public function setUp() {

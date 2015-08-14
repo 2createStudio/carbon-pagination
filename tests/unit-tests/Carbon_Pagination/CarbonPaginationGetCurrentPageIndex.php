@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @group pagination
+ */
 class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
 
 	public function testWithIncrementalPageNumbers() {
