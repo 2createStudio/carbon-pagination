@@ -25,7 +25,7 @@ before_script:
   - bash tests/bin/install.sh carbon_pagination_tests root '' localhost $WP_VERSION
   - bash tests/bin/travis.sh before
 
-script: phpunit -c phpunit.xml
+script: phpunit -c phpunit.xml.dist
 
 after_script:
   - bash tests/bin/travis.sh after
