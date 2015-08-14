@@ -34,7 +34,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 		$pagination = $this->get_collection()->get_pagination();
 
 		// get various pagination stuff
-		$pages = $pagination->get_pages();
 		$page_number = $this->get_page_number();
 
 		// build the page link URL 

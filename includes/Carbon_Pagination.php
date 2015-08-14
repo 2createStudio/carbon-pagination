@@ -1037,12 +1037,13 @@ abstract class Carbon_Pagination {
 	/**
 	 * Get the URL to a certain page.
 	 *
+	 * @abstract
 	 * @access public
 	 *
 	 * @param int $page_number The page number.
 	 * @param string $old_url Optional. The URL to add the page number to.
 	 * @return string $url The URL to the page number.
 	 */
-	public abstract function get_page_url($page_number, $old_url = '');
+	abstract public function get_page_url($page_number, $old_url = '');
 
 }

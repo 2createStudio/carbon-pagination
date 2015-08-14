@@ -83,7 +83,7 @@ class Carbon_Pagination_Renderer {
 	 */
 	public function render( $items = array(), $echo = true ) {
 		// if no items are specified, use the ones from the collection
-		if (!$items) {
+		if ( empty( $items ) ) {
 			$items = $this->get_collection()->get_items();
 		}
 

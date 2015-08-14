@@ -165,10 +165,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 				$subitems_collection->insert_item_at(clone $limiter_item, $i);
 			}
 		}
-
-		// get the updated set of subitems
-		$subitems = $subitems_collection->get_items();
-
 	}
 
 	/**

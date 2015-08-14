@@ -72,7 +72,7 @@ class Carbon_Pagination_Collection {
 		$this->set_items($items);
 
 		// insert wrappers
-		if ($items) {
+		if ( !empty( $items ) ) {
 			// insert wrapper before the items
 			$wrapper_before = new Carbon_Pagination_Item_HTML( $this );
 			$wrapper_before->set_html( $pagination->get_wrapper_before() );
@@ -161,7 +161,7 @@ class Carbon_Pagination_Collection {
 	 * @param mixed $item The item(s) to insert.
 	 * @param int $index The index to insert the item at.
 	 */
-	function insert_item_at($item, $index) {
+	public function insert_item_at($item, $index) {
 		$items = $this->get_items();
 		if (!is_array($item)) {
 			$item = array($item);
