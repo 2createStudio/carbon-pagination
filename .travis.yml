@@ -24,7 +24,7 @@ matrix:
 before_script:
   - bash tests/bin/install.sh carbon_pagination_tests root '' localhost $WP_VERSION
 
-script: phpunit -c phpunit.xml.dist --coverage-clover=coverage.clover
+script: phpunit --coverage-clover=coverage.clover
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
