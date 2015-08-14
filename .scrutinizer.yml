@@ -18,6 +18,9 @@ checks:
     avoid_superglobals: false
     avoid_closing_tag: false
 
+before_commands:
+  - 'composer install --dev --prefer-source'
+
 tools:
   sensiolabs_security_checker: true
-  php_code_coverage: true
+  external_code_coverage: true
