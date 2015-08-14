@@ -287,7 +287,6 @@ abstract class Carbon_Pagination {
 	 * @access public
 	 *
 	 * @param array $args Configuration options to modify the pagination settings.
-	 * @return Carbon_Pagination
 	 */
 	public function __construct( $args = array() ) {
 

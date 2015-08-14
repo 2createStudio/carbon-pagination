@@ -32,7 +32,6 @@ class Carbon_Pagination_Collection {
 	 *
 	 * @param Carbon_Pagination $pagination Pagination object.
 	 * @param bool $autogenerate Whether to automatically generate pagination items.
-	 * @return Carbon_Pagination_Collection
 	 */
 	public function __construct( Carbon_Pagination $pagination, $autogenerate = true ) {
 		$this->set_pagination( $pagination );

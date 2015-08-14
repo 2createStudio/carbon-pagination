@@ -48,7 +48,6 @@ class Carbon_Pagination_Item {
 	 * @access public
 	 *
 	 * @param Carbon_Pagination_Collection $collection Pagination collection object.
-	 * @return Carbon_Pagination_Item
 	 */
 	public function __construct( Carbon_Pagination_Collection $collection ) {
 		$this->set_collection( $collection );
