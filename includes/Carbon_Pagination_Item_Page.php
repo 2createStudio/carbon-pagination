@@ -119,4 +119,27 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 		$this->html = $html;
 	}
 
+	/**
+	 * Create a new subitems collection with a single subitem
+	 * for the specified collection with the specified HTML and page number.
+	 *
+	 * @static
+	 * @access public
+	 *
+	 * @param Carbon_Pagination_Collection $collection Collection of the original item.
+	 * @param string $html HTML of the new subitem.
+	 * @param int $page_number The number of the page to link the subitem to.
+	 */
+	public static function generate_single_subitem_collection($collection, $html, $page_number) {
+		$page_item = new Carbon_Pagination_Item_Page( $collection );
+		$page_item->set_html( $html );
+		$page_item->set_page_number( $page_number );
+
+		// create and assign the subitems collection
+		$subitems_collection = new Carbon_Pagination_Collection($collection->get_pagination(), false);
+		$subitems_collection->set_items( array($page_item) );
+
+		return $subitems_collection;
+	}
+
 }

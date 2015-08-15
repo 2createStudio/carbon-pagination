@@ -25,15 +25,9 @@ class Carbon_Pagination_Item_Last_Page extends Carbon_Pagination_Item {
 			return;
 		}
 
-		// create a page item
-		$page_item = new Carbon_Pagination_Item_Page( $collection );
-		$page_item->set_html( $pagination->get_last_html() );
-		$page_item->set_page_number( $total_pages - 1 );
-
-		// create and assign the subitems collection
-		$subitems_collection = new Carbon_Pagination_Collection($pagination, false);
-		$subitems_collection->set_items( array($page_item) );
-		$this->set_subitems_collection($subitems_collection);
+		// create subitem and its collection and assign it
+		$subitems_collection = Carbon_Pagination_Item_Page::generate_single_subitem_collection( $collection, $pagination->get_last_html(), $total_pages - 1 );
+		$this->set_subitems_collection( $subitems_collection );
 	}
 	
 }
