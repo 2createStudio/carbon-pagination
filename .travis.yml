@@ -22,6 +22,7 @@ matrix:
     env: WP_VERSION=latest WP_MULTISITE=1
 
 before_script:
+  - mysql -e "create database IF NOT EXISTS carbon_pagination_tests;" -uroot
   - bash tests/bin/install.sh carbon_pagination_tests root '' localhost $WP_VERSION
 
 script: phpunit --coverage-clover=./tmp/clover.xml
