@@ -1,4 +1,4 @@
-# Carbon Pagination [![Build Status](https://travis-ci.org/2createStudio/carbon-pagination.svg?branch=master)](https://travis-ci.org/2createStudio/carbon-pagination)
+# Carbon Pagination [![Build Status](https://travis-ci.org/2createStudio/carbon-pagination.svg?branch=master)](https://travis-ci.org/2createStudio/carbon-pagination) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/2createStudio/carbon-pagination/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/2createStudio/carbon-pagination/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/2createStudio/carbon-pagination/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/2createStudio/carbon-pagination/?branch=master)
 
 ### About
 
