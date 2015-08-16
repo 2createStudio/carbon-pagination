@@ -43,9 +43,9 @@ class Carbon_Pagination_Custom extends Carbon_Pagination {
 	 * @param string $old_url Optional. The URL to add the page number to.
 	 * @return string $url The URL to the page number.
 	 */
-	public function get_page_url($page_number, $old_url = '') {
+	public function get_page_url( $page_number, $old_url = '' ) {
 		$pages = $this->get_pages();
-		$url = add_query_arg($this->get_query_var(), $pages[$page_number], $old_url);
+		$url = add_query_arg( $this->get_query_var(), $pages[$page_number], $old_url );
 		
 		return $url;
 	}
@@ -68,7 +68,7 @@ class Carbon_Pagination_Custom extends Carbon_Pagination {
 	 *
 	 * @param string $query_var The new query var name.
 	 */
-	public function set_query_var($query_var) {
+	public function set_query_var( $query_var ) {
 		$this->query_var = $query_var;
 	}
 

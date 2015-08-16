@@ -20,28 +20,28 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 		global $wp_query;
 
 		// get max page from query
-		if ( empty($max_page) ) {
+		if ( empty( $wp_query->max_num_comment_pages ) ) {
 			$max_page = $wp_query->max_num_comment_pages;
 		}
 
 		// if there is no max page in the query, calculate it
-		if ( empty($max_page) ) {
+		if ( empty( $max_page ) ) {
 			$max_page = get_comment_pages_count();
 		}
 
 		// specify the default args for the Comments pagination
 		$this->default_args = array(
 			// get the current comments page from the query
-			'current_page' => max(get_query_var('cpage'), 1),
+			'current_page' => max( get_query_var( 'cpage' ), 1 ),
 
 			// specify the total number of pages as retrieved above
-			'total_pages' => max($max_page, 1),
+			'total_pages' => max( $max_page, 1 ),
 
 			// modify the text of the previous page link
-			'prev_html' => '<a href="{URL}" class="paging-prev">' . __('&laquo; Older Comments', 'crb') . '</a>',
+			'prev_html' => '<a href="{URL}" class="paging-prev">' . __( '&laquo; Older Comments', 'crb' ) . '</a>',
 
 			// modify the text of the next page link
-			'next_html' => '<a href="{URL}" class="paging-next">' . __('Newer Comments &raquo;', 'crb') . '</a>',
+			'next_html' => '<a href="{URL}" class="paging-next">' . __( 'Newer Comments &raquo;', 'crb' ) . '</a>',
 		);
 
 		parent::__construct( $args );
@@ -56,7 +56,7 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 	 * @param string $old_url Optional. The URL to add the page number to.
 	 * @return string $url The URL to the page number.
 	 */
-	public function get_page_url($page_number, $old_url = '') {
+	public function get_page_url( $page_number, $old_url = '' ) {
 		$pages = $this->get_pages();
 		$url = get_comments_pagenum_link( $pages[$page_number] );
 		

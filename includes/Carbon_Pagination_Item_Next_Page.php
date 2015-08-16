@@ -21,7 +21,7 @@ class Carbon_Pagination_Item_Next_Page extends Carbon_Pagination_Item {
 		$total_pages = $pagination->get_total_pages();
 
 		// bail if there is no next page
-		if ($current_page_idx >= $total_pages - 1) {
+		if ( $current_page_idx >= $total_pages - 1 ) {
 			return;
 		}
 

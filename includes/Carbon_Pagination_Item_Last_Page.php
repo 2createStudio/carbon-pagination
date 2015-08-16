@@ -21,7 +21,7 @@ class Carbon_Pagination_Item_Last_Page extends Carbon_Pagination_Item {
 		$total_pages = $pagination->get_total_pages();
 
 		// bail if we are already on the last page
-		if ($current_page_idx >= $total_pages - 1) {
+		if ( $current_page_idx >= $total_pages - 1 ) {
 			return;
 		}
 

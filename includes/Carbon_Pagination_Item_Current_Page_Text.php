@@ -22,7 +22,7 @@ class Carbon_Pagination_Item_Current_Page_Text extends Carbon_Pagination_Item {
 			'TOTAL_PAGES' => $pagination->get_total_pages(),
 		);
 
-		$this->set_tokens($tokens);
+		$this->set_tokens( $tokens );
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Carbon_Pagination_Item_Current_Page_Text extends Carbon_Pagination_Item {
 		$pagination = $this->get_collection()->get_pagination();
 
 		$html = $pagination->get_current_page_html();
-		$html = apply_filters('carbon_pagination_current_page_text', $html, $this);
+		$html = apply_filters( 'carbon_pagination_current_page_text', $html, $this );
 
 		return $html;
 	}

@@ -117,7 +117,7 @@ class Carbon_Pagination_Item {
 	 *
 	 * @param array $tokens The new item HTML replaceable tokens.
 	 */
-	public function set_tokens($tokens) {
+	public function set_tokens( $tokens ) {
 		$this->tokens = $tokens;
 	}
 

@@ -17,8 +17,8 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$pagination = $this->get_collection()->get_pagination();
 
 		// initialize subitems collection
-		$subitems_collection = new Carbon_Pagination_Collection($pagination, false);
-		$this->set_subitems_collection($subitems_collection);
+		$subitems_collection = new Carbon_Pagination_Collection( $pagination, false );
+		$this->set_subitems_collection( $subitems_collection );
 
 		// generate large numbers - before
 		$this->generate_large_number_pages_before();
@@ -46,22 +46,22 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	 * @param int $limit Number of pages to create.
 	 * @param bool $from_end Whether to start from the end.
 	 */
-	public function generate_pages($from, $to, $interval = 1, $limit = 0, $from_end = false) {
+	public function generate_pages( $from, $to, $interval = 1, $limit = 0, $from_end = false ) {
 		// get various pagination variables that we need
 		$collection = $this->get_collection();
 		$new_subitems = array();
 
 		// generate items for the current range, using the specified interval
-		for($i = $from; $i < $to; $i += $interval) {
+		for( $i = $from; $i < $to; $i += $interval ) {
 			$page_item = new Carbon_Pagination_Item_Page( $collection );
 			$page_item->set_page_number( $i );
 			$new_subitems[] = $page_item;
 		}
 
 		// limit items if necessary
-		if ($limit) {
+		if ( $limit ) {
 			$start = $from_end ? -1 * $limit : 0;
-			$new_subitems = array_slice($new_subitems, $start, $limit);
+			$new_subitems = array_slice( $new_subitems, $start, $limit );
 		}
 
 		// update the subitems collection with the new items
@@ -82,14 +82,14 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$total_pages = $pagination->get_total_pages();
 
 		// determine the range and generate the pages
-		if ($number_limit >= 0) {
-			$from = max(0, $current_page_idx - $number_limit);
-			$to = min($total_pages, $current_page_idx + $number_limit + 1);
+		if ( $number_limit >= 0 ) {
+			$from = max( 0, $current_page_idx - $number_limit );
+			$to = min( $total_pages, $current_page_idx + $number_limit + 1 );
 		} else {
 			$from = 0;
 			$to = $total_pages;
 		}
-		$this->generate_pages($from, $to);
+		$this->generate_pages( $from, $to );
 	}
 
 	/**
@@ -106,10 +106,10 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$large_page_number_interval = $pagination->get_large_page_number_interval();
 
 		// if enabled, determine the range and generate the pages
-		if ($large_page_number_limit > 0) {
+		if ( $large_page_number_limit > 0 ) {
 			$from = $large_page_number_interval - 1;
 			$to = $current_page_idx - $number_limit;
-			$this->generate_pages($from, $to, $large_page_number_interval, $large_page_number_limit);
+			$this->generate_pages( $from, $to, $large_page_number_interval, $large_page_number_limit );
 		}
 	}
 
@@ -128,16 +128,16 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$large_page_number_interval = $pagination->get_large_page_number_interval();
 
 		// if enabled, determine the range and generate the pages
-		if ($large_page_number_limit > 0) {
-			$from_raw = ($current_page_idx + $number_limit + 1);
-			$from = ceil($from_raw / $large_page_number_interval) * $large_page_number_interval - 1;
-			if ($from == $current_page_idx + 1) {
+		if ( $large_page_number_limit > 0 ) {
+			$from_raw = $current_page_idx + $number_limit + 1;
+			$from = ceil( $from_raw / $large_page_number_interval ) * $large_page_number_interval - 1;
+			if ( $from == $current_page_idx + 1 ) {
 				$from += $large_page_number_interval;
 			}
 
 			$to = $total_pages - 1;
 
-			$this->generate_pages($from, $to, $large_page_number_interval, $large_page_number_limit, true);
+			$this->generate_pages( $from, $to, $large_page_number_interval, $large_page_number_limit, true );
 		}
 	}
 
@@ -158,11 +158,11 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$limiter_item = new Carbon_Pagination_Item_Limiter( $collection );
 
 		// insert limiters before & after the page numbers
-		for($i = count($subitems) - 1; $i > 0; $i--) {
+		for( $i = count($subitems) - 1; $i > 0; $i-- ) {
 			$prev = $subitems[$i - 1]->get_page_number();
 			$current = $subitems[$i]->get_page_number();
-			if ($current > $prev + 1 && $current - $prev != $large_page_number_interval) {
-				$subitems_collection->insert_item_at(clone $limiter_item, $i);
+			if ( $current > $prev + 1 && $current - $prev != $large_page_number_interval ) {
+				$subitems_collection->insert_item_at( clone $limiter_item, $i );
 			}
 		}
 	}
@@ -177,19 +177,19 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$collection = $this->get_collection();
 		$pagination = $collection->get_pagination();
 		$subitems_collection = $this->get_subitems_collection();
-		$total_subitems = count($subitems_collection->get_items());
+		$total_subitems = count( $subitems_collection->get_items() );
 
 		// if there is at least one subitem in the collection
 		if ( $total_subitems ) {
 			// insert wrapper before the subitems
 			$wrapper_before = new Carbon_Pagination_Item_HTML( $collection );
 			$wrapper_before->set_html( $pagination->get_numbers_wrapper_before() );
-			$subitems_collection->insert_item_at($wrapper_before, 0);
+			$subitems_collection->insert_item_at( $wrapper_before, 0 );
 
 			// insert wrapper after the subitems
 			$wrapper_after = new Carbon_Pagination_Item_HTML( $collection );
 			$wrapper_after->set_html( $pagination->get_numbers_wrapper_after() );
-			$subitems_collection->insert_item_at($wrapper_after, $total_subitems + 1);
+			$subitems_collection->insert_item_at( $wrapper_after, $total_subitems + 1 );
 		}
 	}
 }

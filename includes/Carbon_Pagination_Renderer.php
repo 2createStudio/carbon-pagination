@@ -65,8 +65,8 @@ class Carbon_Pagination_Renderer {
 	 * @return string $string The parsed string.
 	 */
 	public function parse_tokens( $string, $tokens = array() ) {
-		foreach ($tokens as $find => $replace) {
-			$string = str_replace('{' . $find . '}', $replace, $string);
+		foreach ( $tokens as $find => $replace ) {
+			$string = str_replace( '{' . $find . '}', $replace, $string );
 		}
 
 		return $string;
@@ -92,12 +92,12 @@ class Carbon_Pagination_Renderer {
 		// loop through items
 		foreach ($items as $item) {
 			// allow only Carbon_Pagination_Item instances here
-			if ( !( $item instanceof Carbon_Pagination_Item ) ) {
+			if ( ! ( $item instanceof Carbon_Pagination_Item ) ) {
 				continue;
 			}
 
 			$subitems_collection = $item->get_subitems_collection();
-			if ($subitems_collection && $items = $subitems_collection->get_items()) {
+			if ( $subitems_collection && $items = $subitems_collection->get_items() ) {
 				// loop the subitem collection items
 				$output .= $this->render( $items, false );
 			} else {
@@ -112,7 +112,7 @@ class Carbon_Pagination_Renderer {
 			}
 		}
 
-		if (!$echo) {
+		if ( ! $echo ) {
 			return $output;
 		}
 

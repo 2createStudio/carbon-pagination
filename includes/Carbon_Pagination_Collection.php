@@ -37,8 +37,8 @@ class Carbon_Pagination_Collection {
 		$this->set_pagination( $pagination );
 
 		// whether to auto generate pagination items
-		$autogenerate = apply_filters('carbon_pagination_autogenerate_collection_items', $autogenerate);
-		if ($autogenerate) {
+		$autogenerate = apply_filters( 'carbon_pagination_autogenerate_collection_items', $autogenerate );
+		if ( $autogenerate ) {
 			$this->generate();
 		}
 	}
@@ -63,25 +63,25 @@ class Carbon_Pagination_Collection {
 		);
 
 		// if item is enabled, generate it
-		foreach ($item_classes as $method => $classname) {
+		foreach ( $item_classes as $method => $classname ) {
 			if ( method_exists( $pagination, $method ) && call_user_func( array( $pagination, $method ) ) ) {
 				$items[] = new $classname($this);
 			}
 		}
 
-		$this->set_items($items);
+		$this->set_items( $items );
 
 		// insert wrappers
-		if ( !empty( $items ) ) {
+		if ( ! empty( $items ) ) {
 			// insert wrapper before the items
 			$wrapper_before = new Carbon_Pagination_Item_HTML( $this );
 			$wrapper_before->set_html( $pagination->get_wrapper_before() );
-			$this->insert_item_at($wrapper_before, 0);
+			$this->insert_item_at( $wrapper_before, 0 );
 
 			// insert wrapper after the items
 			$wrapper_after = new Carbon_Pagination_Item_HTML( $this );
 			$wrapper_after->set_html( $pagination->get_wrapper_after() );
-			$this->insert_item_at($wrapper_after, count($items) + 1);
+			$this->insert_item_at( $wrapper_after, count( $items ) + 1 );
 		}
 	}
 
@@ -103,7 +103,7 @@ class Carbon_Pagination_Collection {
 	 *
 	 * @param Carbon_Pagination $pagination The new pagination object.
 	 */
-	public function set_pagination(Carbon_Pagination $pagination) {
+	public function set_pagination( Carbon_Pagination $pagination ) {
 		$this->pagination = $pagination;
 	}
 
@@ -125,7 +125,7 @@ class Carbon_Pagination_Collection {
 	 *
 	 * @param array $items The new set of pagination items.
 	 */
-	public function set_items($items = array()) {
+	public function set_items( $items = array() ) {
 		$this->items = $items;
 	}
 
@@ -138,17 +138,17 @@ class Carbon_Pagination_Collection {
 	 *
 	 * @param mixed $new_items The set of pagination items to add.
 	 */
-	public function add_items($new_items = array()) {
+	public function add_items( $new_items = array() ) {
 		if ( !is_array( $new_items ) ) {
-			$new_items = array($new_items);
+			$new_items = array( $new_items );
 		} else {
-			$new_items = array_values($new_items);
+			$new_items = array_values( $new_items );
 		}
 
 		$items = $this->get_items();
-		$items = array_merge($items, $new_items);
+		$items = array_merge( $items, $new_items );
 
-		$this->set_items($items);
+		$this->set_items( $items );
 	}
 
 	/**
@@ -161,17 +161,17 @@ class Carbon_Pagination_Collection {
 	 * @param mixed $item The item(s) to insert.
 	 * @param int $index The index to insert the item at.
 	 */
-	public function insert_item_at($item, $index) {
+	public function insert_item_at( $item, $index ) {
 		$items = $this->get_items();
-		if (!is_array($item)) {
-			$item = array($item);
+		if ( ! is_array( $item ) ) {
+			$item = array( $item );
 		}
 
-		$before = array_slice($items, 0, $index);
-		$after = array_slice($items, $index);
-		$new_items = array_merge($before, $item, $after);
+		$before = array_slice( $items, 0, $index );
+		$after = array_slice( $items, $index );
+		$new_items = array_merge( $before, $item, $after );
 
-		$this->set_items($new_items);
+		$this->set_items( $new_items );
 	}
 
 }

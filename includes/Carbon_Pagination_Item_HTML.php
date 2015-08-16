@@ -24,7 +24,7 @@ class Carbon_Pagination_Item_HTML extends Carbon_Pagination_Item {
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {
-		$html = apply_filters('carbon_pagination_html', $this->get_html(), $this);
+		$html = apply_filters( 'carbon_pagination_html', $this->get_html(), $this );
 
 		return $html;
 	}
@@ -47,7 +47,7 @@ class Carbon_Pagination_Item_HTML extends Carbon_Pagination_Item {
 	 *
 	 * @param string $html The new item HTML.
 	 */
-	public function set_html($html) {
+	public function set_html( $html ) {
 		$this->html = $html;
 	}
 
