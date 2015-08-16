@@ -2,32 +2,31 @@
 /**
  * The Carbon Pagination first page item class.
  *
- * @uses Carbon_Pagination_Item
+ * @uses Carbon_Pagination_Item_Direction_Backward_Page
  */
-class Carbon_Pagination_Item_First_Page extends Carbon_Pagination_Item {
+class Carbon_Pagination_Item_First_Page extends Carbon_Pagination_Item_Direction_Backward_Page {
 
 	/**
-	 * Initialize the item.
-	 * Generate the sub items of this item.
+	 * The HTML of the direction item.
 	 *
 	 * @access public
+	 *
+	 * @return string $html The direction item HTML.
 	 */
-	public function init() {
-		$collection = $this->get_collection();
-		$pagination = $collection->get_pagination();
-
-		// get various pagination variables that we need
-		$current_page_idx = $pagination->get_current_page() - 1;
-		$first_page = 0;
-
-		// bail if we are already on the first page
-		if ( $current_page_idx <= $first_page ) {
-			return;
-		}
-
-		// create subitem and its collection and assign it
-		$subitems_collection = Carbon_Pagination_Item_Page::generate_single_subitem_collection( $collection, $pagination->get_first_html(), $first_page );
-		$this->set_subitems_collection( $subitems_collection );
+	public function get_direction_html() {
+		$pagination = $this->get_collection()->get_pagination();
+		return $pagination->get_first_html();
 	}
-	
+
+	/**
+	 * The number of the page to link to.
+	 *
+	 * @access public
+	 *
+	 * @return int $page The number of the page to link to.
+	 */
+	public function get_direction_page_number() {
+		return 0;
+	}
+
 }
