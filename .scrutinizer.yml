@@ -5,11 +5,16 @@ filter:
 
 checks:
   php:
+    verify_argument_usable_as_reference: false
+    verify_property_names: false
     no_global_keyword: false
     psr2_switch_declaration: false
     psr2_control_structure_declaration: false
     psr2_class_declaration: false
+    no_exit: false
     avoid_superglobals: false
+    coding_standard:
+        name: WordPress
 
 tools:
   sensiolabs_security_checker: true
