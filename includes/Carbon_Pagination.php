@@ -324,25 +324,25 @@ abstract class Carbon_Pagination {
 		$defaults = wp_parse_args( $this->default_args, $defaults );
 
 		// allow default options to be filtered
-		$defaults = apply_filters('carbon_pagination_default_options', $defaults);
+		$defaults = apply_filters( 'carbon_pagination_default_options', $defaults );
 
 		// parse configuration options
 		$args = wp_parse_args( $args, $defaults );
 
 		// handle pages & total pages constraints
-		if ( !$args['pages'] ) {
+		if ( ! $args['pages'] ) {
 			// if pages are not defined, generate them
-			$args['pages'] = range(1, $args['total_pages']);
+			$args['pages'] = range( 1, $args['total_pages'] );
 		} else {
 			// if pages are defined, set their count as our total pages setting
-			$args['total_pages'] = count($args['pages']);
+			$args['total_pages'] = count( $args['pages'] );
 		}
 
 		// set configuration options
-		foreach ($args as $arg_name => $arg_value) {
+		foreach ( $args as $arg_name => $arg_value ) {
 			$method = 'set_' . $arg_name;
-			if (array_key_exists($arg_name, $defaults) && method_exists($this, $method)) {
-				call_user_func(array($this, $method), $arg_value);
+			if ( array_key_exists( $arg_name, $defaults ) && method_exists( $this, $method ) ) {
+				call_user_func( array( $this, $method ), $arg_value );
 			}
 		}
 
@@ -366,7 +366,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $wrapper_before The new pagination wrapper - before.
 	 */
-	public function set_wrapper_before($wrapper_before) {
+	public function set_wrapper_before( $wrapper_before ) {
 		$this->wrapper_before = $wrapper_before;
 	}
 
@@ -388,7 +388,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $wrapper_after The new pagination wrapper - after.
 	 */
-	public function set_wrapper_after($wrapper_after) {
+	public function set_wrapper_after( $wrapper_after ) {
 		$this->wrapper_after = $wrapper_after;
 	}
 
@@ -411,12 +411,12 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param array $pages The new pages array.
 	 */
-	public function set_pages($pages = array()) {
-		if (!is_array($pages)) {
-			$pages = array($pages);
+	public function set_pages( $pages = array() ) {
+		if ( ! is_array( $pages ) ) {
+			$pages = array( $pages );
 		}
 
-		$this->pages = array_values($pages);
+		$this->pages = array_values( $pages );
 	}
 
 	/**
@@ -437,14 +437,14 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param int $current_page The new current page number.
 	 */
-	public function set_current_page($current_page = 1) {
-		$current_page = intval($current_page);
-		if ($current_page < 1) {
+	public function set_current_page( $current_page = 1 ) {
+		$current_page = intval( $current_page );
+		if ( $current_page < 1 ) {
 			$current_page = 1;
 		}
 
 		$total_pages = $this->get_total_pages();
-		if ($current_page > $total_pages) {
+		if ( $current_page > $total_pages ) {
 			$current_page = $total_pages;
 		}
 
@@ -469,9 +469,9 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param int $total_pages The new total number of pages.
 	 */
-	public function set_total_pages($total_pages) {
-		$total_pages = intval($total_pages);
-		if ($total_pages < 1) {
+	public function set_total_pages( $total_pages ) {
+		$total_pages = intval( $total_pages );
+		if ( $total_pages < 1 ) {
 			$total_pages = 1;
 		}
 
@@ -496,8 +496,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $enable_prev Whether the previous page link should be displayed.
 	 */
-	public function set_enable_prev($enable_prev) {
-		$this->enable_prev = (bool)$enable_prev;
+	public function set_enable_prev( $enable_prev ) {
+		$this->enable_prev = (bool) $enable_prev;
 	}
 
 	/**
@@ -518,8 +518,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $enable_next Whether the next page link should be displayed.
 	 */
-	public function set_enable_next($enable_next) {
-		$this->enable_next = (bool)$enable_next;
+	public function set_enable_next( $enable_next ) {
+		$this->enable_next = (bool) $enable_next;
 	}
 
 	/**
@@ -540,8 +540,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $enable_first Whether the first page link should be displayed.
 	 */
-	public function set_enable_first($enable_first) {
-		$this->enable_first = (bool)$enable_first;
+	public function set_enable_first( $enable_first ) {
+		$this->enable_first = (bool) $enable_first;
 	}
 
 	/**
@@ -562,8 +562,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $enable_last Whether the last page link should be displayed.
 	 */
-	public function set_enable_last($enable_last) {
-		$this->enable_last = (bool)$enable_last;
+	public function set_enable_last( $enable_last ) {
+		$this->enable_last = (bool) $enable_last;
 	}
 
 	/**
@@ -584,8 +584,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $enable_numbers Whether the page number links should be displayed.
 	 */
-	public function set_enable_numbers($enable_numbers) {
-		$this->enable_numbers = (bool)$enable_numbers;
+	public function set_enable_numbers( $enable_numbers ) {
+		$this->enable_numbers = (bool) $enable_numbers;
 	}
 
 	/**
@@ -606,8 +606,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $enable_current_page_text Whether the current page text should be displayed.
 	 */
-	public function set_enable_current_page_text($enable_current_page_text) {
-		$this->enable_current_page_text = (bool)$enable_current_page_text;
+	public function set_enable_current_page_text( $enable_current_page_text ) {
+		$this->enable_current_page_text = (bool) $enable_current_page_text;
 	}
 
 	/**
@@ -628,8 +628,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param int $number_limit The new page number links limit.
 	 */
-	public function set_number_limit($number_limit) {
-		$this->number_limit = intval($number_limit);
+	public function set_number_limit( $number_limit ) {
+		$this->number_limit = intval( $number_limit );
 	}
 
 	/**
@@ -650,8 +650,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param int $large_page_number_limit The new large page number links limit.
 	 */
-	public function set_large_page_number_limit($large_page_number_limit) {
-		$this->large_page_number_limit = absint($large_page_number_limit);
+	public function set_large_page_number_limit( $large_page_number_limit ) {
+		$this->large_page_number_limit = absint( $large_page_number_limit );
 	}
 
 	/**
@@ -672,8 +672,8 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param int $large_page_number_interval The new large page number links interval.
 	 */
-	public function set_large_page_number_interval($large_page_number_interval) {
-		$this->large_page_number_interval = absint($large_page_number_interval);
+	public function set_large_page_number_interval( $large_page_number_interval ) {
+		$this->large_page_number_interval = absint( $large_page_number_interval );
 	}
 
 	/**
@@ -694,7 +694,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $numbers_wrapper_before The new pagination numbers wrapper - before.
 	 */
-	public function set_numbers_wrapper_before($numbers_wrapper_before) {
+	public function set_numbers_wrapper_before( $numbers_wrapper_before ) {
 		$this->numbers_wrapper_before = $numbers_wrapper_before;
 	}
 
@@ -716,7 +716,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $numbers_wrapper_after The new pagination numbers wrapper - after.
 	 */
-	public function set_numbers_wrapper_after($numbers_wrapper_after) {
+	public function set_numbers_wrapper_after( $numbers_wrapper_after ) {
 		$this->numbers_wrapper_after = $numbers_wrapper_after;
 	}
 
@@ -738,7 +738,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $prev_html The new previous page link HTML.
 	 */
-	public function set_prev_html($prev_html) {
+	public function set_prev_html( $prev_html ) {
 		$this->prev_html = $prev_html;
 	}
 
@@ -760,7 +760,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $next_html The new next page link HTML.
 	 */
-	public function set_next_html($next_html) {
+	public function set_next_html( $next_html ) {
 		$this->next_html = $next_html;
 	}
 
@@ -782,7 +782,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $first_html The new first page link HTML.
 	 */
-	public function set_first_html($first_html) {
+	public function set_first_html( $first_html ) {
 		$this->first_html = $first_html;
 	}
 
@@ -804,7 +804,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $last_html The new last page link HTML.
 	 */
-	public function set_last_html($last_html) {
+	public function set_last_html( $last_html ) {
 		$this->last_html = $last_html;
 	}
 
@@ -826,7 +826,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $number_html The new HTML of a page number link.
 	 */
-	public function set_number_html($number_html) {
+	public function set_number_html( $number_html ) {
 		$this->number_html = $number_html;
 	}
 
@@ -848,7 +848,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $current_number_html The new HTML of the current page number link.
 	 */
-	public function set_current_number_html($current_number_html) {
+	public function set_current_number_html( $current_number_html ) {
 		$this->current_number_html = $current_number_html;
 	}
 
@@ -870,7 +870,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $limiter_html The new HTML of a limiter.
 	 */
-	public function set_limiter_html($limiter_html) {
+	public function set_limiter_html( $limiter_html ) {
 		$this->limiter_html = $limiter_html;
 	}
 
@@ -892,7 +892,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $current_page_html The new HTML of the current page text.
 	 */
-	public function set_current_page_html($current_page_html) {
+	public function set_current_page_html( $current_page_html ) {
 		$this->current_page_html = $current_page_html;
 	}
 
@@ -914,7 +914,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $collection The new collection object class name.
 	 */
-	public function set_collection($collection) {
+	public function set_collection( $collection ) {
 		$this->collection = $collection;
 	}
 
@@ -936,7 +936,7 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param string $renderer The new renderer object class name.
 	 */
-	public function set_renderer($renderer) {
+	public function set_renderer( $renderer ) {
 		$this->renderer = $renderer;
 	}
 
@@ -950,12 +950,12 @@ abstract class Carbon_Pagination {
 	public function get_current_url() {
 		global $wp;
 		$query_vars = array();
-		$permalink_structure = get_option('permalink_structure');
+		$permalink_structure = get_option( 'permalink_structure' );
 
 		// preserve all query vars that are in the GET as well
 		// if the default permalink structure is used, all query vars should be added
-		foreach ($wp->query_vars as $qv_key => $qv_value) {
-			if ( isset($_GET[$qv_key]) || !$permalink_structure ) {
+		foreach ( $wp->query_vars as $qv_key => $qv_value ) {
+			if ( isset( $_GET[$qv_key] ) || ! $permalink_structure ) {
 				$query_vars[$qv_key] = $qv_value;
 			}
 		}
@@ -970,29 +970,29 @@ abstract class Carbon_Pagination {
 	 *
 	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 */
-	public function render($echo = true) {
+	public function render( $echo = true ) {
 		// get collection & renderer class names
 		$collection_classname = $this->get_collection();
 		$renderer_classname = $this->get_renderer();
 
 		// handle unexisting pagination collection classes
-		if ( !class_exists($collection_classname) ) {
+		if ( !class_exists( $collection_classname ) ) {
 			return new WP_Error( 'carbon_pagination_unexisting_pagination_collection', __( "Unexisting pagination collection class.", "carbon_pagination" ) );
 		}
 
 		// handle unexisting pagination renderer classes
-		if ( !class_exists($renderer_classname) ) {
+		if ( !class_exists( $renderer_classname ) ) {
 			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( "Unexisting pagination renderer class.", "carbon_pagination" ) );
 		}
 
 		// initialize & generate pagination item collection
-		$collection = new $collection_classname($this);
+		$collection = new $collection_classname( $this );
 
 		// render the pagination item collection
-		$renderer = new $renderer_classname($collection);
-		$output = $renderer->render(array(), false);
+		$renderer = new $renderer_classname( $collection );
+		$output = $renderer->render( array(), false );
 
-		if (!$echo) {
+		if ( ! $echo ) {
 			return $output;
 		}
 
@@ -1015,19 +1015,19 @@ abstract class Carbon_Pagination {
 	 *
 	 * @see Carbon_Pagination::__construct()
 	 */
-	public static function display($pagination, $args = array(), $echo = true) {
+	public static function display( $pagination, $args = array(), $echo = true ) {
 		$pagination_classname = 'Carbon_Pagination_' . $pagination;
 
 		// handle unexisting pagination types
-		if ( !class_exists($pagination_classname) ) {
+		if ( ! class_exists( $pagination_classname ) ) {
 			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( "Unexisting pagination type class.", "carbon_pagination" ) );
 		}
 
 		// initialize pagination
-		$pagination = new $pagination_classname($args);
-		$output = $pagination->render(false);
+		$pagination = new $pagination_classname( $args );
+		$output = $pagination->render( false );
 
-		if (!$echo) {
+		if ( ! $echo ) {
 			return $output;
 		}
 
@@ -1044,6 +1044,6 @@ abstract class Carbon_Pagination {
 	 * @param string $old_url Optional. The URL to add the page number to.
 	 * @return string $url The URL to the page number.
 	 */
-	abstract public function get_page_url($page_number, $old_url = '');
+	abstract public function get_page_url( $page_number, $old_url = '' );
 
 }
