@@ -11,8 +11,7 @@
 abstract class Carbon_Pagination_Item_Direction_Forward_Page extends Carbon_Pagination_Item_Direction_Page {
 
 	/**
-	 * The result of the condition which would disable this item.
-	 * If true, this item wont be displayed.
+	 * If on the last page, the first and prev items should be disabled.
 	 *
 	 * @access public
 	 *
