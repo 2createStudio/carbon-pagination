@@ -90,7 +90,7 @@ class Carbon_Pagination_Renderer {
 		$output = '';
 
 		// loop through items
-		foreach ($items as $item) {
+		foreach ( $items as $item ) {
 			// allow only Carbon_Pagination_Item instances here
 			if ( ! ( $item instanceof Carbon_Pagination_Item ) ) {
 				continue;
@@ -116,7 +116,7 @@ class Carbon_Pagination_Renderer {
 			return $output;
 		}
 
-		echo $output;
+		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
 	}
 
 }

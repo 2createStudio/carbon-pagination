@@ -996,7 +996,7 @@ abstract class Carbon_Pagination {
 			return $output;
 		}
 
-		echo $output;
+		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
 	}
 
 	/**
@@ -1031,7 +1031,7 @@ abstract class Carbon_Pagination {
 			return $output;
 		}
 
-		echo $output;
+		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
 	}
 
 	/**

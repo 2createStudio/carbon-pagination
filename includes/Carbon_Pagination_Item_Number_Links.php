@@ -52,7 +52,7 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$new_subitems = array();
 
 		// generate items for the current range, using the specified interval
-		for( $i = $from; $i < $to; $i += $interval ) {
+		for ( $i = $from; $i < $to; $i += $interval ) {
 			$page_item = new Carbon_Pagination_Item_Page( $collection );
 			$page_item->set_page_number( $i );
 			$new_subitems[] = $page_item;
@@ -158,9 +158,9 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$limiter_item = new Carbon_Pagination_Item_Limiter( $collection );
 
 		// insert limiters before & after the page numbers
-		for( $i = count( $subitems ) - 1; $i > 0; $i-- ) {
-			$prev = $subitems[$i - 1]->get_page_number();
-			$current = $subitems[$i]->get_page_number();
+		for ( $i = count( $subitems ) - 1; $i > 0; $i-- ) {
+			$prev = $subitems[ $i - 1 ]->get_page_number();
+			$current = $subitems[ $i ]->get_page_number();
 			if ( $current > $prev + 1 && $current - $prev != $large_page_number_interval ) {
 				$subitems_collection->insert_item_at( clone $limiter_item, $i );
 			}

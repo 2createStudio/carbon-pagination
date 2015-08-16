@@ -58,5 +58,5 @@ function carbon_pagination( $pagination, $args = array(), $echo = true ) {
 		return $output;
 	}
 
-	echo $output;
+	echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
 }
