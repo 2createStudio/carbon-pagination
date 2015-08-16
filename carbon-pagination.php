@@ -51,7 +51,7 @@ include_once( $includes_dir . 'Carbon_Pagination_Custom.php' );
 function carbon_pagination( $pagination, $args = array(), $echo = true ) {
 	$output = Carbon_Pagination::display( $pagination, $args, false );
 
-	if ( !$echo ) {
+	if ( ! $echo ) {
 		return $output;
 	}
 

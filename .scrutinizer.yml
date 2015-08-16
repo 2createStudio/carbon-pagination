@@ -12,6 +12,7 @@ checks:
     psr2_control_structure_declaration: false
     psr2_class_declaration: false
     avoid_superglobals: false
+    side_effects_or_types: false
     coding_standard:
         name: WordPress
 
