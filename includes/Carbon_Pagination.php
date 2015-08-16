@@ -955,8 +955,8 @@ abstract class Carbon_Pagination {
 		// preserve all query vars that are in the GET as well
 		// if the default permalink structure is used, all query vars should be added
 		foreach ( $wp->query_vars as $qv_key => $qv_value ) {
-			if ( isset( $_GET[$qv_key] ) || ! $permalink_structure ) {
-				$query_vars[$qv_key] = $qv_value;
+			if ( isset( $_GET[ $qv_key ] ) || ! $permalink_structure ) {
+				$query_vars[ $qv_key ] = $qv_value;
 			}
 		}
 
@@ -976,13 +976,13 @@ abstract class Carbon_Pagination {
 		$renderer_classname = $this->get_renderer();
 
 		// handle unexisting pagination collection classes
-		if ( !class_exists( $collection_classname ) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_collection', __( "Unexisting pagination collection class.", "carbon_pagination" ) );
+		if ( ! class_exists( $collection_classname ) ) {
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_collection', __( 'Unexisting pagination collection class.', 'carbon_pagination' ) );
 		}
 
 		// handle unexisting pagination renderer classes
-		if ( !class_exists( $renderer_classname ) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( "Unexisting pagination renderer class.", "carbon_pagination" ) );
+		if ( ! class_exists( $renderer_classname ) ) {
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( 'Unexisting pagination renderer class.', 'carbon_pagination' ) );
 		}
 
 		// initialize & generate pagination item collection
@@ -1020,7 +1020,7 @@ abstract class Carbon_Pagination {
 
 		// handle unexisting pagination types
 		if ( ! class_exists( $pagination_classname ) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( "Unexisting pagination type class.", "carbon_pagination" ) );
+			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( 'Unexisting pagination type class.', 'carbon_pagination' ) );
 		}
 
 		// initialize pagination

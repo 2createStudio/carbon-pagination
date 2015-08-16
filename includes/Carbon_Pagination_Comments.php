@@ -58,7 +58,7 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 	 */
 	public function get_page_url( $page_number, $old_url = '' ) {
 		$pages = $this->get_pages();
-		$url = get_comments_pagenum_link( $pages[$page_number] );
+		$url = get_comments_pagenum_link( $pages[ $page_number ] );
 		
 		return $url;
 	}

@@ -21,7 +21,7 @@ class Carbon_Pagination_Item_First_Page extends Carbon_Pagination_Item {
 		$first_page = 0;
 
 		// bail if we are already on the first page
-		if ($current_page_idx <= $first_page) {
+		if ( $current_page_idx <= $first_page ) {
 			return;
 		}
 

@@ -158,7 +158,7 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		$limiter_item = new Carbon_Pagination_Item_Limiter( $collection );
 
 		// insert limiters before & after the page numbers
-		for( $i = count($subitems) - 1; $i > 0; $i-- ) {
+		for( $i = count( $subitems ) - 1; $i > 0; $i-- ) {
 			$prev = $subitems[$i - 1]->get_page_number();
 			$current = $subitems[$i]->get_page_number();
 			if ( $current > $prev + 1 && $current - $prev != $large_page_number_interval ) {

@@ -139,7 +139,7 @@ class Carbon_Pagination_Collection {
 	 * @param mixed $new_items The set of pagination items to add.
 	 */
 	public function add_items( $new_items = array() ) {
-		if ( !is_array( $new_items ) ) {
+		if ( ! is_array( $new_items ) ) {
 			$new_items = array( $new_items );
 		} else {
 			$new_items = array_values( $new_items );

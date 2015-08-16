@@ -18,7 +18,7 @@ class Carbon_Pagination_Item_Limiter extends Carbon_Pagination_Item {
 		$pagination = $this->get_collection()->get_pagination();
 
 		$html = $pagination->get_limiter_html();
-		$html = apply_filters('carbon_pagination_limiter', $html, $this);
+		$html = apply_filters( 'carbon_pagination_limiter', $html, $this );
 
 		return $html;
 	}
