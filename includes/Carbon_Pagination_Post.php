@@ -44,10 +44,10 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 			'total_pages' => count( $posts ),
 
 			// modify the text of the previous page link
-			'prev_html' => '<a href="{URL}" class="paging-prev">' . __( '&laquo; Previous Entry', 'crb' ) . '</a>',
+			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entry', 'crb' ) . '</a>',
 
 			// modify the text of the next page link
-			'next_html' => '<a href="{URL}" class="paging-next">' . __( 'Next Entry &raquo;', 'crb' ) . '</a>',
+			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Next Entry »', 'crb' ) . '</a>',
 		);
 
 		parent::__construct( $args );

@@ -38,10 +38,10 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 			'total_pages' => max( $max_page, 1 ),
 
 			// modify the text of the previous page link
-			'prev_html' => '<a href="{URL}" class="paging-prev">' . __( '&laquo; Older Comments', 'crb' ) . '</a>',
+			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Older Comments', 'crb' ) . '</a>',
 
 			// modify the text of the next page link
-			'next_html' => '<a href="{URL}" class="paging-next">' . __( 'Newer Comments &raquo;', 'crb' ) . '</a>',
+			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Newer Comments »', 'crb' ) . '</a>',
 		);
 
 		parent::__construct( $args );

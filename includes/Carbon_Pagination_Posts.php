@@ -28,10 +28,10 @@ class Carbon_Pagination_Posts extends Carbon_Pagination {
 			'total_pages' => max( $wp_query->max_num_pages, 1 ),
 
 			// modify the text of the previous page link
-			'prev_html' => '<a href="{URL}" class="paging-prev">' . __( '&laquo; Previous Entries', 'crb' ) . '</a>',
+			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entries', 'crb' ) . '</a>',
 
 			// modify the text of the next page link
-			'next_html' => '<a href="{URL}" class="paging-next">' . __( 'Next Entries &raquo;', 'crb' ) . '</a>',
+			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Next Entries »', 'crb' ) . '</a>',
 		);
 
 		parent::__construct( $args );
