@@ -73,6 +73,33 @@ class Carbon_Pagination_Renderer {
 	}
 
 	/**
+	 * Prepare the items for rendering.
+	 * If no items are specified, fetches the ones from the collection.
+	 * Filters out incorrect items.
+	 *
+	 * @access public
+	 *
+	 * @return array $ready_items The prepared items.
+	 */
+	public function prepare_items( $items = array() ) {
+		// if no items are specified, use the ones from the collection
+		if ( empty( $items ) ) {
+			$items = $this->get_collection()->get_items();
+		}
+
+		$ready_items = array();
+
+		// allow only Carbon_Pagination_Item instances here
+		foreach ($items as $item) {
+			if ( $item instanceof Carbon_Pagination_Item ) {
+				$ready_items[] = $item;
+			}
+		}
+
+		return $ready_items;
+	}
+
+	/**
 	 * Render the current collection items.
 	 * Each item can have sub items, which are rendered recursively.
 	 *
@@ -82,20 +109,12 @@ class Carbon_Pagination_Renderer {
 	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 */
 	public function render( $items = array(), $echo = true ) {
-		// if no items are specified, use the ones from the collection
-		if ( empty( $items ) ) {
-			$items = $this->get_collection()->get_items();
-		}
+		$items = $this->prepare_items( $items );
 
 		$output = '';
 
 		// loop through items
 		foreach ( $items as $item ) {
-			// allow only Carbon_Pagination_Item instances here
-			if ( ! ( $item instanceof Carbon_Pagination_Item ) ) {
-				continue;
-			}
-
 			$subitems_collection = $item->get_subitems_collection();
 			if ( $subitems_collection && $items = $subitems_collection->get_items() ) {
 				// loop the subitem collection items
