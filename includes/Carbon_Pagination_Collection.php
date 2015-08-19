@@ -74,7 +74,7 @@ class Carbon_Pagination_Collection {
 
 		// if item is enabled, generate it
 		foreach ( $item_classes as $method => $classname ) {
-			if ( method_exists( $pagination, $method ) && call_user_func( array( $pagination, $method ) ) ) {
+			if ( call_user_func( array( $pagination, $method ) ) ) {
 				$items[] = new $classname($this);
 			}
 		}
@@ -90,7 +90,7 @@ class Carbon_Pagination_Collection {
 	public function generate_wrappers() {
 		$pagination = $this->get_pagination();
 		$items = $this->get_items();
-		
+
 		if ( ! empty( $items ) ) {
 			// insert wrapper before the items
 			$wrapper_before = new Carbon_Pagination_Item_HTML( $this );
