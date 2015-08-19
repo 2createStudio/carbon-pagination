@@ -329,6 +329,19 @@ abstract class Carbon_Pagination {
 		// parse configuration options
 		$args = wp_parse_args( $args, $defaults );
 
+		// set configuration options & constraints
+		$this->set( $args );
+
+	}
+
+	/**
+	 * Bulk set certain configuration options & constraints.
+	 *
+	 * @access public
+	 *
+	 * @param array $args Configuration options
+	 */
+	public function set( $args ) {
 		// handle pages & total pages constraints
 		if ( ! $args['pages'] ) {
 			// if pages are not defined, generate them
@@ -345,7 +358,6 @@ abstract class Carbon_Pagination {
 				call_user_func( array( $this, $method ), $arg_value );
 			}
 		}
-
 	}
 
 	/**
