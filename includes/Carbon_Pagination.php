@@ -341,7 +341,7 @@ abstract class Carbon_Pagination {
 		// set configuration options
 		foreach ( $args as $arg_name => $arg_value ) {
 			$method = 'set_' . $arg_name;
-			if ( array_key_exists( $arg_name, $defaults ) && method_exists( $this, $method ) ) {
+			if ( method_exists( $this, $method ) ) {
 				call_user_func( array( $this, $method ), $arg_value );
 			}
 		}
