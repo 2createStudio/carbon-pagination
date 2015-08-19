@@ -14,6 +14,7 @@ checks:
     avoid_superglobals: false
     side_effects_or_types: false
     one_class_per_file: false
+    code_rating: true
     coding_standard:
         name: WordPress
 
