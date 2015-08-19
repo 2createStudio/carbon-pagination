@@ -44,11 +44,21 @@ class Carbon_Pagination_Collection {
 	}
 
 	/**
-	 * Generate the pagination items.
+	 * Generate the pagination items and wrappers.
 	 *
 	 * @access public
 	 */
 	public function generate() {
+		$this->generate_items();
+		$this->generate_wrappers();
+	}
+
+	/**
+	 * Generate the pagination items.
+	 *
+	 * @access public
+	 */
+	public function generate_items() {
 		$pagination = $this->get_pagination();
 		$items = array();
 		
@@ -70,8 +80,17 @@ class Carbon_Pagination_Collection {
 		}
 
 		$this->set_items( $items );
+	}
 
-		// insert wrappers
+	/**
+	 * Generate the pagination wrappers.
+	 *
+	 * @access public
+	 */
+	public function generate_wrappers() {
+		$pagination = $this->get_pagination();
+		$items = $this->get_items();
+		
 		if ( ! empty( $items ) ) {
 			// insert wrapper before the items
 			$wrapper_before = new Carbon_Pagination_Item_HTML( $this );
