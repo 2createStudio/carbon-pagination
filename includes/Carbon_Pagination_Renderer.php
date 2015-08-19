@@ -90,7 +90,7 @@ class Carbon_Pagination_Renderer {
 		$ready_items = array();
 
 		// allow only Carbon_Pagination_Item instances here
-		foreach ($items as $item) {
+		foreach ( $items as $item ) {
 			if ( $item instanceof Carbon_Pagination_Item ) {
 				$ready_items[] = $item;
 			}
