@@ -34,14 +34,6 @@ abstract class Carbon_Pagination {
 	protected $pages = array();
 
 	/**
-	 * The current page number.
-	 *
-	 * @access protected
-	 * @var int
-	 */
-	protected $current_page = 1;
-
-	/**
 	 * The total number of pages.
 	 * If $pages is passed upon initialization, this will be set automatically.
 	 *
@@ -49,6 +41,14 @@ abstract class Carbon_Pagination {
 	 * @var int
 	 */
 	protected $total_pages = 1;
+
+	/**
+	 * The current page number.
+	 *
+	 * @access protected
+	 * @var int
+	 */
+	protected $current_page = 1;
 
 	/**
 	 * Whether the previous page link should be displayed.
@@ -262,34 +262,7 @@ abstract class Carbon_Pagination {
 	public function __construct( $args = array() ) {
 
 		// default configuration options
-		$defaults = array(
-			'wrapper_before' => '<div class="paging">',
-			'wrapper_after' => '</div>',
-			'pages' => array(),
-			'total_pages' => 1,
-			'current_page' => 1,
-			'enable_prev' => true,
-			'enable_next' => true,
-			'enable_first' => false,
-			'enable_last' => false,
-			'enable_numbers' => false,
-			'enable_current_page_text' => false,
-			'number_limit' => -1,
-			'large_page_number_limit' => 0,
-			'large_page_number_interval' => 10,
-			'numbers_wrapper_before' => '<ul>',
-			'numbers_wrapper_after' => '</ul>',
-			'prev_html' => '<a href="{URL}" class="paging-prev"></a>',
-			'next_html' => '<a href="{URL}" class="paging-next"></a>',
-			'first_html' => '<a href="{URL}" class="paging-first"></a>',
-			'last_html' => '<a href="{URL}" class="paging-last"></a>',
-			'number_html' => '<li><a href="{URL}">{PAGE_NUMBER}</a></li>',
-			'current_number_html' => '<li class="current"><a href="{URL}">{PAGE_NUMBER}</a></li>',
-			'limiter_html' => '<li class="paging-spacer">...</li>',
-			'current_page_html' => '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
-			'collection' => 'Carbon_Pagination_Collection',
-			'renderer' => 'Carbon_Pagination_Renderer',
-		);
+		$defaults = get_object_vars( $this );
 
 		// apply default options from the inheriting classes
 		$defaults = wp_parse_args( $this->default_args, $defaults );

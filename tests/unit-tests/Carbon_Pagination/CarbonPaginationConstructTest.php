@@ -11,12 +11,12 @@ class CarbonPaginationConstructTest extends WP_UnitTestCase {
 	}
 
 	public function testDefaultValues() {
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination');
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
 		$this->assertSame( 1, $paginationStub->get_total_pages() );
 	}
 
 	public function testDefaultArgsOverDefaultValues() {
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination');
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array(), '', false );
 		$paginationStub->default_args = array(
 			'total_pages' => 123,
 		);
@@ -26,7 +26,7 @@ class CarbonPaginationConstructTest extends WP_UnitTestCase {
 
 	public function testDefaultValuesFilterOverDefaultArgs() {
 		add_filter('carbon_pagination_default_options', array($this, 'carbon_pagination_default_options'));
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination');
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array(), '', false );
 		$paginationStub->default_args = array(
 			'total_pages' => 123,
 		);
