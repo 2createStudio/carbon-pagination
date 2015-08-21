@@ -17,26 +17,26 @@ if ( class_exists( 'Carbon_Pagination' ) ) {
 
 // include the pagination classes
 $includes_dir = dirname( __FILE__ ) . '/includes/';
-include_once( $includes_dir . 'Carbon_Pagination.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Renderer.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Collection.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Page.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Limiter.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_HTML.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Current_Page_Text.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Direction_Page.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Direction_Backward.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Direction_Forward.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_First_Page.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Previous_Page.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Next_Page.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Last_Page.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Item_Number_Links.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Posts.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Post.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Comments.php' );
-include_once( $includes_dir . 'Carbon_Pagination_Custom.php' );
+include_once( $includes_dir . 'paginations/Carbon_Pagination.php' );
+include_once( $includes_dir . 'paginations/Carbon_Pagination_Posts.php' );
+include_once( $includes_dir . 'paginations/Carbon_Pagination_Post.php' );
+include_once( $includes_dir . 'paginations/Carbon_Pagination_Comments.php' );
+include_once( $includes_dir . 'paginations/Carbon_Pagination_Custom.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Page.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Limiter.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_HTML.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Current_Page_Text.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Direction_Page.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Direction_Backward.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Direction_Forward.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_First_Page.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Previous_Page.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Next_Page.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Last_Page.php' );
+include_once( $includes_dir . 'items/Carbon_Pagination_Item_Number_Links.php' );
+include_once( $includes_dir . 'misc/Carbon_Pagination_Renderer.php' );
+include_once( $includes_dir . 'misc/Carbon_Pagination_Collection.php' );
 
 /**
  * A lazy way to build, configure and display a new pagination.
