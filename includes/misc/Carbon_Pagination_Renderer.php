@@ -109,8 +109,32 @@ class Carbon_Pagination_Renderer {
 	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 */
 	public function render( $items = array(), $echo = true ) {
+		// allow developers to filter the items before rendering
+		$items = apply_filters( 'carbon_pagination_items_before_render', $items, $this );
 		$items = $this->prepare_items( $items );
 
+		// loop through all items and get their output
+		$output = $this->render_items( $items );
+
+		// allow developers to filter the output before it is rendered
+		$output = apply_filters( 'carbon_pagination_renderer_output', $output, $this );
+
+		if ( ! $echo ) {
+			return $output;
+		}
+
+		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
+	}
+
+	/**
+	 * Render a set of pagination items, recursively.
+	 *
+	 * @access public
+	 *
+	 * @param array $items Items to render.
+	 * @return string $output The HTML output of all items.
+	 */
+	protected function render_items( $items ) {
 		$output = '';
 
 		// loop through items
@@ -131,11 +155,7 @@ class Carbon_Pagination_Renderer {
 			}
 		}
 
-		if ( ! $echo ) {
-			return $output;
-		}
-
-		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
+		return $output;
 	}
 
 }

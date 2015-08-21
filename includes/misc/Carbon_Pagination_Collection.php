@@ -37,7 +37,7 @@ class Carbon_Pagination_Collection {
 		$this->set_pagination( $pagination );
 
 		// whether to auto generate pagination items
-		$autogenerate = apply_filters( 'carbon_pagination_autogenerate_collection_items', $autogenerate );
+		$autogenerate = apply_filters( 'carbon_pagination_autogenerate_collection_items', $autogenerate, $this );
 		if ( $autogenerate ) {
 			$this->generate();
 		}
@@ -51,6 +51,9 @@ class Carbon_Pagination_Collection {
 	public function generate() {
 		$this->generate_items();
 		$this->generate_wrappers();
+
+		// allow developers to modify the collection items after it was generated
+		do_action( 'carbon_pagination_collection_after_generate', $this );
 	}
 
 	/**

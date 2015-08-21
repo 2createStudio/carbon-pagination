@@ -268,7 +268,7 @@ abstract class Carbon_Pagination {
 		$defaults = wp_parse_args( $this->default_args, $defaults );
 
 		// allow default options to be filtered
-		$defaults = apply_filters( 'carbon_pagination_default_options', $defaults );
+		$defaults = apply_filters( 'carbon_pagination_default_options', $defaults, $this );
 
 		// parse configuration options
 		$args = wp_parse_args( $args, $defaults );

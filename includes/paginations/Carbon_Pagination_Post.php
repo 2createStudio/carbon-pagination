@@ -27,7 +27,7 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 		);
 
 		// allow the default query args to be filtered
-		$query = apply_filters( 'carbon_pagination_post_pagination_query', $query );
+		$query = apply_filters( 'carbon_pagination_post_pagination_query', $query, $this );
 		
 		// get all sibling posts/pages
 		$posts = get_posts( $query );

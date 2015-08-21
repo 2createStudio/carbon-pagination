@@ -358,6 +358,95 @@ The class name of the pagination item collection object.
 
 - - -
 
+Actions & Filters
+-------------------------------
+
+The following actions and filters can allow developers to modify the default behavior and hook to add custom functionality in various situations.
+
+### Filters
+
+#### carbon\_pagination\_default\_options
+
+**$defaults** *(array)*. The default options of the pagination.
+
+**$pagination** *(Carbon_Pagination)*. The pagination object.
+
+This filter allows you to modify the default pagination options and their values.
+
+#### carbon\_pagination\_current\_page\_text
+
+**$html** *(string)*. The original HTML of this item, including any unparsed tokens.
+
+**$item** *(Carbon_Pagination_Item_Current_Page_Text)*. The item object.
+
+This filter allows you to modify the HTML of the current item text item.
+
+#### carbon\_pagination\_html
+
+**$html** *(string)*. The original HTML of this item, including any unparsed tokens.
+
+**$item** *(Carbon_Pagination_Item_HTML)*. The item object.
+
+This filter allows you to modify the HTML of the HTML item.
+
+#### carbon\_pagination\_limiter
+
+**$html** *(string)*. The original HTML of this item, including any unparsed tokens.
+
+**$item** *(Carbon_Pagination_Item_Limiter)*. The item object.
+
+This filter allows you to modify the HTML of a limiter item.
+
+#### carbon\_pagination\_page\_link
+
+**$html** *(string)*. The original HTML of this item, including any unparsed tokens.
+
+**$item** *(Carbon_Pagination_Item_Page)*. The item object.
+
+This filter allows you to modify the HTML of a number page item.
+
+#### carbon\_pagination\_autogenerate\_collection\_items
+
+**$autogenerate** *(bool)*. True to autogenerate, false to not.
+
+**$collection** *(Carbon_Pagination_Collection)*. The collection object.
+
+This filter allows you specify whether to autogenerate all default pagination items in this collection.
+
+#### carbon\_pagination\_items\_before\_render
+
+**$items** *(array)*. An array of items that are going to be rendered.
+
+**$renderer** *(Carbon_Pagination_Renderer)*. The renderer object.
+
+This filter allows you to modify the items that are going to be rendered.
+
+#### carbon\_pagination\_renderer\_output
+
+**$output** *(string)*. The items output that will be rendered.
+
+**$renderer** *(Carbon_Pagination_Renderer)*. The renderer object.
+
+This filter allows you to modify the output of the items before it is rendered.
+
+#### carbon\_pagination\_post\_pagination\_query
+
+**$args** *(array)*. The query args.
+
+**$pagination** *(Carbon_Pagination_Post)*. The post pagination object.
+
+This filter allows you to modify the query args of the posts that the pagination will navigate through.
+
+### Actions
+
+#### carbon\_pagination\_collection\_after\_generate
+
+**$collection** *(Carbon_Pagination_Collection)*. The collection object.
+
+This action is called right after generating the default collection items.
+
+- - -
+
 Extending Guidelines & Examples
 -------------------------------
 
