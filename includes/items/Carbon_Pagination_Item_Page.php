@@ -37,7 +37,7 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 		$page_number = $this->get_page_number();
 
 		// build the page link URL 
-		$url = $pagination->get_page_url( $page_number, $pagination->get_current_url() );
+		$url = $pagination->get_page_url( $page_number, Carbon_Pagination_Utilities::get_current_url() );
 
 		// parse tokens
 		$tokens = array(

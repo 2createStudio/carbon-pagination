@@ -39,7 +39,8 @@ include_once( $includes_dir . 'items/Carbon_Pagination_Item_Next_Page.php' );
 include_once( $includes_dir . 'items/Carbon_Pagination_Item_Last_Page.php' );
 include_once( $includes_dir . 'items/Carbon_Pagination_Item_Number_Links.php' );
 
-// misc classes - renderer, item collection
+// misc classes - utlities, renderer, item collection
+include_once( $includes_dir . 'misc/Carbon_Pagination_Utilities.php' );
 include_once( $includes_dir . 'misc/Carbon_Pagination_Renderer.php' );
 include_once( $includes_dir . 'misc/Carbon_Pagination_Collection.php' );
 
