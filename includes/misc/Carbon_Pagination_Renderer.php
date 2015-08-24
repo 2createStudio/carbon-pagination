@@ -142,7 +142,7 @@ class Carbon_Pagination_Renderer {
 			$subitems_collection = $item->get_subitems_collection();
 			if ( $subitems_collection && $items = $subitems_collection->get_items() ) {
 				// loop the subitem collection items
-				$output .= $this->render_items( $items, false );
+				$output .= $this->render_items( $items );
 			} else {
 				// setup the item
 				$item->setup();
