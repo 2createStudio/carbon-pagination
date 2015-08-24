@@ -8,27 +8,20 @@
  */
 abstract class Carbon_Pagination {
 	/**
-	 * Wrapper - before
-	 *
-	 * @access protected
+	 * Wrapper - before.
 	 * @var string
 	 */
 	protected $wrapper_before = '<div class="paging">';
 
 	/**
-	 * Wrapper - after
-	 *
-	 * @access protected
+	 * Wrapper - after.
 	 * @var string
 	 */
 	protected $wrapper_after = '</div>';
 
 	/**
-	 * Pages - optional.
-	 * Can be used if you want to loop through IDs instead of consecutive pages.
+	 * Optional. Can be used if you want to loop through IDs instead of consecutive pages.
 	 * If not defined, falls back to an array of all pages from 1 to $total_pages.
-	 *
-	 * @access protected
 	 * @var array
 	 */
 	protected $pages = array();
@@ -36,64 +29,48 @@ abstract class Carbon_Pagination {
 	/**
 	 * The total number of pages.
 	 * If $pages is passed upon initialization, this will be set automatically.
-	 *
-	 * @access protected
 	 * @var int
 	 */
 	protected $total_pages = 1;
 
 	/**
 	 * The current page number.
-	 *
-	 * @access protected
 	 * @var int
 	 */
 	protected $current_page = 1;
 
 	/**
 	 * Whether the previous page link should be displayed.
-	 *
-	 * @access protected
 	 * @var bool
 	 */
 	protected $enable_prev = true;
 
 	/**
 	 * Whether the next page link should be displayed.
-	 *
-	 * @access protected
 	 * @var bool
 	 */
 	protected $enable_next = true;
 
 	/**
 	 * Whether the first page link should be displayed.
-	 *
-	 * @access protected
 	 * @var bool
 	 */
 	protected $enable_first = false;
 
 	/**
 	 * Whether the last page link should be displayed.
-	 *
-	 * @access protected
 	 * @var bool
 	 */
 	protected $enable_last = false;
 
 	/**
 	 * Whether the page number links should be displayed.
-	 *
-	 * @access protected
 	 * @var bool
 	 */
 	protected $enable_numbers = false;
 
 	/**
 	 * Whether the current page text ("Page X of Y") should be displayed.
-	 *
-	 * @access protected
 	 * @var bool
 	 */
 	protected $enable_current_page_text = false;
@@ -102,8 +79,6 @@ abstract class Carbon_Pagination {
 	 * How much page number links should be displayed (on each side of the current page item).
 	 * Using 0 means only the current page item will be displayed.
 	 * Using -1 means no limit (all page number links will be displayed).
-	 *
-	 * @access protected
 	 * @var int
 	 */
 	protected $number_limit = -1;
@@ -112,8 +87,6 @@ abstract class Carbon_Pagination {
 	 * How much larger page number links should be displayed.
 	 * Larger page numbers can be: 10, 20, 30, etc.
 	 * Using 0 means none (no larger page number links will be displayed).
-	 *
-	 * @access protected
 	 * @var int
 	 */
 	protected $large_page_number_limit = 0;
@@ -121,139 +94,102 @@ abstract class Carbon_Pagination {
 	/**
 	 * The interval between larger page number links.
 	 * If set to 5, larger page numbers will be 5, 10, 15, 20, etc.
-	 *
-	 * @access protected
 	 * @var int
 	 */
 	protected $large_page_number_interval = 10;
 
 	/**
 	 * The wrapper before the page number links (1, 2, 3, etc).
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $numbers_wrapper_before = '<ul>';
 
 	/**
 	 * The wrapper after the page number links (1, 2, 3, etc).
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $numbers_wrapper_after = '</ul>';
 
 	/**
-	 * The HTML of the previous page link.
-	 * You can use the following tokens:
+	 * The HTML of the previous page link. You can use the following tokens:
 	 * - {URL} - the link URL
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $prev_html = '<a href="{URL}" class="paging-prev"></a>';
 
 	/**
-	 * The HTML of the next page link.
-	 * You can use the following tokens:
+	 * The HTML of the next page link. You can use the following tokens:
 	 * - {URL} - the link URL
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $next_html = '<a href="{URL}" class="paging-next"></a>';
 
 	/**
-	 * The HTML of the first page link.
-	 * You can use the following tokens:
+	 * The HTML of the first page link. You can use the following tokens:
 	 * - {URL} - the link URL
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $first_html = '<a href="{URL}" class="paging-first"></a>';
 
 	/**
-	 * The HTML of the last page link.
-	 * You can use the following tokens:
+	 * The HTML of the last page link. You can use the following tokens:
 	 * - {URL} - the link URL
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $last_html = '<a href="{URL}" class="paging-last"></a>';
 
 	/**
-	 * The HTML of the page number link.
-	 * You can use the following tokens:
+	 * The HTML of the page number link. You can use the following tokens:
 	 * - {URL} - the link URL
 	 * - {PAGE_NUMBER} - the particular page number
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $number_html = '<li><a href="{URL}">{PAGE_NUMBER}</a></li>';
 
 	/**
-	 * The HTML of the current page number link.
-	 * You can use the following tokens:
+	 * The HTML of the current page number link. You can use the following tokens:
 	 * - {URL} - the link URL
 	 * - {PAGE_NUMBER} - the particular page number
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $current_number_html = '<li class="current"><a href="{URL}">{PAGE_NUMBER}</a></li>';
 
 	/**
 	 * The HTML of limiter between page number links.
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $limiter_html = '<li class="paging-spacer">...</li>';
 
 	/**
-	 * The current page text HTML.
-	 * You can use the following tokens:
+	 * The current page text HTML. You can use the following tokens:
 	 * - {CURRENT_PAGE} - the current page number
 	 * - {TOTAL_PAGES} - the total number of pages
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $current_page_html = '<span class="paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>';
 
 	/**
 	 * The class name of the pagination collection object.
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $collection = 'Carbon_Pagination_Collection';
 
 	/**
 	 * The class name of the pagination renderer object.
-	 *
-	 * @access protected
 	 * @var string
 	 */
 	protected $renderer = 'Carbon_Pagination_Renderer';
 
 	/**
-	 * The default argument values.
-	 * Can be declared in the inheriting classes.
+	 * The default argument values. Can be declared in the inheriting classes.
 	 * Will override the default configuration options in Carbon_Pagination::__construct
-	 * but can be overriden by the $args parameter
-	 *
-	 * @access public
+	 * but can be overriden by the $args parameter.
 	 * @var array
 	 */
 	public $default_args = array();
 
 	/**
 	 * Constructor.
-	 *
 	 * Creates and configures a new pagination with the provided settings.
 	 *
 	 * @access public

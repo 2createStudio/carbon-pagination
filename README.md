@@ -195,6 +195,10 @@ Class that represents a set of pagination items that will be rendered. You can c
 
 Class that will render a certain collection of pagination items.
 
+#### Presenter
+
+Class that handles the presentation of paginations - it is used to render a specific pagination. Using its factory method `display()`, it can also initialize, build and display a new pagination with the provided parameters.
+
 - - -
 
 Pagination Types
