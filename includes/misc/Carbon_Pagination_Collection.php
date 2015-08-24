@@ -68,6 +68,9 @@ class Carbon_Pagination_Collection {
 			'get_enable_last' => 'Carbon_Pagination_Item_Last_Page',
 		);
 
+		// allow default methods => items to be filtered
+		$item_classes = apply_filters( 'carbon_pagination_default_collection_items', $item_classes, $this );
+
 		// if item is enabled, generate it
 		foreach ( $item_classes as $method => $classname ) {
 			if ( call_user_func( array( $pagination, $method ) ) ) {
