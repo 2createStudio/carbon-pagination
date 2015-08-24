@@ -1,8 +1,8 @@
 <?php
 /**
- * @group pagination
+ * @group presenter
  */
-class CarbonPaginationRenderTest extends WP_UnitTestCase {
+class CarbonPaginationPresenterRenderTest extends WP_UnitTestCase {
 
 	public function testRenderUnexistingPaginationCollection() {
 		$args = array(

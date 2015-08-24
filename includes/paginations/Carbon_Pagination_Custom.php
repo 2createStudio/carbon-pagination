@@ -28,7 +28,7 @@ class Carbon_Pagination_Custom extends Carbon_Pagination {
 	public function __construct( $args = array() ) {
 		// get the default total number of pages from the <!--nextpage--> functionality
 		global $numpages;
-		$total_pages = !empty($numpages) ? $numpages : '';
+		$total_pages = ! empty( $numpages ) ? $numpages : '';
 
 		// specify the default args for the Custom pagination
 		$this->default_args = array(

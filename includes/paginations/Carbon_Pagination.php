@@ -850,59 +850,8 @@ abstract class Carbon_Pagination {
 	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 */
 	public function render( $echo = true ) {
-		// get collection & renderer class names
-		$collection_classname = $this->get_collection();
-		$renderer_classname = $this->get_renderer();
-
-		// handle unexisting pagination collection classes
-		if ( ! class_exists( $collection_classname ) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_collection', __( 'Unexisting pagination collection class.', 'carbon_pagination' ) );
-		}
-
-		// handle unexisting pagination renderer classes
-		if ( ! class_exists( $renderer_classname ) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( 'Unexisting pagination renderer class.', 'carbon_pagination' ) );
-		}
-
-		// initialize & generate pagination item collection
-		$collection = new $collection_classname( $this );
-
-		// render the pagination item collection
-		$renderer = new $renderer_classname( $collection );
-		$output = $renderer->render( array(), false );
-
-		if ( ! $echo ) {
-			return $output;
-		}
-
-		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
-	}
-
-	/**
-	 * Build, configure and display a new pagination.
-	 *
-	 * @static
-	 * @access public
-	 * @param string $pagination The pagination type, can be one of the following:
-	 *    - Posts
-	 *    - Post
-	 *    - Comments
-	 *    - Custom
-	 * @param array $args Configuration options to modify the pagination settings.
-	 * @param bool $echo Whether to display or return the output. True will display, false will return.
-	 * @see Carbon_Pagination::__construct()
-	 */
-	public static function display( $pagination, $args = array(), $echo = true ) {
-		$pagination_classname = 'Carbon_Pagination_' . $pagination;
-
-		// handle unexisting pagination types
-		if ( ! class_exists( $pagination_classname ) ) {
-			return new WP_Error( 'carbon_pagination_unexisting_pagination_type', __( 'Unexisting pagination type class.', 'carbon_pagination' ) );
-		}
-
-		// initialize pagination
-		$pagination = new $pagination_classname( $args );
-		$output = $pagination->render( false );
+		$presenter = new Carbon_Pagination_Presenter( $this );
+		$output = $presenter->render();
 
 		if ( ! $echo ) {
 			return $output;

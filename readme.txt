@@ -35,15 +35,15 @@ if ( function_exists('carbon_pagination') ) {
 }
 ?>`
 
-The `carbon_pagination()` function is a wrapper around the main `Carbon_Pagination` class. Which means you can also do the above this way:
+The `carbon_pagination()` function is a wrapper around the `Carbon_Pagination_Presenter` class, which handles pagination presentation. Which means you can also do the above this way:
 
-`<?php Carbon_Pagination::display('posts'); ?>`
+`<?php Carbon_Pagination_Presenter::display('posts'); ?>`
 
 Of course, if using Carbon Pagination as a plugin, it would be best to check if the class exists:
 
 `<?php 
-if ( class_exists('Carbon_Pagination') ) {
-	Carbon_Pagination::display('posts');
+if ( class_exists('Carbon_Pagination_Presenter') ) {
+	Carbon_Pagination_Presenter::display('posts');
 }
 ?>`
 

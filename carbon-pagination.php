@@ -43,6 +43,7 @@ include_once( $includes_dir . 'items/Carbon_Pagination_Item_Number_Links.php' );
 include_once( $includes_dir . 'misc/Carbon_Pagination_Utilities.php' );
 include_once( $includes_dir . 'misc/Carbon_Pagination_Renderer.php' );
 include_once( $includes_dir . 'misc/Carbon_Pagination_Collection.php' );
+include_once( $includes_dir . 'misc/Carbon_Pagination_Presenter.php' );
 
 // public functions
 include_once( $includes_dir . 'functions.php' );

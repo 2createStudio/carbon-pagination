@@ -27,21 +27,21 @@ If using Carbon Pagination as a plugin, it would be best to check if the functio
 	}
 	?>
 
-The `carbon_pagination()` function is a wrapper around the main `Carbon_Pagination` class. Which means you can also do the above this way:
+The `carbon_pagination()` function is a wrapper around the `Carbon_Pagination_Presenter` class, which handles pagination presentation. Which means you can also do the above this way:
 
-	<?php Carbon_Pagination::display('posts'); ?>
+	<?php Carbon_Pagination_Presenter::display('posts'); ?>
 
 Of course, if using Carbon Pagination as a plugin, it would be best to check if the class exists:
 
 	<?php 
-	if ( class_exists('Carbon_Pagination') ) {
-		Carbon_Pagination::display('posts');
+	if ( class_exists('Carbon_Pagination_Presenter') ) {
+		Carbon_Pagination_Presenter::display('posts');
 	}
 	?>
 
 #### Specifying parameters
 
-You can specify your preferred parameters as the second argument of `carbon_pagination()` and `Carbon_Pagination::display()`. Example:
+You can specify your preferred parameters as the second argument of `carbon_pagination()` and `Carbon_Pagination_Presenter::display()`. Example:
 
 	<?php 
 	carbon_pagination('posts', array(
@@ -234,7 +234,7 @@ If you need a more complex custom pagination, you'd probably want to extend this
 Configuration Options
 ---------------------
 
-You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination::display()`, or when creating a new instance of any pagination class (for a full list, please refer to `Carbon_Pagination::__construct()`).
+You can specify these configuration options by passing them as an associative array to the `$args` argument when calling `carbon_pagination()`, `Carbon_Pagination_Presenter::display()`, or when creating a new instance of any pagination class (for a full list, please refer to `Carbon_Pagination::__construct()`).
 
 Within some of the configurations options (the ones that are HTML) you can use tokens. These tokens will be automatically replaced with dynamic content that comes from the pagination (for example page number, page link URL, total number of pages, etc). 
 

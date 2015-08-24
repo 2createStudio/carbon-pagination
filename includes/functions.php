@@ -14,7 +14,7 @@
  * @see Carbon_Pagination::__construct()
  */
 function carbon_pagination( $pagination, $args = array(), $echo = true ) {
-	$output = Carbon_Pagination::display( $pagination, $args, false );
+	$output = Carbon_Pagination_Presenter::display( $pagination, $args, false );
 
 	if ( ! $echo ) {
 		return $output;
