@@ -469,10 +469,3 @@ This filter allows you to modify the query args of the posts that the pagination
 **$collection** *(Carbon_Pagination_Collection)*. The collection object.
 
 This action is called right after generating the default collection items.
-
-- - -
-
-Extending Guidelines & Examples
--------------------------------
-
-**TBD**
