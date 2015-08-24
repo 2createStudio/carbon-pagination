@@ -8,6 +8,12 @@
 class Carbon_Pagination_Presenter {
 
 	/**
+	 * The pagination object.
+	 * @var Carbon_Pagination
+	 */
+	protected $pagination;
+
+	/**
 	 * Constructor.
 	 *
 	 * Sets the pagination that will be displayed or rendered.

@@ -7,9 +7,6 @@ class Carbon_Pagination_Item {
 
 	/**
 	 * The pagination collection object this item belongs to.
-	 *
-	 * @access protected
-	 *
 	 * @var Carbon_Pagination_Collection
 	 */
 	protected $collection;
@@ -18,9 +15,6 @@ class Carbon_Pagination_Item {
 	 * The subitems collection.
 	 * Contains the sub items that this item consists of.
 	 * Can be false if this item is a standalone single item.
-	 *
-	 * @access protected
-	 *
 	 * @var Carbon_Pagination_Collection|bool
 	 */
 	protected $subitems_collection = false;
@@ -34,19 +28,15 @@ class Carbon_Pagination_Item {
 	 * Tokens should be used in the string in the following way:
 	 * 'lorem {TOKENNAME} ipsum'
 	 * 
-	 * @access protected
-	 *
 	 * @var array
 	 */
 	protected $tokens = array();
 
 	/**
 	 * Constructor.
-	 *
 	 * Creates and configures a new pagination item.
 	 *
 	 * @access public
-	 *
 	 * @param Carbon_Pagination_Collection $collection Pagination collection object.
 	 */
 	public function __construct( Carbon_Pagination_Collection $collection ) {
@@ -59,7 +49,6 @@ class Carbon_Pagination_Item {
 	 * Retrieve the collection object.
 	 *
 	 * @access public
-	 *
 	 * @return Carbon_Pagination_Collection $collection The collection object.
 	 */
 	public function get_collection() {
@@ -70,7 +59,6 @@ class Carbon_Pagination_Item {
 	 * Modify the collection object.
 	 *
 	 * @access public
-	 *
 	 * @param Carbon_Pagination_Collection $collection The new collection object.
 	 */
 	public function set_collection( Carbon_Pagination_Collection $collection ) {
@@ -81,7 +69,6 @@ class Carbon_Pagination_Item {
 	 * Retrieve the item subitems collection.
 	 *
 	 * @access public
-	 *
 	 * @return Carbon_Pagination_Collection $subitems_collection The item subitems collection.
 	 */
 	public function get_subitems_collection() {
@@ -92,7 +79,6 @@ class Carbon_Pagination_Item {
 	 * Modify the item subitems collection.
 	 *
 	 * @access public
-	 *
 	 * @param Carbon_Pagination_Collection $subitems_collection The new item subitems collection.
 	 */
 	public function set_subitems_collection( Carbon_Pagination_Collection $subitems_collection ) {
@@ -103,7 +89,6 @@ class Carbon_Pagination_Item {
 	 * Retrieve the item HTML replaceable tokens.
 	 *
 	 * @access public
-	 *
 	 * @return array $tokens The item HTML replaceable tokens.
 	 */
 	public function get_tokens() {
@@ -114,7 +99,6 @@ class Carbon_Pagination_Item {
 	 * Modify the item HTML replaceable tokens.
 	 *
 	 * @access public
-	 *
 	 * @param array $tokens The new item HTML replaceable tokens.
 	 */
 	public function set_tokens( $tokens ) {
@@ -125,7 +109,6 @@ class Carbon_Pagination_Item {
 	 * Render the item.
 	 *
 	 * @access public
-	 *
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {

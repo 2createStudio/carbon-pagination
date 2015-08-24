@@ -10,7 +10,6 @@ class Carbon_Pagination_Item_Last_Page extends Carbon_Pagination_Item_Direction_
 	 * The HTML of the direction item.
 	 *
 	 * @access public
-	 *
 	 * @return string $html The direction item HTML.
 	 */
 	public function get_direction_html() {
@@ -22,7 +21,6 @@ class Carbon_Pagination_Item_Last_Page extends Carbon_Pagination_Item_Direction_
 	 * The number of the page to link to.
 	 *
 	 * @access public
-	 *
 	 * @return int $page The number of the page to link to.
 	 */
 	public function get_direction_page_number() {

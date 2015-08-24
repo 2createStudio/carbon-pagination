@@ -8,28 +8,21 @@ class Carbon_Pagination_Collection {
 
 	/**
 	 * Pagination items.
-	 *
-	 * @access protected
 	 * @var array
 	 */
 	protected $items = array();
 
 	/**
 	 * The pagination object.
-	 *
-	 * @access protected
-	 *
 	 * @var Carbon_Pagination
 	 */
 	protected $pagination;
 
 	/**
 	 * Constructor.
-	 *
 	 * Creates and configures a new pagination collection for the provided pagination.
 	 *
 	 * @access public
-	 *
 	 * @param Carbon_Pagination $pagination Pagination object.
 	 * @param bool $autogenerate Whether to automatically generate pagination items.
 	 */
@@ -111,7 +104,6 @@ class Carbon_Pagination_Collection {
 	 * Retrieve the pagination object.
 	 *
 	 * @access public
-	 *
 	 * @return Carbon_Pagination $pagination The pagination object.
 	 */
 	public function get_pagination() {
@@ -122,7 +114,6 @@ class Carbon_Pagination_Collection {
 	 * Modify the pagination object.
 	 *
 	 * @access public
-	 *
 	 * @param Carbon_Pagination $pagination The new pagination object.
 	 */
 	public function set_pagination( Carbon_Pagination $pagination ) {
@@ -133,7 +124,6 @@ class Carbon_Pagination_Collection {
 	 * Retrieve the pagination items in the collection.
 	 *
 	 * @access public
-	 *
 	 * @return array $items The pagination items, contained in the collection.
 	 */
 	public function get_items() {
@@ -144,7 +134,6 @@ class Carbon_Pagination_Collection {
 	 * Modify the pagination items in the collection.
 	 *
 	 * @access public
-	 *
 	 * @param array $items The new set of pagination items.
 	 */
 	public function set_items( $items = array() ) {
@@ -157,7 +146,6 @@ class Carbon_Pagination_Collection {
 	 * If $new_items is an array, it will be treated as a set of items.
 	 *
 	 * @access public
-	 *
 	 * @param mixed $new_items The set of pagination items to add.
 	 */
 	public function add_items( $new_items = array() ) {
@@ -179,7 +167,6 @@ class Carbon_Pagination_Collection {
 	 * If the $item is not an array, it will be treated as a single item.
 	 *
 	 * @access public
-	 *
 	 * @param mixed $item The item(s) to insert.
 	 * @param int $index The index to insert the item at.
 	 */

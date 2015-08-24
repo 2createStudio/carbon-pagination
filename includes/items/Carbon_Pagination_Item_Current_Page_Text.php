@@ -29,7 +29,6 @@ class Carbon_Pagination_Item_Current_Page_Text extends Carbon_Pagination_Item {
 	 * Render the item.
 	 *
 	 * @access public
-	 *
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {

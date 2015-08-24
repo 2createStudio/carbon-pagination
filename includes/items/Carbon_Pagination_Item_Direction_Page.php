@@ -36,7 +36,6 @@ abstract class Carbon_Pagination_Item_Direction_Page extends Carbon_Pagination_I
 	 *
 	 * @abstract
 	 * @access public
-	 *
 	 * @return string $html The direction item HTML.
 	 */
 	abstract public function get_direction_html();
@@ -47,7 +46,6 @@ abstract class Carbon_Pagination_Item_Direction_Page extends Carbon_Pagination_I
 	 *
 	 * @abstract
 	 * @access public
-	 *
 	 * @return bool $result The condition result.
 	 */
 	abstract public function get_direction_disabled();
@@ -57,7 +55,6 @@ abstract class Carbon_Pagination_Item_Direction_Page extends Carbon_Pagination_I
 	 *
 	 * @abstract
 	 * @access public
-	 *
 	 * @return int $page The number of the page to link to.
 	 */
 	abstract public function get_direction_page_number();

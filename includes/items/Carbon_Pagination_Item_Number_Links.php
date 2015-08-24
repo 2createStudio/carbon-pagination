@@ -40,7 +40,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	 * Generate number pages (subitems) in a certain range.
 	 *
 	 * @access public
-	 *
 	 * @param int $from Index of the first page.
 	 * @param int $to Index of the last page.
 	 * @param int $limit Number of pages to create.
