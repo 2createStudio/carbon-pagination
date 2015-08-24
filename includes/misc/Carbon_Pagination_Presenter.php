@@ -46,12 +46,12 @@ class Carbon_Pagination_Presenter {
 	}
 
 	/**
-	 * Render the pagination.
+	 * Verify if the pagination is ready for presentation.
 	 *
 	 * @access public
-	 * @return string|WP_Error $output The output of the pagination, or WP_Error on failure.
+	 * @return bool|WP_Error $result True if everything is fine, false or WP_Error on failure.
 	 */
-	public function render() {
+	public function verify_pagination() {
 		// get pagination and the collection & renderer class names
 		$pagination = $this->get_pagination();
 		$collection_classname = $pagination->get_collection();
@@ -65,6 +65,32 @@ class Carbon_Pagination_Presenter {
 		// handle unexisting pagination renderer classes
 		if ( ! class_exists( $renderer_classname ) ) {
 			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( 'Unexisting pagination renderer class.', 'carbon_pagination' ) );
+		}
+
+		// if there are less than 2 pages, nothing will be shown
+		if ( $pagination->get_total_pages() <= 1 ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Render the pagination.
+	 *
+	 * @access public
+	 * @return string $output The output of the pagination, or WP_Error on failure.
+	 */
+	public function render() {
+		// get pagination and the collection & renderer class names
+		$pagination = $this->get_pagination();
+		$collection_classname = $pagination->get_collection();
+		$renderer_classname = $pagination->get_renderer();
+
+		// handle unexisting pagination collection classes
+		$verify = $this->verify_pagination();
+		if ( ! $verify ) {
+			return '';
 		}
 
 		// initialize & generate pagination item collection
