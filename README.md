@@ -87,6 +87,31 @@ Below is an example, containing all possible settings that you can specify, alon
 	)); 
 	?>
 
+Below is an example that initializes a pagination, similar to the one on the Twentyfifteen theme, with its markup as well. This could easily replace the `the_posts_pagination()` call in Twentyfifteen's index.php:
+
+	<?php 
+	carbon_pagination('posts', array(
+		'wrapper_before' => '<nav class="navigation pagination"><div class="nav-links">',
+		'wrapper_after' => '</div></nav>',
+		'prev_html' => '<a class="prev page-numbers" href="{URL}">Previous page</a>',
+		'next_html' => '<a class="next page-numbers" href="{URL}">Next page</a>',
+		'first_html' => '<a class="prev page-numbers" href="{URL}">First page</a>',
+		'last_html' => '<a class="next page-numbers" href="{URL}">Last page</a>',
+		'number_html' => '<a class="page-numbers" href="{URL}"><span class="meta-nav screen-reader-text">Page </span>{PAGE_NUMBER}</a>',
+		'current_number_html' => '<span class="page-numbers current"><span class="meta-nav screen-reader-text">Page </span>{PAGE_NUMBER}</span>',
+		'current_page_html' => '<span class="page-numbers paging-label">Page {CURRENT_PAGE} of {TOTAL_PAGES}</span>',
+		'limiter_html' => '<span class="page-numbers dots">…</span>',
+		'numbers_wrapper_before' => '',
+		'numbers_wrapper_after' => '',
+		'enable_numbers' => true,
+		'enable_prev' => true,
+		'enable_next' => true,
+		'enable_numbers' => true,
+		'number_limit' => 3,
+		'large_page_number_limit' => 1,
+	));
+	?>
+
 You can read more about each setting in the **Configuration Options** section.
 
 #### Using and manipulating pagination as an object
