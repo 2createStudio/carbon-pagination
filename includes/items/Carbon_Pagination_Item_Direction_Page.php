@@ -19,7 +19,7 @@ abstract class Carbon_Pagination_Item_Direction_Page extends Carbon_Pagination_I
 	public function init() {
 		$collection = $this->get_collection();
 
-		// bail if we are already on the first page
+		// bail if this direction is disabled
 		if ( $this->get_direction_disabled() ) {
 			return;
 		}
