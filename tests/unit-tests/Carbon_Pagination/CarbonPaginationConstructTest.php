@@ -57,31 +57,4 @@ class CarbonPaginationConstructTest extends WP_UnitTestCase {
 		$this->assertSame( 789, $paginationStub->get_total_pages() );
 	}
 
-	public function testAutoPagesGeneration() {
-		$args = array(
-			'total_pages' => 5,
-		);
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
-
-		$this->assertSame( range(1, 5), $paginationStub->get_pages() );
-	}
-
-	public function testAutoTotalPagesSetting() {
-		$args = array(
-			'pages' => range(1, 3)
-		);
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
-
-		$this->assertSame( 3, $paginationStub->get_total_pages() );
-	}
-
-	public function testAutoTotalPagesSettingNonConsecutive() {
-		$args = array(
-			'pages' => array(100, 200, 300)
-		);
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array($args) );
-
-		$this->assertSame( 3, $paginationStub->get_total_pages() );
-	}
-
 }

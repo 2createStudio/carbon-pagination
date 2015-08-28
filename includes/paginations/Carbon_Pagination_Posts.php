@@ -19,11 +19,11 @@ class Carbon_Pagination_Posts extends Carbon_Pagination {
 
 		// specify the default args for the Posts pagination
 		$this->default_args = array(
-			// get the current page from the query
-			'current_page' => max( get_query_var( 'paged' ), 1 ),
-
 			// get the total pages from the query
 			'total_pages' => max( $wp_query->max_num_pages, 1 ),
+
+			// get the current page from the query
+			'current_page' => max( get_query_var( 'paged' ), 1 ),
 
 			// modify the text of the previous page link
 			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entries', 'crb' ) . '</a>',

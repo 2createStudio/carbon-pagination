@@ -35,11 +35,11 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 			// specify the sibling posts/pages for pagination pages
 			'pages' => $posts,
 
-			// the current post/page is the current page
-			'current_page' => array_search( get_the_ID(), $posts ) + 1,
-
 			// the total number of pages is the number of sibling posts/pages
 			'total_pages' => count( $posts ),
+
+			// the current post/page is the current page
+			'current_page' => array_search( get_the_ID(), $posts ) + 1,
 
 			// modify the text of the previous page link
 			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entry', 'crb' ) . '</a>',

@@ -48,7 +48,6 @@ class CarbonPaginationSetCurrentPageTest extends WP_UnitTestCase {
 		$this->pagination2->expects( $this->any() )
 			->method( 'get_total_pages' )
 			->will( $this->returnValue( 10 ) );
-
 		$this->pagination2->set_current_page( 20 );
 		$this->assertSame( 10, $this->pagination2->get_current_page() );
 	}

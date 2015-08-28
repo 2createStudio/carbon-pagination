@@ -29,11 +29,11 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 
 		// specify the default args for the Comments pagination
 		$this->default_args = array(
-			// get the current comments page from the query
-			'current_page' => max( get_query_var( 'cpage' ), 1 ),
-
 			// specify the total number of pages as retrieved above
 			'total_pages' => max( $max_page, 1 ),
+
+			// get the current comments page from the query
+			'current_page' => max( get_query_var( 'cpage' ), 1 ),
 
 			// modify the text of the previous page link
 			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Older Comments', 'crb' ) . '</a>',

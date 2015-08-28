@@ -196,22 +196,14 @@ abstract class Carbon_Pagination {
 	 * @param array $args Configuration options to modify the pagination settings.
 	 */
 	public function __construct( $args = array() ) {
-
-		// default configuration options
-		$defaults = get_object_vars( $this );
-
-		// apply default options from the inheriting classes
-		$defaults = wp_parse_args( $this->default_args, $defaults );
-
 		// allow default options to be filtered
-		$defaults = apply_filters( 'carbon_pagination_default_options', $defaults, $this );
+		$defaults = apply_filters( 'carbon_pagination_default_options', $this->default_args, $this );
 
 		// parse configuration options
 		$args = wp_parse_args( $args, $defaults );
 
 		// set configuration options & constraints
 		$this->set( $args );
-
 	}
 
 	/**
@@ -221,16 +213,6 @@ abstract class Carbon_Pagination {
 	 * @param array $args Configuration options
 	 */
 	public function set( $args ) {
-		// handle pages & total pages constraints
-		if ( ! $args['pages'] ) {
-			// if pages are not defined, generate them
-			$args['pages'] = range( 1, $args['total_pages'] );
-		} else {
-			// if pages are defined, set their count as our total pages setting
-			$args['total_pages'] = count( $args['pages'] );
-		}
-
-		// set configuration options
 		foreach ( $args as $arg_name => $arg_value ) {
 			$method = 'set_' . $arg_name;
 			if ( method_exists( $this, $method ) ) {
@@ -302,6 +284,7 @@ abstract class Carbon_Pagination {
 		}
 
 		$this->pages = array_values( $pages );
+		$this->total_pages = count( $pages );
 	}
 
 	/**
@@ -357,6 +340,7 @@ abstract class Carbon_Pagination {
 		}
 
 		$this->total_pages = $total_pages;
+		$this->pages = range( 1, $total_pages );
 	}
 
 	/**

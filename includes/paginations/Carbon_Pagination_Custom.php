@@ -27,8 +27,8 @@ class Carbon_Pagination_Custom extends Carbon_Pagination {
 
 		// specify the default args for the Custom pagination
 		$this->default_args = array(
-			'current_page' => get_query_var( $this->get_query_var() ),
 			'total_pages' => $total_pages,
+			'current_page' => get_query_var( $this->get_query_var() ),
 		);
 
 		parent::__construct( $args );
