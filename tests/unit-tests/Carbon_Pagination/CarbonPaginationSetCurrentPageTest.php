@@ -17,16 +17,25 @@ class CarbonPaginationSetCurrentPageTest extends WP_UnitTestCase {
 		unset( $this->pagination2 );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_current_page
+	 */
 	public function testNegative() {
 		$this->pagination->set_current_page( -5 );
 		$this->assertSame( 1, $this->pagination->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_current_page
+	 */
 	public function testZero() {
 		$this->pagination->set_current_page( 0 );
 		$this->assertSame( 1, $this->pagination->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_current_page
+	 */
 	public function testNonNumeric() {
 		$this->pagination->set_current_page( 'foo' );
 		$this->assertSame( 1, $this->pagination->get_current_page() );
@@ -35,6 +44,9 @@ class CarbonPaginationSetCurrentPageTest extends WP_UnitTestCase {
 		$this->assertSame( 1, $this->pagination->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_current_page
+	 */
 	public function testStringNumber() {
 		$this->pagination2->expects( $this->any() )
 			->method( 'get_total_pages' )
@@ -44,6 +56,9 @@ class CarbonPaginationSetCurrentPageTest extends WP_UnitTestCase {
 		$this->assertSame( 10, $this->pagination2->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_current_page
+	 */
 	public function testLargerThanTotal() {
 		$this->pagination2->expects( $this->any() )
 			->method( 'get_total_pages' )

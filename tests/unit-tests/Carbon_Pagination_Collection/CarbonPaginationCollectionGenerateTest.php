@@ -27,6 +27,9 @@ class CarbonPaginationCollectionGenerateTest extends WP_UnitTestCase {
 		unset( $this->collection );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::generate
+	 */
 	public function testWithNothingEnabled() {
 		foreach ($this->mock_methods as $method) {
 			$this->pagination->expects( $this->any() )
@@ -39,6 +42,9 @@ class CarbonPaginationCollectionGenerateTest extends WP_UnitTestCase {
 		$this->assertSame( array(), $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::generate
+	 */
 	public function testWithOneItemEnabled() {
 		$mock_true_methods = array(
 			'get_enable_prev'
@@ -70,6 +76,9 @@ class CarbonPaginationCollectionGenerateTest extends WP_UnitTestCase {
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[2] );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::generate
+	 */
 	public function testWithOneItemDisabled() {
 		$mock_false_methods = array(
 			'get_enable_current_page_text'
@@ -105,6 +114,9 @@ class CarbonPaginationCollectionGenerateTest extends WP_UnitTestCase {
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[6] );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::generate
+	 */
 	public function testWithAllItemsEnabled() {
 		foreach ($this->mock_methods as $method) {
 			$this->pagination->expects( $this->any() )

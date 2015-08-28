@@ -20,6 +20,9 @@ class CarbonPaginationItemConstructTest extends WP_UnitTestCase {
 		unset($this->collection);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item::__construct
+	 */
 	public function testIfCollectionProperlySet() {
 		$params = array($this->collection);
 		$item = $this->getMock('Carbon_Pagination_Item', null, $params);

@@ -13,6 +13,9 @@ class CarbonPaginationSetTest extends WP_UnitTestCase {
 		unset( $this->pagination );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set
+	 */
 	public function testBasicPropertySet() {
 		$args = array(
 			'total_pages' => 5,
@@ -24,6 +27,9 @@ class CarbonPaginationSetTest extends WP_UnitTestCase {
 		$this->assertSame( 2, $this->pagination->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set
+	 */
 	public function testPropertySetWithCast() {
 		$args = array(
 			'total_pages' => '5',
@@ -35,7 +41,9 @@ class CarbonPaginationSetTest extends WP_UnitTestCase {
 		$this->assertSame( 2, $this->pagination->get_current_page() );
 	}
 
-
+	/**
+	 * @covers Carbon_Pagination::set
+	 */
 	public function testUnexistingProperties() {
 		$this->pagination->set_total_pages(3);
 

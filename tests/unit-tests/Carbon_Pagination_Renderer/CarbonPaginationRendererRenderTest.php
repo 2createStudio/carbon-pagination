@@ -47,6 +47,9 @@ class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 		unset($this->item3);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render
+	 */
 	public function testFlatItems() {
 		$this->collection->add_items(array(
 			$this->item1,
@@ -57,6 +60,9 @@ class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 		$this->assertSame( '123', $this->renderer->render( array(), false ) );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render
+	 */
 	public function testFlatItemsParameter() {
 		$items = array(
 			$this->item1,
@@ -67,6 +73,9 @@ class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 		$this->assertSame( '123', $this->renderer->render( $items, false ) );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render
+	 */
 	public function testNestedItems() {
 		$this->item3->set_subitems_collection( $this->collection2 );
 		$this->item3->get_subitems_collection()->add_items(array($this->item2, $this->item1));
@@ -80,6 +89,9 @@ class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 		$this->assertSame( '1221', $this->renderer->render( array(), false ) );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render
+	 */
 	public function testNestedItemsParameter() {
 		$this->item3->set_subitems_collection( $this->collection2 );
 		$this->item3->get_subitems_collection()->add_items(array($this->item2, $this->item1));
@@ -93,11 +105,17 @@ class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 		$this->assertSame( '1221', $this->renderer->render( $items, false ) );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render
+	 */
 	public function testWithAllWrongItems() {
 		$items = array(1, 2, 3);
 		$this->assertSame( '', $this->renderer->render( $items, false ) );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render
+	 */
 	public function testWithSomeWrongItems() {
 		$items = array($this->item1, 1, $this->item3);
 		$this->assertSame( '13', $this->renderer->render( $items, false ) );

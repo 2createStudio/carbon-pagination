@@ -19,6 +19,9 @@ class CarbonPaginationRendererConstructTest extends WP_UnitTestCase {
 		unset($this->collection);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::__construct
+	 */
 	public function testIfCollectionProperlySet() {
 		$params = array($this->collection);
 		$renderer = $this->getMock('Carbon_Pagination_Renderer', null, $params);

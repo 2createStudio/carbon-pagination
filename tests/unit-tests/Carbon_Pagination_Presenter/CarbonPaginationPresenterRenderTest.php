@@ -30,6 +30,9 @@ class CarbonPaginationPresenterRenderTest extends WP_UnitTestCase {
 		unset($this->presenter);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Presenter::render
+	 */
 	public function testPresenterRender() {
 		$expected = $this->renderer->render( array(), false );
 		$actual = $this->presenter->render();

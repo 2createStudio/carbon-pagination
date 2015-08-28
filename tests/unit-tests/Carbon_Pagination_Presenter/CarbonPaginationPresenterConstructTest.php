@@ -14,6 +14,9 @@ class CarbonPaginationPresenterConstructTest extends WP_UnitTestCase {
 		unset( $this->pagination );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Presenter::__construct
+	 */
 	public function testIfPaginationProperlySet() {
 		$params = array($this->pagination);
 		$presenter = $this->getMock('Carbon_Pagination_Presenter', null, $params);

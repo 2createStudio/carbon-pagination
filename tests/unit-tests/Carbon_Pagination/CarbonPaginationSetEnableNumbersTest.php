@@ -13,6 +13,9 @@ class CarbonPaginationSetEnableNumbersTest extends WP_UnitTestCase {
 		unset( $this->pagination );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_enable_numbers
+	 */
 	public function testNonBool() {
 		$this->pagination->set_enable_numbers( 0 );
 		$this->assertSame( false, $this->pagination->get_enable_numbers() );

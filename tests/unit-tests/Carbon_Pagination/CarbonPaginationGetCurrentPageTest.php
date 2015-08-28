@@ -2,8 +2,11 @@
 /**
  * @group pagination
  */
-class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
+class CarbonPaginationGetCurrentPageTest extends WP_UnitTestCase {
 
+	/**
+	 * @covers Carbon_Pagination::get_current_page
+	 */
 	public function testWithIncrementalPageNumbers() {
 		$args = array(
 			'total_pages' => 10,
@@ -14,6 +17,9 @@ class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
 		$this->assertSame( 3, $paginationStub->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::get_current_page
+	 */
 	public function testWithIncrementalPageNumbersPagesSetting() {
 		$args = array(
 			'pages' => range(1, 10),
@@ -24,6 +30,9 @@ class CarbonPaginationGetCurrentPageIndex extends WP_UnitTestCase {
 		$this->assertSame( 3, $paginationStub->get_current_page() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::get_current_page
+	 */
 	public function testWithNonIncrementalPageNumbers() {
 		$args = array(
 			'pages' => array(30, 41, 52, 63),

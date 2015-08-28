@@ -13,6 +13,9 @@ class CarbonPaginationSetEnableLastTest extends WP_UnitTestCase {
 		unset( $this->pagination );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_enable_last
+	 */
 	public function testNonBool() {
 		$this->pagination->set_enable_last( 0 );
 		$this->assertSame( false, $this->pagination->get_enable_last() );

@@ -24,11 +24,17 @@ class CarbonPaginationCollectionAddItemsTest extends WP_UnitTestCase {
 		unset( $this->item );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::add_items
+	 */
 	public function testAddEmptyArray() {
 		$this->collection->add_items( array() );
 		$this->assertSame( array(), $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::add_items
+	 */
 	public function testNonArrayItem() {
 		$this->collection->add_items( $this->item );
 		$this->assertSame( array( $this->item ), $this->collection->get_items() );
@@ -37,6 +43,9 @@ class CarbonPaginationCollectionAddItemsTest extends WP_UnitTestCase {
 		$this->assertSame( array( $this->item, $this->item ), $this->collection->get_items() );		
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::add_items
+	 */
 	public function testArrayOfItems() {
 		$new_items = array( $this->item );
 
@@ -47,6 +56,9 @@ class CarbonPaginationCollectionAddItemsTest extends WP_UnitTestCase {
 		$this->assertSame( array( $this->item, $this->item ), $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::add_items
+	 */
 	public function testAssocArrayOfItems() {
 		$new_items = array( 'foo' => $this->item );
 		

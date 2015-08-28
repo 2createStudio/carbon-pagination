@@ -32,6 +32,9 @@ class CarbonPaginationCollectionInsertItemAtTest extends WP_UnitTestCase {
 		unset( $this->item3 );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::insert_item_at
+	 */
 	public function testInsertAtBeginningInEmpty() {
 		$this->collection->insert_item_at( $this->item, 0 );
 
@@ -39,6 +42,9 @@ class CarbonPaginationCollectionInsertItemAtTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::insert_item_at
+	 */
 	public function testInsertAtSomewhereInEmpty() {
 		$this->collection->insert_item_at( $this->item, 99 );
 
@@ -46,6 +52,9 @@ class CarbonPaginationCollectionInsertItemAtTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::insert_item_at
+	 */
 	public function testInsertAtBeginningNotEmpty() {
 		$this->collection->set_items( array( $this->item ) );
 		$this->collection->insert_item_at( $this->item2, 0 );
@@ -54,6 +63,9 @@ class CarbonPaginationCollectionInsertItemAtTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::insert_item_at
+	 */
 	public function testInsertAtEndNotEmpty() {
 		$this->collection->set_items( array( $this->item ) );
 		$this->collection->insert_item_at( $this->item2, 1 );
@@ -62,6 +74,9 @@ class CarbonPaginationCollectionInsertItemAtTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::insert_item_at
+	 */
 	public function testInsertAtSomewhereNotEmpty() {
 		$this->collection->set_items( array( $this->item ) );
 		$this->collection->insert_item_at( $this->item2, 99 );
@@ -70,6 +85,9 @@ class CarbonPaginationCollectionInsertItemAtTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $this->collection->get_items() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::insert_item_at
+	 */
 	public function testInsertBetweenItems() {
 		$this->collection->set_items( array( $this->item, $this->item3 ) );
 		$this->collection->insert_item_at( $this->item2, 1 );

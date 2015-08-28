@@ -13,6 +13,9 @@ class CarbonPaginationSetEnableCurrentPageTextTest extends WP_UnitTestCase {
 		unset( $this->pagination );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_enable_current_page_text
+	 */
 	public function testNonBool() {
 		$this->pagination->set_enable_current_page_text( 0 );
 		$this->assertSame( false, $this->pagination->get_enable_current_page_text() );

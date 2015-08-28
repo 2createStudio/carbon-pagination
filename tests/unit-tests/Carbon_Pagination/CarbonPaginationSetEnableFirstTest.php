@@ -13,6 +13,9 @@ class CarbonPaginationSetEnableFirstTest extends WP_UnitTestCase {
 		unset( $this->pagination );
 	}
 
+	/**
+	 * @covers Carbon_Pagination::set_enable_first
+	 */
 	public function testNonBool() {
 		$this->pagination->set_enable_first( 0 );
 		$this->assertSame( false, $this->pagination->get_enable_first() );
