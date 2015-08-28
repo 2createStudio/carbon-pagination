@@ -1,8 +1,8 @@
 <?php
 /**
- * @group pagination
+ * @group utilities
  */
-class CarbonPaginationGetCurrentUrlTest extends WP_UnitTestCase {
+class CarbonPaginationUtilitiesGetCurrentUrlTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		parent::setUp();
