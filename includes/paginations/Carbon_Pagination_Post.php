@@ -16,6 +16,36 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 	 */
 	public function __construct( $args = array() ) {
 		global $post;
+		
+		// get all sibling posts/pages
+		$posts = $this->get_pagination_posts();
+
+		// specify the default args for the Post pagination
+		$this->default_args = array(
+			// specify the sibling posts/pages for pagination pages
+			'pages' => $posts,
+
+			// the current post/page is the current page
+			'current_page' => array_search( get_the_ID(), $posts ) + 1,
+
+			// modify the text of the previous page link
+			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entry', 'crb' ) . '</a>',
+
+			// modify the text of the next page link
+			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Next Entry »', 'crb' ) . '</a>',
+		);
+
+		parent::__construct( $args );
+	}
+
+	/**
+	 * Retrieve the posts that we'll paginate through.
+	 *
+	 * @access public
+	 * @return array $posts The posts to paginate through.
+	 */
+	public function get_pagination_posts() {
+		global $post;
 
 		// specify default query args to get all sibling posts/pages
 		$query = array(
@@ -30,25 +60,7 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 		// get all sibling posts/pages
 		$posts = get_posts( $query );
 
-		// specify the default args for the Post pagination
-		$this->default_args = array(
-			// specify the sibling posts/pages for pagination pages
-			'pages' => $posts,
-
-			// the total number of pages is the number of sibling posts/pages
-			'total_pages' => count( $posts ),
-
-			// the current post/page is the current page
-			'current_page' => array_search( get_the_ID(), $posts ) + 1,
-
-			// modify the text of the previous page link
-			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entry', 'crb' ) . '</a>',
-
-			// modify the text of the next page link
-			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Next Entry »', 'crb' ) . '</a>',
-		);
-
-		parent::__construct( $args );
+		return $posts;
 	}
 
 	/**
