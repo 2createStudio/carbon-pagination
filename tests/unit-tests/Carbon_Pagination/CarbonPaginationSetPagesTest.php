@@ -18,7 +18,9 @@ class CarbonPaginationSetPagesTest extends WP_UnitTestCase {
 			5 => 10,
 			6 => 20
 		) );
+
 		$this->assertSame( array(10, 20), $this->pagination->get_pages() );
+		$this->assertSame( 2, $this->pagination->get_total_pages() );
 	}
 
 	public function testAssociativeArray() {
@@ -26,12 +28,16 @@ class CarbonPaginationSetPagesTest extends WP_UnitTestCase {
 			'foo' => 10,
 			'bar' => 20
 		) );
+
 		$this->assertSame( array(10, 20), $this->pagination->get_pages() );
+		$this->assertSame( 2, $this->pagination->get_total_pages() );
 	}
 
 	public function testNonArray() {
 		$this->pagination->set_pages( 5 );
+		
 		$this->assertSame( array(5), $this->pagination->get_pages() );
+		$this->assertSame( 1, $this->pagination->get_total_pages() );
 	}
 
 }
