@@ -2,7 +2,7 @@
 /**
  * @group pagination
  */
-class CarbonPaginationSetPagesTest extends WP_UnitTestCase {
+class CarbonPaginationGetSetPagesTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
@@ -14,7 +14,9 @@ class CarbonPaginationSetPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_pages
 	 * @covers Carbon_Pagination::set_pages
+	 * @covers Carbon_Pagination::get_total_pages
 	 */
 	public function testNumericKeyArray() {
 		$this->pagination->set_pages( array(
@@ -27,7 +29,9 @@ class CarbonPaginationSetPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_pages
 	 * @covers Carbon_Pagination::set_pages
+	 * @covers Carbon_Pagination::get_total_pages
 	 */
 	public function testAssociativeArray() {
 		$this->pagination->set_pages( array(
@@ -40,7 +44,9 @@ class CarbonPaginationSetPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_pages
 	 * @covers Carbon_Pagination::set_pages
+	 * @covers Carbon_Pagination::get_total_pages
 	 */
 	public function testNonArray() {
 		$this->pagination->set_pages( 5 );

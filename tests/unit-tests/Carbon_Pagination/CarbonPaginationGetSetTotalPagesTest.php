@@ -2,7 +2,7 @@
 /**
  * @group pagination
  */
-class CarbonPaginationSetTotalPagesTest extends WP_UnitTestCase {
+class CarbonPaginationGetSetTotalPagesTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
@@ -14,7 +14,9 @@ class CarbonPaginationSetTotalPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_total_pages
 	 * @covers Carbon_Pagination::set_total_pages
+	 * @covers Carbon_Pagination::get_pages
 	 */
 	public function testNegative() {
 		$this->pagination->set_total_pages( -5 );
@@ -24,7 +26,9 @@ class CarbonPaginationSetTotalPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_total_pages
 	 * @covers Carbon_Pagination::set_total_pages
+	 * @covers Carbon_Pagination::get_pages
 	 */
 	public function testZero() {
 		$this->pagination->set_total_pages( 0 );
@@ -34,7 +38,9 @@ class CarbonPaginationSetTotalPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_total_pages
 	 * @covers Carbon_Pagination::set_total_pages
+	 * @covers Carbon_Pagination::get_pages
 	 */
 	public function testNonNumeric() {
 		$this->pagination->set_total_pages( 'foo' );
@@ -47,7 +53,9 @@ class CarbonPaginationSetTotalPagesTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_total_pages
 	 * @covers Carbon_Pagination::set_total_pages
+	 * @covers Carbon_Pagination::get_pages
 	 */
 	public function testStringNumber() {
 		$this->pagination->set_total_pages( '10' );

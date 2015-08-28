@@ -2,7 +2,7 @@
 /**
  * @group pagination
  */
-class CarbonPaginationSetLargePageNumberInterval extends WP_UnitTestCase {
+class CarbonPaginationGetSetLargePageNumberInterval extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
@@ -14,6 +14,7 @@ class CarbonPaginationSetLargePageNumberInterval extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_large_page_number_interval
 	 * @covers Carbon_Pagination::set_large_page_number_interval
 	 */
 	public function testNegative() {
@@ -22,6 +23,7 @@ class CarbonPaginationSetLargePageNumberInterval extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_large_page_number_interval
 	 * @covers Carbon_Pagination::set_large_page_number_interval
 	 */
 	public function testZero() {
@@ -30,6 +32,7 @@ class CarbonPaginationSetLargePageNumberInterval extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_large_page_number_interval
 	 * @covers Carbon_Pagination::set_large_page_number_interval
 	 */
 	public function testNonNumeric() {
@@ -41,6 +44,7 @@ class CarbonPaginationSetLargePageNumberInterval extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_large_page_number_interval
 	 * @covers Carbon_Pagination::set_large_page_number_interval
 	 */
 	public function testStringNumber() {

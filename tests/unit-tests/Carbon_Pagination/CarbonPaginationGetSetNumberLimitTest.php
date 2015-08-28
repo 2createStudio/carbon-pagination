@@ -2,7 +2,7 @@
 /**
  * @group pagination
  */
-class CarbonPaginationSetNumberLimitTest extends WP_UnitTestCase {
+class CarbonPaginationGetSetNumberLimitTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
@@ -14,6 +14,7 @@ class CarbonPaginationSetNumberLimitTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_number_limit
 	 * @covers Carbon_Pagination::set_number_limit
 	 */
 	public function testNegative() {
@@ -22,6 +23,7 @@ class CarbonPaginationSetNumberLimitTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_number_limit
 	 * @covers Carbon_Pagination::set_number_limit
 	 */
 	public function testZero() {
@@ -30,6 +32,7 @@ class CarbonPaginationSetNumberLimitTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_number_limit
 	 * @covers Carbon_Pagination::set_number_limit
 	 */
 	public function testNonNumeric() {
@@ -41,6 +44,7 @@ class CarbonPaginationSetNumberLimitTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_number_limit
 	 * @covers Carbon_Pagination::set_number_limit
 	 */
 	public function testStringNumber() {

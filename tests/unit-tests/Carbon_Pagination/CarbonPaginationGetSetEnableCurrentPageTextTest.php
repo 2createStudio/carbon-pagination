@@ -2,7 +2,7 @@
 /**
  * @group pagination
  */
-class CarbonPaginationSetEnableCurrentPageTextTest extends WP_UnitTestCase {
+class CarbonPaginationGetSetEnableCurrentPageTextTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
@@ -14,6 +14,7 @@ class CarbonPaginationSetEnableCurrentPageTextTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_enable_current_page_text
 	 * @covers Carbon_Pagination::set_enable_current_page_text
 	 */
 	public function testNonBool() {

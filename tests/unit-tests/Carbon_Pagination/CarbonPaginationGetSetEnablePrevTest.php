@@ -2,7 +2,7 @@
 /**
  * @group pagination
  */
-class CarbonPaginationSetEnablePrevTest extends WP_UnitTestCase {
+class CarbonPaginationGetSetEnablePrevTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
@@ -14,6 +14,7 @@ class CarbonPaginationSetEnablePrevTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @covers Carbon_Pagination::get_enable_prev
 	 * @covers Carbon_Pagination::set_enable_prev
 	 */
 	public function testNonBool() {
