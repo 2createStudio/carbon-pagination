@@ -14,12 +14,12 @@ class CarbonPaginationRenderTest extends WP_UnitTestCase {
 	}
 
 	public function testWithEcho() {
-		$this->assertSame( '', $this->pagination->render( false ) );
+		$this->assertNull( $this->pagination->render() );
+		$this->assertNull( $this->pagination->render( true ) );
 	}
 
 	public function testWithoutEcho() {
-		$this->assertNull( $this->pagination->render() );
-		$this->assertNull( $this->pagination->render( true ) );
+		$this->assertSame( '', $this->pagination->render( false ) );
 	}
 
 }

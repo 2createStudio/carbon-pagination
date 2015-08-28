@@ -4,8 +4,26 @@
  */
 class CarbonPaginationPresenterDisplayTest extends WP_UnitTestCase {
 
+	public function setUp() {
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
+		$this->pagination = $paginationStub;
+	}
+
+	public function tearDown() {
+		unset($this->pagination);
+	}
+
 	public function testDisplayUnexistingPaginationType() {
 		$this->assertWPError( Carbon_Pagination_Presenter::display('foo') );
+	}
+
+	public function testDisplayWithEcho() {
+		$this->assertNull( Carbon_Pagination_Presenter::display( 'custom', array() ) );
+		$this->assertNull( Carbon_Pagination_Presenter::display( 'custom', array(), true ) );
+	}
+
+	public function testDisplayWithoutEcho() {
+		$this->assertSame( '', Carbon_Pagination_Presenter::display( 'custom', array(), false ) );
 	}
 
 }
