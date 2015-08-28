@@ -15,22 +15,11 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 	 * @param array $args Configuration options to modify the pagination settings.
 	 */
 	public function __construct( $args = array() ) {
-		global $wp_query;
-
-		// get max page from query
-		if ( empty( $wp_query->max_num_comment_pages ) ) {
-			$max_page = $wp_query->max_num_comment_pages;
-		}
-
-		// if there is no max page in the query, calculate it
-		if ( empty( $max_page ) ) {
-			$max_page = get_comment_pages_count();
-		}
-
+		
 		// specify the default args for the Comments pagination
 		$this->default_args = array(
 			// specify the total number of pages as retrieved above
-			'total_pages' => max( $max_page, 1 ),
+			'total_pages' => $this->get_total_comment_pages(),
 
 			// get the current comments page from the query
 			'current_page' => max( get_query_var( 'cpage' ), 1 ),
@@ -43,6 +32,28 @@ class Carbon_Pagination_Comments extends Carbon_Pagination {
 		);
 
 		parent::__construct( $args );
+	}
+
+	/**
+	 * Retrieve the total number of comment pages.
+	 *
+	 * @access public
+	 * @return int $total Total number of comment pages.
+	 */
+	public function get_total_comment_pages() {
+		global $wp_query;
+
+		// get max page from query
+		if ( empty( $wp_query->max_num_comment_pages ) ) {
+			$max_page = $wp_query->max_num_comment_pages;
+		}
+
+		// if there is no max page in the query, calculate it
+		if ( empty( $max_page ) ) {
+			$max_page = get_comment_pages_count();
+		}
+
+		return max( $max_page, 1 );
 	}
 
 	/**
