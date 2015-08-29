@@ -2,7 +2,7 @@
 /**
  * @group item
  * @group item_direction_page
- * @group item_direction_page_backward
+ * @group item_direction_page_forward
  * @group item_direction_page
  * @group item_last_page
  */
