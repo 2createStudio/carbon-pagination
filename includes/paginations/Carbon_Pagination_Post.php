@@ -73,7 +73,8 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 	 */
 	public function get_page_url( $page_number, $old_url = '' ) {
 		$pages = $this->get_pages();
-		$url = get_permalink( $pages[ $page_number ] );
+		$page = isset( $pages[ $page_number ] ) ? $pages[ $page_number ] : 0;
+		$url = get_permalink( $page );
 		
 		return $url;
 	}
