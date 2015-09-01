@@ -54,6 +54,12 @@ class Carbon_Pagination_Tests_Bootstrap {
 
 		// load the WP testing environment
 		require_once( $this->wp_tests_dir . '/includes/bootstrap.php' );
+
+		// make sure query vars are prepared
+		global $wp;
+		if ( !is_array( $wp->query_vars ) ) {
+			$wp->query_vars = array();
+		}
 	}
 
 	/**
