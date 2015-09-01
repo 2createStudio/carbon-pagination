@@ -12,7 +12,6 @@ checks:
     psr2_control_structure_declaration: false
     psr2_class_declaration: false
     avoid_superglobals: false
-    side_effects_or_types: false
     one_class_per_file: false
     code_rating: true
     coding_standard:
