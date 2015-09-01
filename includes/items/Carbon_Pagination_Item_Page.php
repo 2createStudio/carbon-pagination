@@ -117,6 +117,7 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	 * @param Carbon_Pagination_Collection $collection Collection of the original item.
 	 * @param string $html HTML of the new subitem.
 	 * @param int $page_number The number of the page to link the subitem to.
+	 * @return Carbon_Pagination_Collection $subitems_collection The new subitems collection.
 	 */
 	public static function generate_single_subitem_collection( $collection, $html, $page_number ) {
 		$page_item = new Carbon_Pagination_Item_Page( $collection );

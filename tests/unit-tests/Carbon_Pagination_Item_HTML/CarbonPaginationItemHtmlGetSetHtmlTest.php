@@ -27,7 +27,7 @@ class CarbonPaginationItemHtmlGetSetHtmlTest extends WP_UnitTestCase {
 	 * @covers Carbon_Pagination_Item_HTML::get_html
 	 * @covers Carbon_Pagination_Item_HTML::set_html
 	 */
-	public function testGetSetCollection() {
+	public function testGetSetHtml() {
 		$html = '<span class="foo">Bar</span>';
 		$this->item->set_html( $html );
 		$this->assertSame( $html, $this->item->get_html() );
