@@ -130,11 +130,11 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		if ( $large_page_number_limit > 0 ) {
 			$from_raw = $current_page_idx + $number_limit + 1;
 			$from = ceil( $from_raw / $large_page_number_interval ) * $large_page_number_interval - 1;
-			if ( $from == $current_page_idx + 1 ) {
+			if ( $from == $current_page_idx + $number_limit ) {
 				$from += $large_page_number_interval;
 			}
 
-			$to = $total_pages - 1;
+			$to = $total_pages;
 
 			$this->generate_pages( $from, $to, $large_page_number_interval, $large_page_number_limit, true );
 		}
