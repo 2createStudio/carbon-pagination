@@ -43,9 +43,16 @@ class Carbon_Pagination_Custom extends Carbon_Pagination_HTML {
 	 */
 	public function get_page_url( $page_number, $old_url = '' ) {
 		$pages = $this->get_pages();
-		$url = add_query_arg( $this->get_query_var(), $pages[ $page_number ], $old_url );
-		
-		return $url;
+
+		if ( ! $old_url ) {
+			$old_url = Carbon_Pagination_Utilities::get_current_url();
+		}
+
+		if ( !isset( $pages[ $page_number ] ) ) {
+			return $old_url;
+		}
+
+		return add_query_arg( $this->get_query_var(), $pages[ $page_number ], $old_url );
 	}
 
 	/**
