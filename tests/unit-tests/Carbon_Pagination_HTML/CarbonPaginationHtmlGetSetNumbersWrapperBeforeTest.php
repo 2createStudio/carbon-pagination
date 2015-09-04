@@ -3,7 +3,7 @@
  * @group pagination
  * @group pagination_html
  */
-class CarbonPaginationGetSetNumbersWrapperBeforeTest extends WP_UnitTestCase {
+class CarbonPaginationHtmlGetSetNumbersWrapperBeforeTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML' );

@@ -19,16 +19,16 @@ class Carbon_Pagination_Presenter {
 	 *
 	 * Sets the pagination that will be displayed or rendered.
 	 *
-	 * @param Carbon_Pagination $pagination Pagination object that will be displayed.
+	 * @param Carbon_Pagination_HTML $pagination Pagination object that will be displayed.
 	 */
-	public function __construct( Carbon_Pagination $pagination ) {
+	public function __construct( Carbon_Pagination_HTML $pagination ) {
 		$this->set_pagination( $pagination );
 	}
 
 	/**
 	 * Retrieve the pagination object.
 	 *
-	 * @return Carbon_Pagination $pagination The pagination object.
+	 * @return Carbon_Pagination_HTML $pagination The pagination object.
 	 */
 	public function get_pagination() {
 		return $this->pagination;
@@ -37,7 +37,7 @@ class Carbon_Pagination_Presenter {
 	/**
 	 * Modify the pagination object.
 	 *
-	 * @param Carbon_Pagination $pagination The pagination object.
+	 * @param Carbon_Pagination_HTML $pagination The pagination object.
 	 */
 	public function set_pagination( $pagination ) {
 		$this->pagination = $pagination;

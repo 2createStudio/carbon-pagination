@@ -407,22 +407,6 @@ abstract class Carbon_Pagination {
 	}
 
 	/**
-	 * Render the pagination.
-	 * 
-	 * @param bool $echo Whether to display or return the output. True will display, false will return.
-	 */
-	public function render( $echo = true ) {
-		$presenter = new Carbon_Pagination_Presenter( $this );
-		$output = $presenter->render();
-
-		if ( ! $echo ) {
-			return $output;
-		}
-		
-		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
-	}
-
-	/**
 	 * Get the URL to a certain page.
 	 *
 	 * @abstract

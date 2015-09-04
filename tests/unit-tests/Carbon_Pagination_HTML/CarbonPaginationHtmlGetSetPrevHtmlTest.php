@@ -3,7 +3,7 @@
  * @group pagination
  * @group pagination_html
  */
-class CarbonPaginationGetSetLastHtmlTest extends WP_UnitTestCase {
+class CarbonPaginationHtmlGetSetPrevHtmlTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML' );
@@ -15,13 +15,13 @@ class CarbonPaginationGetSetLastHtmlTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Carbon_Pagination_HTML::get_last_html
-	 * @covers Carbon_Pagination_HTML::set_last_html
+	 * @covers Carbon_Pagination_HTML::get_prev_html
+	 * @covers Carbon_Pagination_HTML::set_prev_html
 	 */
-	public function testGetSetLastHtml() {
+	public function testGetSetPrevHtml() {
 		$html = '<a class="foo">Bar</a>';
-		$this->pagination->set_last_html( $html );
-		$this->assertSame( $html, $this->pagination->get_last_html() );
+		$this->pagination->set_prev_html( $html );
+		$this->assertSame( $html, $this->pagination->get_prev_html() );
 	}
 
 }

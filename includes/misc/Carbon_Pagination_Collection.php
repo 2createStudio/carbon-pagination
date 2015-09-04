@@ -14,7 +14,7 @@ class Carbon_Pagination_Collection {
 	protected $items = array();
 
 	/**
-	 * @var Carbon_Pagination
+	 * @var Carbon_Pagination_HTML
 	 * 
 	 * The pagination object.
 	 */
@@ -24,10 +24,10 @@ class Carbon_Pagination_Collection {
 	 * Constructor.
 	 * Creates and configures a new pagination collection for the provided pagination.
 	 *
-	 * @param Carbon_Pagination $pagination Pagination object.
+	 * @param Carbon_Pagination_HTML $pagination Pagination object.
 	 * @param bool $autogenerate Whether to automatically generate pagination items.
 	 */
-	public function __construct( Carbon_Pagination $pagination, $autogenerate = true ) {
+	public function __construct( Carbon_Pagination_HTML $pagination, $autogenerate = true ) {
 		$this->set_pagination( $pagination );
 
 		// whether to auto generate pagination items
@@ -101,7 +101,7 @@ class Carbon_Pagination_Collection {
 	/**
 	 * Retrieve the pagination object.
 	 *
-	 * @return Carbon_Pagination $pagination The pagination object.
+	 * @return Carbon_Pagination_HTML $pagination The pagination object.
 	 */
 	public function get_pagination() {
 		return $this->pagination;
@@ -110,9 +110,9 @@ class Carbon_Pagination_Collection {
 	/**
 	 * Modify the pagination object.
 	 *
-	 * @param Carbon_Pagination $pagination The new pagination object.
+	 * @param Carbon_Pagination_HTML $pagination The new pagination object.
 	 */
-	public function set_pagination( Carbon_Pagination $pagination ) {
+	public function set_pagination( Carbon_Pagination_HTML $pagination ) {
 		$this->pagination = $pagination;
 	}
 

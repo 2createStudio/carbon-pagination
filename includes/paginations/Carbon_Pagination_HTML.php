@@ -308,4 +308,20 @@ abstract class Carbon_Pagination_HTML extends Carbon_Pagination {
 		$this->current_page_html = $current_page_html;
 	}
 
+	/**
+	 * Render the pagination.
+	 * 
+	 * @param bool $echo Whether to display or return the output. True will display, false will return.
+	 */
+	public function render( $echo = true ) {
+		$presenter = new Carbon_Pagination_Presenter( $this );
+		$output = $presenter->render();
+
+		if ( ! $echo ) {
+			return $output;
+		}
+		
+		echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
+	}
+
 }
