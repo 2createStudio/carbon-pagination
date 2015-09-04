@@ -15,7 +15,6 @@ class Carbon_Pagination_Renderer {
 	 * Constructor.
 	 * Creates and configures a new pagination renderer for the provided pagination collection.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination_Collection $collection Pagination collection object.
 	 */
 	public function __construct( Carbon_Pagination_Collection $collection ) {
@@ -25,7 +24,6 @@ class Carbon_Pagination_Renderer {
 	/**
 	 * Retrieve the collection object.
 	 *
-	 * @access public
 	 * @return Carbon_Pagination_Collection $collection The collection object.
 	 */
 	public function get_collection() {
@@ -35,7 +33,6 @@ class Carbon_Pagination_Renderer {
 	/**
 	 * Modify the collection object.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination_Collection $collection The new collection object.
 	 */
 	public function set_collection( Carbon_Pagination_Collection $collection ) {
@@ -51,7 +48,6 @@ class Carbon_Pagination_Renderer {
 	 * Tokens should be used in the string in the following way:
 	 * 'lorem {TOKENNAME} ipsum'
 	 *
-	 * @access public
 	 * @param string $string The unparsed string.
 	 * @param array $tokens An array of tokens and their values.
 	 * @return string $string The parsed string.
@@ -69,7 +65,6 @@ class Carbon_Pagination_Renderer {
 	 * If no items are specified, fetches the ones from the collection.
 	 * Filters out incorrect items.
 	 *
-	 * @access public
 	 * @return array $ready_items The prepared items.
 	 */
 	public function prepare_items( $items = array() ) {
@@ -94,7 +89,6 @@ class Carbon_Pagination_Renderer {
 	 * Render the current collection items.
 	 * Each item can have sub items, which are rendered recursively.
 	 *
-	 * @access public
 	 * @param array $items Items to render. If not specified, will render the collection items.
 	 * @param bool $echo Whether to display or return the output. True will display, false will return.
 	 */
@@ -119,7 +113,6 @@ class Carbon_Pagination_Renderer {
 	/**
 	 * Render a set of pagination items, recursively.
 	 *
-	 * @access public
 	 * @param array $items Items to render.
 	 * @return string $output The HTML output of all items.
 	 */

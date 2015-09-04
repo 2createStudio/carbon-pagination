@@ -21,8 +21,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	/**
 	 * Setup the item before rendering.
 	 * Setup item tokens.
-	 *
-	 * @access public
 	 */
 	public function setup() {
 		$pagination = $this->get_collection()->get_pagination();
@@ -45,7 +43,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	/**
 	 * Render the item.
 	 *
-	 * @access public
 	 * @return string $link The HTML of the item.
 	 */
 	public function render() {
@@ -71,7 +68,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	/**
 	 * Retrieve the page index number.
 	 *
-	 * @access public
 	 * @return int $page_number The page index number.
 	 */
 	public function get_page_number() {
@@ -81,7 +77,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	/**
 	 * Modify the page index number.
 	 *
-	 * @access public
 	 * @param int $page_number The new page index number.
 	 */
 	public function set_page_number( $page_number ) {
@@ -91,7 +86,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	/**
 	 * Retrieve the page item HTML.
 	 *
-	 * @access public
 	 * @return string $html The page item HTML.
 	 */
 	public function get_html() {
@@ -101,7 +95,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	/**
 	 * Modify the page item HTML.
 	 *
-	 * @access public
 	 * @param string $html The new page item HTML.
 	 */
 	public function set_html( $html ) {
@@ -113,7 +106,6 @@ class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 	 * for the specified collection with the specified HTML and page number.
 	 *
 	 * @static
-	 * @access public
 	 * @param Carbon_Pagination_Collection $collection Collection of the original item.
 	 * @param string $html HTML of the new subitem.
 	 * @param int $page_number The number of the page to link the subitem to.

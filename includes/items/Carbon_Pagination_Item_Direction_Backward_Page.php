@@ -14,7 +14,6 @@ abstract class Carbon_Pagination_Item_Direction_Backward_Page extends Carbon_Pag
 	 * If we're on the first page, the first and prev items
 	 * should be disabled.
 	 *
-	 * @access public
 	 * @return bool $result The condition result.
 	 */
 	public function get_direction_disabled() {

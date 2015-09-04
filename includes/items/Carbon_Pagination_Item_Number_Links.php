@@ -10,8 +10,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	/**
 	 * Initialize the item.
 	 * Generate the sub items of this item.
-	 *
-	 * @access public
 	 */
 	public function init() {
 		$pagination = $this->get_collection()->get_pagination();
@@ -39,7 +37,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	/**
 	 * Generate number pages (subitems) in a certain range.
 	 *
-	 * @access public
 	 * @param int $from Index of the first page.
 	 * @param int $to Index of the last page.
 	 * @param int $limit Number of pages to create.
@@ -70,8 +67,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 
 	/**
 	 * Generate the regular consecutive number pages.
-	 *
-	 * @access public
 	 */
 	public function generate_regular_number_pages() {
 		// get various pagination variables that we need
@@ -93,8 +88,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 
 	/**
 	 * Generate the large number page items - before the regular number pages.
-	 *
-	 * @access public
 	 */
 	public function generate_large_number_pages_before() {
 		// get various pagination variables that we need
@@ -114,8 +107,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 
 	/**
 	 * Generate the large number page items - after the regular number pages.
-	 *
-	 * @access public
 	 */
 	public function generate_large_number_pages_after() {
 		// get various pagination variables that we need
@@ -142,8 +133,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 
 	/**
 	 * Generate and add limiters where necessary.
-	 *
-	 * @access public
 	 */
 	public function generate_limiters() {
 		// get various pagination variables that we need
@@ -168,8 +157,6 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 
 	/**
 	 * Generate and add wrappers.
-	 *
-	 * @access public
 	 */
 	public function generate_wrappers() {
 		// get various pagination variables that we need

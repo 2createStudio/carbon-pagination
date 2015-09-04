@@ -9,7 +9,6 @@ class Carbon_Pagination_Utilities {
 	 * Get the current URL, in WordPress style.
 	 *
 	 * @static
-	 * @access public
 	 * @return string $url The current page URL.
 	 */
 	public static function get_current_url() {

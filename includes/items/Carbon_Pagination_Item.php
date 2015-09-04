@@ -36,7 +36,6 @@ class Carbon_Pagination_Item {
 	 * Constructor.
 	 * Creates and configures a new pagination item.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination_Collection $collection Pagination collection object.
 	 */
 	public function __construct( Carbon_Pagination_Collection $collection ) {
@@ -48,7 +47,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Retrieve the collection object.
 	 *
-	 * @access public
 	 * @return Carbon_Pagination_Collection $collection The collection object.
 	 */
 	public function get_collection() {
@@ -58,7 +56,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Modify the collection object.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination_Collection $collection The new collection object.
 	 */
 	public function set_collection( Carbon_Pagination_Collection $collection ) {
@@ -68,7 +65,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Retrieve the item subitems collection.
 	 *
-	 * @access public
 	 * @return Carbon_Pagination_Collection $subitems_collection The item subitems collection.
 	 */
 	public function get_subitems_collection() {
@@ -78,7 +74,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Modify the item subitems collection.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination_Collection $subitems_collection The new item subitems collection.
 	 */
 	public function set_subitems_collection( Carbon_Pagination_Collection $subitems_collection ) {
@@ -88,7 +83,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Retrieve the item HTML replaceable tokens.
 	 *
-	 * @access public
 	 * @return array $tokens The item HTML replaceable tokens.
 	 */
 	public function get_tokens() {
@@ -98,7 +92,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Modify the item HTML replaceable tokens.
 	 *
-	 * @access public
 	 * @param array $tokens The new item HTML replaceable tokens.
 	 */
 	public function set_tokens( $tokens ) {
@@ -110,7 +103,6 @@ class Carbon_Pagination_Item {
 	 *
 	 * @codeCoverageIgnore
 	 *
-	 * @access public
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {
@@ -119,15 +111,11 @@ class Carbon_Pagination_Item {
 
 	/**
 	 * Initialize the item.
-	 *
-	 * @access public
 	 */
 	public function init() {}
 
 	/**
 	 * Setup the item before rendering.
-	 *
-	 * @access public
 	 */
 	public function setup() {}
 

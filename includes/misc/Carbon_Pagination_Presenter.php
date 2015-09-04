@@ -18,7 +18,6 @@ class Carbon_Pagination_Presenter {
 	 *
 	 * Sets the pagination that will be displayed or rendered.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination $pagination Pagination object that will be displayed.
 	 */
 	public function __construct( Carbon_Pagination $pagination ) {
@@ -28,7 +27,6 @@ class Carbon_Pagination_Presenter {
 	/**
 	 * Retrieve the pagination object.
 	 *
-	 * @access public
 	 * @return Carbon_Pagination $pagination The pagination object.
 	 */
 	public function get_pagination() {
@@ -38,7 +36,6 @@ class Carbon_Pagination_Presenter {
 	/**
 	 * Modify the pagination object.
 	 *
-	 * @access public
 	 * @param Carbon_Pagination $pagination The pagination object.
 	 */
 	public function set_pagination( $pagination ) {
@@ -48,7 +45,6 @@ class Carbon_Pagination_Presenter {
 	/**
 	 * Verify if the pagination is ready for presentation.
 	 *
-	 * @access public
 	 * @return bool|WP_Error $result True if everything is fine, false or WP_Error on failure.
 	 */
 	public function verify_pagination() {
@@ -78,7 +74,6 @@ class Carbon_Pagination_Presenter {
 	/**
 	 * Render the pagination.
 	 *
-	 * @access public
 	 * @return string $output The output of the pagination, or WP_Error on failure.
 	 */
 	public function render() {
@@ -107,7 +102,6 @@ class Carbon_Pagination_Presenter {
 	 * Build, configure and display a new pagination.
 	 *
 	 * @static
-	 * @access public
 	 * @param string $pagination The pagination type, can be one of the following:
 	 *    - Posts
 	 *    - Post

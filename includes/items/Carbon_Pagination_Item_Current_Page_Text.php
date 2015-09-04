@@ -10,8 +10,6 @@ class Carbon_Pagination_Item_Current_Page_Text extends Carbon_Pagination_Item {
 	/**
 	 * Setup the item before rendering.
 	 * Setup item tokens.
-	 *
-	 * @access public
 	 */
 	public function setup() {
 		$pagination = $this->get_collection()->get_pagination();
@@ -28,7 +26,6 @@ class Carbon_Pagination_Item_Current_Page_Text extends Carbon_Pagination_Item {
 	/**
 	 * Render the item.
 	 *
-	 * @access public
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {

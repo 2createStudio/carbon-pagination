@@ -13,7 +13,6 @@ abstract class Carbon_Pagination_Item_Direction_Forward_Page extends Carbon_Pagi
 	/**
 	 * If on the last page, the next and last items should be disabled.
 	 *
-	 * @access public
 	 * @return bool $result The condition result.
 	 */
 	public function get_direction_disabled() {

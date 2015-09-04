@@ -16,7 +16,6 @@ class Carbon_Pagination_Item_HTML extends Carbon_Pagination_Item {
 	/**
 	 * Render the item.
 	 *
-	 * @access public
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {
@@ -28,7 +27,6 @@ class Carbon_Pagination_Item_HTML extends Carbon_Pagination_Item {
 	/**
 	 * Retrieve the item HTML.
 	 *
-	 * @access public
 	 * @return string $html The item HTML.
 	 */
 	public function get_html() {
@@ -38,7 +36,6 @@ class Carbon_Pagination_Item_HTML extends Carbon_Pagination_Item {
 	/**
 	 * Modify the item HTML.
 	 *
-	 * @access public
 	 * @param string $html The new item HTML.
 	 */
 	public function set_html( $html ) {

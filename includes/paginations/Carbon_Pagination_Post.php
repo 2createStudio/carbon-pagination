@@ -11,7 +11,6 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 	 * Constructor.
 	 * Creates and configures a new pagination with the provided settings.
 	 *
-	 * @access public
 	 * @param array $args Configuration options to modify the pagination settings.
 	 */
 	public function __construct( $args = array() ) {
@@ -41,7 +40,6 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 	/**
 	 * Retrieve the posts that we'll paginate through.
 	 *
-	 * @access public
 	 * @return array $posts The posts to paginate through.
 	 */
 	public function get_pagination_posts() {
@@ -66,7 +64,6 @@ class Carbon_Pagination_Post extends Carbon_Pagination {
 	/**
 	 * Get the URL to a certain page.
 	 *
-	 * @access public
 	 * @param int $page_number The page number.
 	 * @param string $old_url Optional. The URL to add the page number to.
 	 * @return string $url The URL to the page number.
