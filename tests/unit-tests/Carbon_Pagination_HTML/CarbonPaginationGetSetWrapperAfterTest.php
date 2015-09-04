@@ -1,11 +1,12 @@
 <?php
 /**
  * @group pagination
+ * @group pagination_html
  */
 class CarbonPaginationGetSetWrapperAfterTest extends WP_UnitTestCase {
 
 	public function setUp() {
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML' );
 		$this->pagination = $paginationStub;
 	}
 
@@ -14,8 +15,8 @@ class CarbonPaginationGetSetWrapperAfterTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Carbon_Pagination::get_wrapper_after
-	 * @covers Carbon_Pagination::set_wrapper_after
+	 * @covers Carbon_Pagination_HTML::get_wrapper_after
+	 * @covers Carbon_Pagination_HTML::set_wrapper_after
 	 */
 	public function testGetSetWrapperAfter() {
 		$html = '<span class="foo"></span></div>';

@@ -9,7 +9,7 @@ class CarbonPaginationCollectionConstructTest extends WP_UnitTestCase {
 		$args = array(
 			'enable_prev' => true,
 		);
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', $args );
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML', $args );
 		$this->pagination = $paginationStub;
 	}
 

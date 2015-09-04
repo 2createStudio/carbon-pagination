@@ -11,7 +11,7 @@ class CarbonPaginationPresenterVerifyPaginationTest extends WP_UnitTestCase {
 		$pagination_args = array(
 			'collection' => 'foo',
 		);
-		$pagination = $this->getMockForAbstractClass( 'Carbon_Pagination', array( $pagination_args ) );
+		$pagination = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML', array( $pagination_args ) );
 		$presenter_args = array(
 			$pagination,
 		);
@@ -27,7 +27,7 @@ class CarbonPaginationPresenterVerifyPaginationTest extends WP_UnitTestCase {
 		$pagination_args = array(
 			'renderer' => 'foo',
 		);
-		$pagination = $this->getMockForAbstractClass( 'Carbon_Pagination', array( $pagination_args ) );
+		$pagination = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML', array( $pagination_args ) );
 		$presenter_args = array(
 			$pagination,
 		);
@@ -40,7 +40,7 @@ class CarbonPaginationPresenterVerifyPaginationTest extends WP_UnitTestCase {
 	 * @covers Carbon_Pagination_Presenter::verify_pagination
 	 */
 	public function testWithOneTotalPage() {
-		$pagination = $this->getMockForAbstractClass('Carbon_Pagination', array(), '', TRUE, TRUE, TRUE, array('get_total_pages'));
+		$pagination = $this->getMockForAbstractClass('Carbon_Pagination_HTML', array(), '', TRUE, TRUE, TRUE, array('get_total_pages'));
 		$pagination->expects( $this->any() )
 			->method( 'get_total_pages' )
 			->will( $this->returnValue( 1 ) );
@@ -57,7 +57,7 @@ class CarbonPaginationPresenterVerifyPaginationTest extends WP_UnitTestCase {
 	 * @covers Carbon_Pagination_Presenter::verify_pagination
 	 */
 	public function testWithMultiplePages() {
-		$pagination = $this->getMockForAbstractClass('Carbon_Pagination', array(), '', TRUE, TRUE, TRUE, array('get_total_pages'));
+		$pagination = $this->getMockForAbstractClass('Carbon_Pagination_HTML', array(), '', TRUE, TRUE, TRUE, array('get_total_pages'));
 		$pagination->expects( $this->any() )
 			->method( 'get_total_pages' )
 			->will( $this->returnValue( 2 ) );

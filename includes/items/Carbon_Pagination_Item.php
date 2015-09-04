@@ -6,20 +6,24 @@
 class Carbon_Pagination_Item {
 
 	/**
-	 * The pagination collection object this item belongs to.
 	 * @var Carbon_Pagination_Collection
+	 * 
+	 * The pagination collection object this item belongs to.
 	 */
 	protected $collection;
 
 	/**
+	 * @var Carbon_Pagination_Collection|bool
+	 * 
 	 * The subitems collection.
 	 * Contains the sub items that this item consists of.
 	 * Can be false if this item is a standalone single item.
-	 * @var Carbon_Pagination_Collection|bool
 	 */
 	protected $subitems_collection = false;
 
 	/**
+	 * @var array
+	 * 
 	 * Tokens that can be auto replaced in the HTML of an item.
 	 *
 	 * Tokens should be passed in the array in the following way:
@@ -27,8 +31,6 @@ class Carbon_Pagination_Item {
 	 *
 	 * Tokens should be used in the string in the following way:
 	 * 'lorem {TOKENNAME} ipsum'
-	 * 
-	 * @var array
 	 */
 	protected $tokens = array();
 

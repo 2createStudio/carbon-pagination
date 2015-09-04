@@ -6,8 +6,9 @@
 class Carbon_Pagination_Renderer {
 
 	/**
-	 * The pagination collection object.
 	 * @var Carbon_Pagination_Collection
+	 * 
+	 * The pagination collection object.
 	 */
 	protected $collection;
 

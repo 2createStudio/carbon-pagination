@@ -1,11 +1,12 @@
 <?php
 /**
  * @group pagination
+ * @group pagination_html
  */
 class CarbonPaginationGetSetLimiterHtmlTest extends WP_UnitTestCase {
 
 	public function setUp() {
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML' );
 		$this->pagination = $paginationStub;
 	}
 
@@ -14,8 +15,8 @@ class CarbonPaginationGetSetLimiterHtmlTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Carbon_Pagination::get_limiter_html
-	 * @covers Carbon_Pagination::set_limiter_html
+	 * @covers Carbon_Pagination_HTML::get_limiter_html
+	 * @covers Carbon_Pagination_HTML::set_limiter_html
 	 */
 	public function testGetSetLimiterHtml() {
 		$html = '<a class="foo">Bar</a>';

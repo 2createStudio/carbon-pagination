@@ -10,8 +10,6 @@
  *    - Custom
  * @param array $args Configuration options to modify the pagination settings.
  * @param bool $echo Whether to display or return the output. True will display, false will return.
- *
- * @see Carbon_Pagination::__construct()
  */
 function carbon_pagination( $pagination, $args = array(), $echo = true ) {
 	$output = Carbon_Pagination_Presenter::display( $pagination, $args, false );

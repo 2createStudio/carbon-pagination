@@ -7,14 +7,16 @@
 class Carbon_Pagination_Collection {
 
 	/**
-	 * Pagination items.
 	 * @var array
+	 * 
+	 * Pagination items.
 	 */
 	protected $items = array();
 
 	/**
-	 * The pagination object.
 	 * @var Carbon_Pagination
+	 * 
+	 * The pagination object.
 	 */
 	protected $pagination;
 

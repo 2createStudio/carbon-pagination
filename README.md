@@ -123,7 +123,7 @@ In case you need to manipulate the pagination you can define the pagination as a
 		'wrapper_after' => '</div>',
 	));
 
-Then you can use any of the `get`/`set` methods of the `Carbon_Pagination` class. Example:
+Then you can use any of the `get`/`set` methods of the `Carbon_Pagination` or `Carbon_Pagination_HTML` classes. Example:
 	
 	// whether the first link is enabled
 	$first_link_enabled = $pagination->get_enable_first();

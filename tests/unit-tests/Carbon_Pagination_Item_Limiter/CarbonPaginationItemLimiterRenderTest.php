@@ -11,7 +11,7 @@ class CarbonPaginationItemLimiterRenderTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		$mock_methods = array( 'get_limiter_html' );
-		$paginationStub = $this->getMockForAbstractClass('Carbon_Pagination', array(), '', TRUE, TRUE, TRUE, $mock_methods);
+		$paginationStub = $this->getMockForAbstractClass('Carbon_Pagination_HTML', array(), '', TRUE, TRUE, TRUE, $mock_methods);
 		$this->pagination = $paginationStub;
 
 		$params = array($this->pagination);

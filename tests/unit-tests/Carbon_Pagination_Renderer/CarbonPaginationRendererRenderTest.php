@@ -5,7 +5,7 @@
 class CarbonPaginationRendererRenderTest extends WP_UnitTestCase {
 
 	public function setUp() {
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination', array(), '', TRUE, TRUE, TRUE, array('get_wrapper_before', 'get_wrapper_after') );
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML', array(), '', TRUE, TRUE, TRUE, array('get_wrapper_before', 'get_wrapper_after') );
 		$this->pagination = $paginationStub;
 
 		$params = array($this->pagination, false);

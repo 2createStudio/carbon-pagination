@@ -5,10 +5,10 @@
 class CarbonPaginationPresenterGetSetPaginationTest extends WP_UnitTestCase {
 
 	public function setUp() {
-		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination' );
+		$paginationStub = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML' );
 		$this->pagination = $paginationStub;
 
-		$paginationStub2 = $this->getMockForAbstractClass( 'Carbon_Pagination' );
+		$paginationStub2 = $this->getMockForAbstractClass( 'Carbon_Pagination_HTML' );
 		$this->pagination2 = $paginationStub2;
 
 		$params = array($this->pagination);

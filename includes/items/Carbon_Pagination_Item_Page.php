@@ -7,14 +7,16 @@
 class Carbon_Pagination_Item_Page extends Carbon_Pagination_Item {
 
 	/**
-	 * The page number index.
 	 * @var int
+	 * 
+	 * The page number index.
 	 */
 	protected $page_number = 0;
 
 	/**
-	 * The HTML of the item.
 	 * @var string
+	 * 
+	 * The HTML of the item.
 	 */
 	protected $html = '';
 

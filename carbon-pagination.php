@@ -19,6 +19,7 @@ $includes_dir = dirname( __FILE__ ) . '/includes/';
 
 // pagination classes
 include_once( $includes_dir . 'paginations/Carbon_Pagination.php' );
+include_once( $includes_dir . 'paginations/Carbon_Pagination_HTML.php' );
 include_once( $includes_dir . 'paginations/Carbon_Pagination_Posts.php' );
 include_once( $includes_dir . 'paginations/Carbon_Pagination_Post.php' );
 include_once( $includes_dir . 'paginations/Carbon_Pagination_Comments.php' );

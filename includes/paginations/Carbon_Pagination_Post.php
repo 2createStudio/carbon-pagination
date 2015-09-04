@@ -3,9 +3,9 @@
  * Carbon Pagination - single post pagination class.
  * Provides the pagination for singular post.
  *
- * @uses Carbon_Pagination
+ * @uses Carbon_Pagination_HTML
  */
-class Carbon_Pagination_Post extends Carbon_Pagination {
+class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 
 	/**
 	 * Constructor.

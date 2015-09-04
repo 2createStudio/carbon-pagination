@@ -8,8 +8,9 @@
 class Carbon_Pagination_Presenter {
 
 	/**
-	 * The pagination object.
 	 * @var Carbon_Pagination
+	 * 
+	 * The pagination object.
 	 */
 	protected $pagination;
 

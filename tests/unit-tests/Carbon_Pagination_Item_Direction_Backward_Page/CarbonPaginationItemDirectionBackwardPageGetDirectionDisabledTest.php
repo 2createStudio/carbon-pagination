@@ -8,7 +8,7 @@ class CarbonPaginationItemDirectionBackwardPageGetDirectionDisabledTest extends 
 
 	public function setUp() {
 		$mock_methods = array( 'get_current_page', 'get_total_pages' );
-		$paginationStub = $this->getMockForAbstractClass('Carbon_Pagination', array(), '', TRUE, TRUE, TRUE, $mock_methods);
+		$paginationStub = $this->getMockForAbstractClass('Carbon_Pagination_HTML', array(), '', TRUE, TRUE, TRUE, $mock_methods);
 		$this->pagination = $paginationStub;
 		$this->pagination->expects( $this->any() )
 			->method( 'get_total_pages' )

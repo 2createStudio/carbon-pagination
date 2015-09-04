@@ -3,9 +3,9 @@
  * Carbon Pagination - posts pagination class.
  * Provides the pagination for non-singular post loops (index, search, archive).
  *
- * @uses Carbon_Pagination
+ * @uses Carbon_Pagination_HTML
  */
-class Carbon_Pagination_Posts extends Carbon_Pagination {
+class Carbon_Pagination_Posts extends Carbon_Pagination_HTML {
 
 	/**
 	 * Constructor.

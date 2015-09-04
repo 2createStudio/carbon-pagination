@@ -8,8 +8,9 @@
 class Carbon_Pagination_Item_HTML extends Carbon_Pagination_Item {
 
 	/**
-	 * The HTML of the item.
 	 * @var string
+	 * 
+	 * The HTML of the item.
 	 */
 	protected $html = '';
 
