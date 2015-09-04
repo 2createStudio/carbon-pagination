@@ -15,7 +15,7 @@ class CarbonPaginationHtmlRenderTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Carbon_Pagination::render
+	 * @covers Carbon_Pagination_HTML::render
 	 */
 	public function testWithEcho() {
 		$this->assertNull( $this->pagination->render() );
@@ -23,7 +23,7 @@ class CarbonPaginationHtmlRenderTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @covers Carbon_Pagination::render
+	 * @covers Carbon_Pagination_HTML::render
 	 */
 	public function testWithoutEcho() {
 		$this->assertSame( '', $this->pagination->render( false ) );
