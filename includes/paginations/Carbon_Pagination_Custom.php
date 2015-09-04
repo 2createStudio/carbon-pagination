@@ -48,7 +48,7 @@ class Carbon_Pagination_Custom extends Carbon_Pagination_HTML {
 			$old_url = Carbon_Pagination_Utilities::get_current_url();
 		}
 
-		if ( !isset( $pages[ $page_number ] ) ) {
+		if ( ! isset( $pages[ $page_number ] ) ) {
 			return $old_url;
 		}
 
