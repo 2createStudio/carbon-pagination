@@ -14,7 +14,7 @@ class Carbon_Pagination_Comments extends Carbon_Pagination_HTML {
 	 * @param array $args Configuration options to modify the pagination settings.
 	 */
 	public function __construct( $args = array() ) {
-		
+
 		// specify the default args for the Comments pagination
 		$this->default_args = array(
 			// specify the total number of pages as retrieved above
@@ -42,7 +42,7 @@ class Carbon_Pagination_Comments extends Carbon_Pagination_HTML {
 		global $wp_query;
 
 		// get max page from query
-		if ( empty( $wp_query->max_num_comment_pages ) ) {
+		if ( ! empty( $wp_query->max_num_comment_pages ) ) {
 			$max_page = $wp_query->max_num_comment_pages;
 		}
 
