@@ -5,10 +5,6 @@
  * @group constructors
  */
 class CarbonPaginationCommentsConstructTest extends WP_UnitTestCase {
-	protected $post_id;
-	protected $comment_ids = array();
-	protected $comments_per_page;
-	protected $page_comments;
 
 	public function setUp() {
 		parent::setUp();
@@ -29,14 +25,16 @@ class CarbonPaginationCommentsConstructTest extends WP_UnitTestCase {
 	}
 
 	public function tearDown() {
-		unset($this->pagination);
-		unset($this->post_id);
-		unset($this->comment_ids);
-
 		wp_reset_postdata();
 
 		update_option( 'comments_per_page', $this->comments_per_page );
 		update_option( 'page_comments', $this->page_comments );
+
+		unset($this->pagination);
+		unset($this->post_id);
+		unset($this->comment_ids);
+		unset($this->comments_per_page);
+		unset($this->page_comments);
 
 		parent::tearDown();
 	}
