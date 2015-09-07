@@ -51,7 +51,7 @@ class Carbon_Pagination_Comments extends Carbon_Pagination_HTML {
 			$max_page = get_comment_pages_count();
 		}
 
-		return max( $max_page, 1 );
+		return intval( max( $max_page, 1 ) );
 	}
 
 	/**
