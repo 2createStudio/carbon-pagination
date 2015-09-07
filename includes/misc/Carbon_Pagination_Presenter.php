@@ -84,22 +84,18 @@ class Carbon_Pagination_Presenter {
 		$renderer_classname = $pagination->get_renderer();
 
 		// handle unexisting pagination collection classes
-		$verify = $this->verify_pagination();
-		if ( ! $verify ) {
+		if ( ! $this->verify_pagination() ) {
 			return '';
 		}
 
 		// @codeCoverageIgnoreStart
-
 		// initialize & generate pagination item collection
 		$collection = new $collection_classname( $pagination );
 
 		// render the pagination item collection
 		$renderer = new $renderer_classname( $collection );
 		$output = $renderer->render( array(), false );
-
 		return $output;
-
 		// @codeCoverageIgnoreEnd
 	}
 
