@@ -62,10 +62,7 @@ class Carbon_Pagination_Comments extends Carbon_Pagination_HTML {
 	 * @return string $url The URL to the page number.
 	 */
 	public function get_page_url( $page_number, $old_url = '' ) {
-		$pages = $this->get_pages();
-		$url = get_comments_pagenum_link( $pages[ $page_number ] );
-		
-		return $url;
+		return get_comments_pagenum_link( $page_number + 1 );
 	}
 
 }
