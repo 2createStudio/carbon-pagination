@@ -6,30 +6,39 @@
 class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCase {
 
 	public function setUp() {
+		// mock pagination
 		$paginationStub = $this->getMockForAbstractClass('Carbon_Pagination_HTML');
 		$this->pagination = $paginationStub;
 
+		// mock collection
 		$params = array($this->pagination);
 		$collectionStub = $this->getMock('Carbon_Pagination_Collection', null, $params);
 		$this->collection = $collectionStub;
 
+		// mock subitems collection
 		$params = array($this->pagination, false);
 		$subitems_collectionStub = $this->getMock('Carbon_Pagination_Collection', null, $params);
 		$this->subitems_collection = $subitems_collectionStub;
 
+		// mock item
 		$params = array($this->collection);
 		$itemStub = $this->getMock('Carbon_Pagination_Item_Number_Links', null, $params, '', false);
 		$this->item = $itemStub;
+
+		// assign collection and subitems collection to item
 		$this->item->set_collection( $this->collection );
 		$this->item->set_subitems_collection( $this->subitems_collection );
 
+		// make sure collection contains the item
 		$this->collection->expects( $this->any() )
 			->method( 'get_items' )
 			->will( $this->returnValue( array( $this->item ) ) );
 
+		// mock subitem
 		$subItemStub = $this->getMock('Carbon_Pagination_Item', null, $params, 'Carbon_Pagination_Item_Foo');
 		$this->subitem = $subItemStub;
 
+		// mock subitem's get_html() method
 		$this->subitem_html = '<span class="foo">Bar</span>';
 		$this->subitem->expects( $this->any() )
 			->method( 'get_html' )
