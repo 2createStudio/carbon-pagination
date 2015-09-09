@@ -35,7 +35,7 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 			->will( $this->returnValue( array( $this->item ) ) );
 
 		// mock subitem
-		$subItemStub = $this->getMock('Carbon_Pagination_Item', null, $params, 'Carbon_Pagination_Item_Foo');
+		$subItemStub = $this->getMock('Carbon_Pagination_Item', null, $params);
 		$this->subitem = $subItemStub;
 
 		// mock subitem's get_html() method
@@ -75,7 +75,7 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 
 		$this->assertSame( 3, count( $subitems_collection->get_items() ) );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[0] );
-		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[1] );
+		$this->assertInstanceOf( get_class( $this->subitem ), $items[1] );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[2] );
 	}
 
@@ -90,8 +90,8 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 
 		$this->assertSame( 4, count( $subitems_collection->get_items() ) );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[0] );
-		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[1] );
-		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[2] );
+		$this->assertInstanceOf( get_class( $this->subitem ), $items[1] );
+		$this->assertInstanceOf( get_class( $this->subitem ), $items[2] );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[3] );
 	}
 
