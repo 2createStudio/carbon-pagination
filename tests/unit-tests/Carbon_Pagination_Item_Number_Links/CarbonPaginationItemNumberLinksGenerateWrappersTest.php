@@ -45,4 +45,47 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 		unset($this->subitem_html);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_wrappers
+	 */
+	public function testGenerateWrappersEmptyCount() {
+		$subitems_collection = $this->item->get_subitems_collection();
+		$this->item->generate_wrappers();
+
+		$this->assertSame( 0, count( $subitems_collection->get_items() ) );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_wrappers
+	 */
+	public function testGenerateWrappersNonEmpty() {
+		$subitems_collection = $this->item->get_subitems_collection();
+		$subitems_collection->add_items( $this->subitem );
+		$this->item->generate_wrappers();
+
+		$this->assertSame( 3, count( $subitems_collection->get_items() ) );
+
+		$items = $subitems_collection->get_items();
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[0] );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[1] );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[2] );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_wrappers
+	 */
+	public function testGenerateWrappersNonEmptyMoreItems() {
+		$subitems_collection = $this->item->get_subitems_collection();
+		$subitems_collection->add_items( array( $this->subitem, clone $this->subitem ) );
+		$this->item->generate_wrappers();
+
+		$this->assertSame( 4, count( $subitems_collection->get_items() ) );
+
+		$items = $subitems_collection->get_items();
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[0] );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[1] );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[2] );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[3] );
+	}
+
 }
