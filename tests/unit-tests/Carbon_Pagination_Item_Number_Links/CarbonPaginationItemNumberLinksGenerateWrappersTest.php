@@ -62,10 +62,9 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 		$subitems_collection = $this->item->get_subitems_collection();
 		$subitems_collection->add_items( $this->subitem );
 		$this->item->generate_wrappers();
+		$items = $subitems_collection->get_items();
 
 		$this->assertSame( 3, count( $subitems_collection->get_items() ) );
-
-		$items = $subitems_collection->get_items();
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[0] );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[1] );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[2] );
@@ -78,10 +77,9 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 		$subitems_collection = $this->item->get_subitems_collection();
 		$subitems_collection->add_items( array( $this->subitem, clone $this->subitem ) );
 		$this->item->generate_wrappers();
+		$items = $subitems_collection->get_items();
 
 		$this->assertSame( 4, count( $subitems_collection->get_items() ) );
-
-		$items = $subitems_collection->get_items();
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_HTML', $items[0] );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[1] );
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_Foo', $items[2] );
