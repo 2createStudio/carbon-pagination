@@ -44,6 +44,27 @@ class CarbonPaginationCustomConstructTest extends WP_UnitTestCase {
 	/**
 	 * @covers Carbon_Pagination_Custom::__construct
 	 */
+	public function testDefaultArgsEnableNumbers() {
+		$this->assertTrue( $this->pagination->get_enable_numbers() );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Custom::__construct
+	 */
+	public function testDefaultArgsEnablePrev() {
+		$this->assertFalse( $this->pagination->get_enable_prev() );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Custom::__construct
+	 */
+	public function testDefaultArgsEnableNext() {
+		$this->assertFalse( $this->pagination->get_enable_next() );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Custom::__construct
+	 */
 	public function testCustomUnexistingArgs() {
 		$args = array( 
 			array( 
