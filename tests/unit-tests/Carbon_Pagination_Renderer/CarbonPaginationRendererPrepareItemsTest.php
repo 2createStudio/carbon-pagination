@@ -49,4 +49,14 @@ class CarbonPaginationRendererPrepareItemsTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $actual );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::prepare_items
+	 */
+	public function testWithCorrectItems() {
+		$items = array( $this->item2, $this->item1 );
+		$result = $this->renderer->prepare_items( $items );
+
+		$this->assertSame( $items, $result );
+	}
+
 }
