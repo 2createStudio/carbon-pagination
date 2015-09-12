@@ -99,6 +99,7 @@ class CarbonPaginationRendererPrepareItemsTest extends WP_UnitTestCase {
 		$pagination_custom = $this->getMock('Carbon_Pagination_Custom');
 		$pagination_html = $this->pagination;
 
+		// all mocks
 		$items = array(
 			$item,
 			$itemCurrentPageText,
@@ -122,6 +123,7 @@ class CarbonPaginationRendererPrepareItemsTest extends WP_UnitTestCase {
 			$pagination_html,
 		);
 
+		// expected mocks after the prepare_items() call
 		$expected = array(
 			$item,
 			$itemCurrentPageText,
@@ -138,7 +140,7 @@ class CarbonPaginationRendererPrepareItemsTest extends WP_UnitTestCase {
 			$itemPreviousPage,
 		);
 		$actual = $this->renderer->prepare_items( $items );
-		
+
 		$this->assertSame( $expected, $actual );
 	}
 
