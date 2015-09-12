@@ -29,6 +29,9 @@ class Carbon_Pagination_Custom extends Carbon_Pagination_HTML {
 		$this->default_args = array(
 			'total_pages' => $total_pages,
 			'current_page' => get_query_var( $this->get_query_var() ),
+			'enable_numbers' => true,
+			'enable_prev' => false,
+			'enable_next' => false,
 		);
 
 		parent::__construct( $args );

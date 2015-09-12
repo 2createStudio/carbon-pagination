@@ -2,7 +2,7 @@
 
 ### About
 
-A handy WordPress library for building all kinds of paginations. 
+[Carbon Pagination](https://github.com/2createStudio/carbon-pagination) - a handy WordPress library for building all kinds of paginations. 
 
 Provides the theme and plugin developers an easy way to build and implement highly customizable paginations, specifically tailored to their needs. 
 
