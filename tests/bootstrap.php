@@ -85,3 +85,23 @@ class Carbon_Pagination_Tests_Bootstrap {
 }
 
 Carbon_Pagination_Tests_Bootstrap::instance();
+
+/**
+ * This function is necessary for the wp unit test library to work.
+ * It is defined in as early as 4.4.0, but we need it in the earlier WP versions.
+ *
+ * Determines whether a post type is considered "viewable". 
+ * 
+ * For built-in post types such as posts and pages, the 'public' value will be evaluated. 
+ * For all others, the 'publicly_queryable' value will be used. 
+ * 
+ * @since 4.4.0 
+ * 
+ * @param object $post_type_object Post type object. 
+ * @return bool Whether the post type should be considered viewable. 
+ */ 
+if ( ! function_exists( 'is_post_type_viewable' ) ) {
+	function is_post_type_viewable( $post_type_object ) {
+		return $post_type_object->publicly_queryable || ( $post_type_object->_builtin && $post_type_object->public ); 
+	}
+}
