@@ -2,9 +2,7 @@
 <phpunit 
 	bootstrap="./tests/bootstrap.php" 
 	colors="true" 
-	stopOnError="true" 
-	stopOnFailure="true"
->
+	stopOnError="true">
 	<testsuites>
 		<testsuite name="Carbon Pagination Test Suite">
 			<directory suffix=".php">./tests/unit-tests/</directory>
