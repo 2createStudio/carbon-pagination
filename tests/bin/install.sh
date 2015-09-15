@@ -64,13 +64,21 @@ install_test_suite() {
 		local ioption='-i'
 	fi
 
+	if [ $WP_VERSION == 'latest' ]; then
+		local testsincludesurl='http://develop.svn.wordpress.org/trunk/tests/phpunit/includes/'
+		local testsconfigurl='http://develop.svn.wordpress.org/trunk/wp-tests-config-sample.php'
+	else
+		local testsincludesurl='http://develop.svn.wordpress.org/branches/$WP_VERSION/tests/phpunit/includes/'
+		local testsconfigurl='http://develop.svn.wordpress.org/branches/$WP_VERSION/wp-tests-config-sample.php'
+	fi
+
 	# Prepare target directory and checkout WP test suite
 	mkdir -p $WP_TESTS_DIR
 	cd $WP_TESTS_DIR
-	svn co --quiet http://develop.svn.wordpress.org/trunk/tests/phpunit/includes/
+	svn co --quiet $testsincludesurl
 
 	# Download base configuration file
-	download http://develop.svn.wordpress.org/trunk/wp-tests-config-sample.php wp-tests-config.php
+	download $testsconfigurl wp-tests-config.php
 
 	# Make sure colons are escaped (they might exist in Windows environments)
 	WP_CORE_DIR=$(echo $WP_CORE_DIR | sed -r 's/:/\\:/g')
