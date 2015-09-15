@@ -35,7 +35,9 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	}
 
 	/**
-	 * Generate number pages (subitems) in a certain range.
+	 * Generate number pages (subitems) in a certain range,
+	 * with a specified interval and within a specific limit.
+	 * Can optionally generate the items starting from the end.
 	 *
 	 * @param int $from Index of the first page.
 	 * @param int $to Index of the last page.
@@ -44,16 +46,8 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	 * @param bool $from_end Whether to start from the end.
 	 */
 	public function generate_pages( $from, $to, $interval = 1, $limit = 0, $from_end = false ) {
-		// get various pagination variables that we need
-		$collection = $this->get_collection();
-		$new_subitems = array();
-
 		// generate items for the current range, using the specified interval
-		for ( $i = $from; $i < $to; $i += $interval ) {
-			$page_item = new Carbon_Pagination_Item_Page( $collection );
-			$page_item->set_page_number( $i );
-			$new_subitems[] = $page_item;
-		}
+		$new_subitems = $this->generate_pages_with_interval( $from, $to, $interval );
 
 		// limit items if necessary
 		if ( $limit ) {
@@ -64,6 +58,27 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 		// update the subitems collection with the new items
 		$subitems_collection = $this->get_subitems_collection();
 		$subitems_collection->add_items( $new_subitems );
+	}
+
+	/**
+	 * Generate number pages (subitems) in a certain range with a specified interval.
+	 *
+	 * @param int $from Index of the first page.
+	 * @param int $to Index of the last page.
+	 * @param int $interval Interval between pages.
+	 * @return array $new_subitems Generated items.
+	 */
+	public function generate_pages_with_interval( $from, $to, $interval = 1 ) {
+		$collection = $this->get_collection();
+		$new_subitems = array();
+
+		for ( $i = $from; $i < $to; $i += $interval ) {
+			$page_item = new Carbon_Pagination_Item_Page( $collection );
+			$page_item->set_page_number( $i );
+			$new_subitems[] = $page_item;
+		}
+
+		return $new_subitems;
 	}
 
 	/**
