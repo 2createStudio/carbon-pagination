@@ -67,7 +67,7 @@ install_test_suite() {
 	if [ $WP_VERSION == 'latest' ]; then
 		local testsurl='trunk'
 	else
-		local testsurl='branches/$WP_VERSION'
+		local testsurl="branches/$WP_VERSION"
 	fi
 
 	# Prepare target directory and checkout WP test suite
