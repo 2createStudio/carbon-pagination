@@ -4,7 +4,6 @@
 	colors="true" 
 	stopOnError="true" 
 	stopOnFailure="true"
-	verbose="true"
 >
 	<testsuites>
 		<testsuite name="Carbon Pagination Test Suite">
