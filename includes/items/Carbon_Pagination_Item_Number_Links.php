@@ -39,6 +39,7 @@ class Carbon_Pagination_Item_Number_Links extends Carbon_Pagination_Item {
 	 *
 	 * @param int $from Index of the first page.
 	 * @param int $to Index of the last page.
+	 * @param int $interval Interval between pages.
 	 * @param int $limit Number of pages to create.
 	 * @param bool $from_end Whether to start from the end.
 	 */
