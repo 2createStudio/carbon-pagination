@@ -40,16 +40,13 @@ install_wp() {
 
 	# Determine which version to download
 	if [ $WP_VERSION == 'latest' ]; then
-		local ARCHIVE_NAME='latest'
+		local url='trunk'
 	else
-		local ARCHIVE_NAME="wordpress-$WP_VERSION"
+		local url="branches/$WP_VERSION"
 	fi
 
-	# Perform the download
-	download https://wordpress.org/${ARCHIVE_NAME}.tar.gz  /tmp/wordpress.tar.gz
-
-	# Extract 
-	tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR
+	cd $WP_CORE_DIR
+	svn co --quiet http://develop.svn.wordpress.org/${url}/src/ .
 
 	# Copy the database settings (wp-content/db.php)
 	cp $BASEDIR/tests/misc/db.php $WP_CORE_DIR/wp-content/db.php
@@ -64,6 +61,7 @@ install_test_suite() {
 		local ioption='-i'
 	fi
 
+	# Determine which version to download
 	if [ $WP_VERSION == 'latest' ]; then
 		local testsurl='trunk'
 	else
