@@ -54,4 +54,15 @@ class CarbonPaginationRendererRenderItemsTest extends WP_UnitTestCase {
 		unset($this->item3);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render_items
+	 */
+	public function testFlatItems() {
+		$items = array( $this->item1, $this->item2, $this->item3 );
+
+		$expected = '123456789';
+		$actual = $this->renderer->render_items( $items );
+		$this->assertSame( $expected, $actual );
+	}
+
 }
