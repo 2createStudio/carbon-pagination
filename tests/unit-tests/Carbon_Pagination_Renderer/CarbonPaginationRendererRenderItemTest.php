@@ -27,5 +27,28 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 		unset($this->renderer);
 		unset($this->item);
 	}
-	
+
+	/**
+	 * @covers Carbon_Pagination_Renderer::render_item
+	 */
+	public function testTokenParsing() {
+		$tokens = array(
+			'FOO' => 'foo bar',
+			'BAR' => 'bar foo',
+		);
+		$html = '<span class="{FOO}">{BAR}</span>';
+
+		$this->item->expects( $this->any() )
+			->method('get_tokens')
+			->will( $this->returnValue( $tokens ) );
+
+		$this->item->expects( $this->any() )
+			->method('render')
+			->will( $this->returnValue( $html ) );
+
+		$expected = '<span class="foo bar">bar foo</span>';
+		$actual = $this->renderer->render_item( $this->item );
+		$this->assertSame( $expected, $actual );
+	}
+
 }
