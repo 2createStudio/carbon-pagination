@@ -127,18 +127,28 @@ class Carbon_Pagination_Renderer {
 				// loop the subitem collection items
 				$output .= $this->render_items( $items );
 			} else {
-				// setup the item
-				$item->setup();
-
-				// render the item
-				$html = $this->parse_tokens( $item->render(), $item->get_tokens() );
-
 				// add item HTML to output
-				$output .= $html;
+				$output .= $this->render_item( $item );
 			}
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Setup, parse tokens & render a specific item.
+	 *
+	 * @param Carbon_Pagination_Item $item Item to render.
+	 * @return string $output The HTML of the item.
+	 */
+	public function render_item( Carbon_Pagination_Item $item ) {
+		// setup the item
+		$item->setup();
+
+		// render the item
+		$html = $this->parse_tokens( $item->render(), $item->get_tokens() );
+
+		return $html;
 	}
 
 }
