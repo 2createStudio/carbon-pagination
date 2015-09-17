@@ -65,4 +65,20 @@ class CarbonPaginationRendererRenderItemsTest extends WP_UnitTestCase {
 		$this->assertSame( $expected, $actual );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Renderer::render_items
+	 */
+	public function testOneLevelHierarchy() {
+		$items = array( $this->item1 );
+		$this->subitems_collection1->set_items( array( $this->item2 ) );
+
+		$this->item1->expects( $this->any() )
+			->method('get_subitems_collection')
+			->will( $this->returnValue( $this->subitems_collection1 ) );		
+
+		$expected = '456';
+		$actual = $this->renderer->render_items( $items );
+		$this->assertSame( $expected, $actual );
+	}
+
 }
