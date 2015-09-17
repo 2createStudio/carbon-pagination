@@ -117,7 +117,7 @@ class Carbon_Pagination_Renderer {
 	 * @param array $items Items to render.
 	 * @return string $output The HTML output of all items.
 	 */
-	protected function render_items( $items ) {
+	public function render_items( $items ) {
 		$output = '';
 
 		// loop through items
