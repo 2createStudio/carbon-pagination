@@ -17,7 +17,7 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 		$this->renderer = $rendererStub;
 
 		$itemParams = array($this->collection);
-		$itemStub = $this->getMockForAbstractClass( 'Carbon_Pagination_Item', $itemParams );
+		$itemStub = $this->getMockForAbstractClass( 'Carbon_Pagination_Item', $itemParams, '', TRUE, TRUE, TRUE, array('get_tokens', 'render') );
 		$this->item = $itemStub;
 	}
 
@@ -27,5 +27,5 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 		unset($this->renderer);
 		unset($this->item);
 	}
-
+	
 }
