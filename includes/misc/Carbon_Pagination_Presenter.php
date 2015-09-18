@@ -60,7 +60,7 @@ class Carbon_Pagination_Presenter {
 		}
 
 		// if there are less than 2 pages, nothing will be shown
-		if ( $pagination->get_total_pages() <= 1 ) {
+		if ( $this->get_pagination()->get_total_pages() <= 1 ) {
 			return false;
 		}
 
