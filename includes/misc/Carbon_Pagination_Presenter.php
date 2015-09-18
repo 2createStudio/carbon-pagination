@@ -49,18 +49,13 @@ class Carbon_Pagination_Presenter {
 	 * @return bool|WP_Error $result True if everything is fine, false or WP_Error on failure.
 	 */
 	public function verify_pagination() {
-		// get pagination and the collection & renderer class names
-		$pagination = $this->get_pagination();
-		$collection_classname = $pagination->get_collection();
-		$renderer_classname = $pagination->get_renderer();
-
 		// handle unexisting pagination collection classes
-		if ( ! class_exists( $collection_classname ) ) {
+		if ( ! class_exists( $this->get_pagination()->get_collection() ) ) {
 			return new WP_Error( 'carbon_pagination_unexisting_pagination_collection', __( 'Unexisting pagination collection class.', 'carbon_pagination' ) );
 		}
 
 		// handle unexisting pagination renderer classes
-		if ( ! class_exists( $renderer_classname ) ) {
+		if ( ! class_exists( $this->get_pagination()->get_renderer() ) ) {
 			return new WP_Error( 'carbon_pagination_unexisting_pagination_renderer', __( 'Unexisting pagination renderer class.', 'carbon_pagination' ) );
 		}
 
