@@ -49,12 +49,11 @@ class Carbon_Pagination_Collection {
 	}
 
 	/**
-	 * Generate the pagination items.
+	 * Retrieve the item prototypes for the collection.
+	 * These represent the classes of all items that will be generated and their
+	 * corresponding pagination methods that determine their availability.
 	 */
-	public function generate_items() {
-		$pagination = $this->get_pagination();
-		$items = array();
-		
+	public function get_item_prototypes() {
 		// condition method => item class
 		$item_classes = array(
 			'get_enable_current_page_text' => 'Carbon_Pagination_Item_Current_Page_Text',
@@ -66,7 +65,18 @@ class Carbon_Pagination_Collection {
 		);
 
 		// allow default methods => items to be filtered
-		$item_classes = apply_filters( 'carbon_pagination_default_collection_items', $item_classes, $this );
+		return apply_filters( 'carbon_pagination_default_collection_items', $item_classes, $this );
+	}
+
+	/**
+	 * Generate the pagination items.
+	 */
+	public function generate_items() {
+		$pagination = $this->get_pagination();
+		$items = array();
+
+		// allow default methods => items to be filtered
+		$item_classes = $this->get_item_prototypes();
 
 		// if item is enabled, generate it
 		foreach ( $item_classes as $method => $classname ) {
