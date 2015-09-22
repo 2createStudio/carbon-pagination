@@ -132,4 +132,30 @@ class CarbonPaginationCollectionGenerateItemsTest extends WP_UnitTestCase {
 		$this->assertInstanceOf( 'Carbon_Pagination_Item_Last_Page', $items[5] );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Collection::generate_items
+	 */
+	public function testWithCustomPrototypes() {
+		$custom_prototypes = array(
+			'get_enable_prev' => 'Carbon_Pagination_Item_Previous_Page',
+		);
+
+		$this->collection->expects( $this->any() )
+			->method( 'get_item_prototypes' )
+			->will( $this->returnValue( $custom_prototypes ) );
+
+		foreach ($custom_prototypes as $method => $classname) {
+			$this->pagination->expects( $this->any() )
+				->method( $method )
+				->will( $this->returnValue( true ) );
+		}
+
+		$this->collection->generate_items();
+		$items = $this->collection->get_items();
+
+		$this->assertSame( 1, count( $items ) );
+
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Previous_Page', $items[0] );
+	}
+
 }
