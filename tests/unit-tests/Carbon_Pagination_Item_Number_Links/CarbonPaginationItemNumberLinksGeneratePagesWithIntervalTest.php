@@ -47,4 +47,34 @@ class CarbonPaginationItemNumberLinksGeneratePagesWithIntervalTest extends WP_Un
 		$this->assertSame( 1, $items[0]->get_page_number() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_pages_with_interval
+	 */
+	public function testGeneratePagesSetOfItems() {
+		$items = $this->item->generate_pages_with_interval( 1, 5 );
+
+		$this->assertSame( 4, count($items) );
+		for($i = 1; $i < 5; $i++) {
+			$item = $items[ $i - 1 ];
+			$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $item );
+			$this->assertSame( $i, $item->get_page_number() );
+		}
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_pages_with_interval
+	 */
+	public function testGeneratePagesSetOfItemsWithCustomInterval() {
+		$items = $this->item->generate_pages_with_interval( 1, 15, 3 );
+
+		$this->assertSame( 5, count($items) );
+		$key = 0;
+		for($i = 1; $i < 15; $i += 3) {
+			$item = $items[ $key ];
+			$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $item );
+			$this->assertSame( $i, $item->get_page_number() );
+			$key++;
+		}
+	}
+
 }
