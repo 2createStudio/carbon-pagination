@@ -1,0 +1,22 @@
+{
+    "name": "2createstudio/carbon-pagination",
+    "description": "A handy WordPress library for building all kinds of paginations.",
+    "keywords": ["pagination", "paging", "page", "comments", "loop", "pages", "prev", "next", "first", "last", "carbon"],
+    "homepage": "https://github.com/2createStudio/carbon-pagination",
+    "type": "library",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "2create Studio",
+            "email": "office@2c-studio.com"
+        },
+        {
+            "name": "Marin Atanasov",
+            "email": "contact@marinatanasov.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": ["carbon-pagination.php"]
+    }
+}
