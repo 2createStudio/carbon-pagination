@@ -7,12 +7,12 @@ if [ $# -lt 3 ]; then
 	exit 1
 fi
 
+# General variables
 DB_NAME=$1
 DB_USER=$2
 DB_PASS=$3
 DB_HOST=${4-localhost}
 WP_VERSION=${5-latest}
-
 BASEDIR="${PWD}"
 
 # Handle Windows drive paths
@@ -20,6 +20,7 @@ if [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
 	BASEDIR=$(echo $BASEDIR | sed -r 's/\/([a-zA-Z])\//\1:\//g')
 fi
 
+# Setup directory vars
 WP_TESTS_DIR="${BASEDIR}/tmp/wordpress-tests-lib"
 WP_CORE_DIR="${BASEDIR}/tmp/wordpress/"
 
@@ -53,6 +54,7 @@ install_wp() {
 	# Determine which version to download
 	local url=$(wp_version)
 
+	# Checkout the WordPress core
 	cd $WP_CORE_DIR
 	svn co --quiet http://develop.svn.wordpress.org/${url}/src/ .
 
