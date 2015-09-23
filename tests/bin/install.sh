@@ -34,16 +34,24 @@ download() {
     fi
 }
 
-# Install a certain version (or the latest one) of WordPress 
-install_wp() {
-	mkdir -p $WP_CORE_DIR
-
+# Determine WP version to download
+wp_version() {
 	# Determine which version to download
 	if [ $WP_VERSION == 'latest' ]; then
 		local url='trunk'
 	else
 		local url="branches/$WP_VERSION"
 	fi
+
+	echo "$url"
+}
+
+# Install a certain version (or the latest one) of WordPress 
+install_wp() {
+	mkdir -p $WP_CORE_DIR
+
+	# Determine which version to download
+	local url=$(wp_version)
 
 	cd $WP_CORE_DIR
 	svn co --quiet http://develop.svn.wordpress.org/${url}/src/ .
@@ -62,11 +70,7 @@ install_test_suite() {
 	fi
 
 	# Determine which version to download
-	if [ $WP_VERSION == 'latest' ]; then
-		local testsurl='trunk'
-	else
-		local testsurl="branches/$WP_VERSION"
-	fi
+	local testsurl=$(wp_version)
 
 	# Prepare target directory and checkout WP test suite
 	mkdir -p $WP_TESTS_DIR
