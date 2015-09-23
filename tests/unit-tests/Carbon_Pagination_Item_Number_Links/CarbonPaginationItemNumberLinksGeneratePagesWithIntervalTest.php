@@ -27,4 +27,24 @@ class CarbonPaginationItemNumberLinksGeneratePagesWithIntervalTest extends WP_Un
 		unset($this->item);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_pages_with_interval
+	 */
+	public function testGeneratePagesSameFromTo() {
+		$items = $this->item->generate_pages_with_interval( 1, 1 );
+
+		$this->assertSame( array(), $items );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_pages_with_interval
+	 */
+	public function testGeneratePagesSingleItem() {
+		$items = $this->item->generate_pages_with_interval( 1, 2 );
+
+		$this->assertSame( 1, count($items) );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $items[0] );
+		$this->assertSame( 1, $items[0]->get_page_number() );
+	}
+
 }
