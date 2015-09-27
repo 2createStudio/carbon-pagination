@@ -88,4 +88,19 @@ class CarbonPaginationItemNumberLinksGeneratePagesTest extends WP_UnitTestCase {
 		}
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_pages
+	 */
+	public function testGeneratePagesSetOfItemsWithLimit() {
+		$this->item->generate_pages( 1, 5, 1, 3 );
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertSame( 3, count($items) );
+		for($i = 1; $i < 3; $i++) {
+			$item = $items[ $i - 1 ];
+			$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $item );
+			$this->assertSame( $i, $item->get_page_number() );
+		}
+	}
+
 }
