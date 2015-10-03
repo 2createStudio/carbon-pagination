@@ -59,4 +59,25 @@ class CarbonPaginationItemNumberLinksGenerateRegularNumberPagesTest extends WP_U
 		$this->assertSame( 0, $items[0]->get_page_number() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_regular_number_pages
+	 */
+	public function testGenerateRegularNumberPagesWithNumber1LimitAtBeginning() {
+		$this->pagination->expects( $this->any() )
+			->method( 'get_number_limit' )
+			->will( $this->returnValue( 1 ) );
+
+		$this->pagination->expects( $this->any() )
+			->method( 'get_current_page' )
+			->will( $this->returnValue( 1 ) );
+
+		$this->item->generate_regular_number_pages();
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertSame( 2, count($items) );
+		for($i = 0; $i < 2; $i++) {
+			$this->assertSame( $i, $items[ $i ]->get_page_number() );
+		}
+	}
+	
 }
