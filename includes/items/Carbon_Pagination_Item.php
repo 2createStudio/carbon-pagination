@@ -103,8 +103,6 @@ class Carbon_Pagination_Item {
 	/**
 	 * Render the item.
 	 *
-	 * @codeCoverageIgnore
-	 *
 	 * @return string $html The HTML of the item.
 	 */
 	public function render() {
