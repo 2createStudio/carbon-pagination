@@ -29,11 +29,6 @@ class CarbonPaginationItemNumberLinksGenerateWrappersTest extends WP_UnitTestCas
 		$this->item->set_collection( $this->collection );
 		$this->item->set_subitems_collection( $this->subitems_collection );
 
-		// make sure collection contains the item
-		$this->collection->expects( $this->any() )
-			->method( 'get_items' )
-			->will( $this->returnValue( array( $this->item ) ) );
-
 		// mock subitem
 		$subItemStub = $this->getMock('Carbon_Pagination_Item', null, $params);
 		$this->subitem = $subItemStub;
