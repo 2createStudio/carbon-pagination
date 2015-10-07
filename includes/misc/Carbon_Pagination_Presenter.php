@@ -83,7 +83,6 @@ class Carbon_Pagination_Presenter {
 			return '';
 		}
 
-		// @codeCoverageIgnoreStart
 		// initialize & generate pagination item collection
 		$collection = new $collection_classname( $pagination );
 
@@ -91,7 +90,6 @@ class Carbon_Pagination_Presenter {
 		$renderer = new $renderer_classname( $collection );
 		$output = $renderer->render( array(), false );
 		return $output;
-		// @codeCoverageIgnoreEnd
 	}
 
 	/**
