@@ -149,4 +149,56 @@ class CarbonPaginationItemNumberLinksGenerateLargeNumberPagesBeforeTest extends 
 		$this->assertSame( 9, $items[0]->get_page_number() );
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_large_number_pages_before
+	 */
+	public function testWithTooCloseCurrentPageAndTwoLargeItems() {
+		$this->pagination->expects( $this->any() )
+			->method( 'get_number_limit' )
+			->will( $this->returnValue( 1 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_current_page' )
+			->will( $this->returnValue( 21 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_limit' )
+			->will( $this->returnValue( 2 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_interval' )
+			->will( $this->returnValue( 10 ) );
+
+		$this->item->generate_large_number_pages_before();
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertCount( 1, $items );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $items[0] );
+		$this->assertSame( 9, $items[0]->get_page_number() );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_large_number_pages_before
+	 */
+	public function testWithNotTooCloseCurrentPageAndTwoLargeItems() {
+		$this->pagination->expects( $this->any() )
+			->method( 'get_number_limit' )
+			->will( $this->returnValue( 1 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_current_page' )
+			->will( $this->returnValue( 22 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_limit' )
+			->will( $this->returnValue( 2 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_interval' )
+			->will( $this->returnValue( 10 ) );
+
+		$this->item->generate_large_number_pages_before();
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertCount( 2, $items );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $items[0] );
+		$this->assertInstanceOf( 'Carbon_Pagination_Item_Page', $items[1] );
+		$this->assertSame( 9, $items[0]->get_page_number() );
+		$this->assertSame( 19, $items[1]->get_page_number() );
+	}
+
 }
