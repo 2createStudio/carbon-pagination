@@ -1,6 +1,6 @@
 === Carbon Pagination ===
-Contributors: tyxla
-Tags: pagination, paging, page, comments, loop, pages, prev, next, first, last, carbon, admin, developer, configuration, extend, advanced
+Contributors: 2create, tyxla
+Tags: pagination, paging, pagenavi, wp-pagenavi, page, comments, loop, pages, prev, next, first, last, carbon, admin, developer, configuration, extend, advanced
 Requires at least: 3.8
 Tested up to: 4.3.1
 Stable tag: 1.0
@@ -12,8 +12,27 @@ A basic plugin for pagination with advanced capabilities for extending.
 == Description ==
 
 A handy WordPress library for building all kinds of paginations. 
+
 Provides the theme and plugin developers an easy way to build and implement highly customizable paginations, specifically tailored to their needs. 
-Can be used as a WordPress plugin as well.
+
+This plugin supports 4 types of pagination (you can easily extend the library if you need to create a new type of pagination):
+
+#### Posts
+
+The most common pagination type. Used for paginating through post listings in non-singular context - usually on the posts page, on all types of archives and on search results. This pagination uses the current global `$wp_query`, which means you can use it together with your custom query loops as well.
+
+#### Post
+
+Used for paginating through posts in singular context. Usually used on single posts - `single.php`, but can be used to paginate through entries of any registered post type (including built-in ones like `page`). Uses the global `$post` to determine the current post and paginates through all of the rest posts of the same post type. You can filter the query that retrieves all posts by using the `carbon_pagination_post_pagination_query` filter - please refer to the **Actions & Filters** section for more information.
+
+#### Comments
+
+Used for comments pagination on a given post. Usually used on `single.php` when comments pagination is enabled in **Settings -> Discussion**, but can be used on posts in non-singular context as well. Of course you would have to do the following to be able to list comments in non-singular loops:
+
+	global $withcomments;
+	$withcomments = true;
+
+This pagination type supports a comments pagination on the comments of a post of any registered post type.
 
 == Installation ==
 
