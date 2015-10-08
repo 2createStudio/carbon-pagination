@@ -46,4 +46,57 @@ class CarbonPaginationItemNumberLinksGenerateLargeNumberPagesBeforeTest extends 
 		unset($this->subitems_collection);
 	}
 
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_large_number_pages_before
+	 */
+	public function testWithNoPages() {
+		$this->item->generate_large_number_pages_before();
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertSame( array(), $items );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_large_number_pages_before
+	 */
+	public function testWithDisabledLargePageNumbers() {
+		$this->pagination->expects( $this->any() )
+			->method( 'get_number_limit' )
+			->will( $this->returnValue( 1 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_current_page' )
+			->will( $this->returnValue( 25 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_limit' )
+			->will( $this->returnValue( 0 ) );
+
+		$this->item->generate_large_number_pages_before();
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertSame( array(), $items );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Item_Number_Links::generate_large_number_pages_before
+	 */
+	public function testWithSmallCurrentPage() {
+		$this->pagination->expects( $this->any() )
+			->method( 'get_number_limit' )
+			->will( $this->returnValue( 1 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_current_page' )
+			->will( $this->returnValue( 5 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_limit' )
+			->will( $this->returnValue( 1 ) );
+		$this->pagination->expects( $this->any() )
+			->method( 'get_large_page_number_interval' )
+			->will( $this->returnValue( 10 ) );
+
+		$this->item->generate_large_number_pages_before();
+		$items = $this->item->get_subitems_collection()->get_items();
+
+		$this->assertSame( array(), $items );
+	}
+
 }
