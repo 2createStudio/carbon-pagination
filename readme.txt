@@ -34,6 +34,14 @@ Used for comments pagination on a given post. Usually used on `single.php` when 
 
 This pagination type supports a comments pagination on the comments of a post of any registered post type.
 
+#### Custom
+
+Used for creating custom flexible paginations. You can specify the total number of pages and the current page by yourself. Also, you'd have to specify the query var that is used to build the pagination links (by default `page` is used).
+
+If you don't specify a current page and total number of pages, this pagination type can be used for content pagination on a single post of any post type (including `page`). Content can be paginated by using the default WordPress <!--nextpage--> quicktag.
+
+If you need a more complex custom pagination, you'd probably want to extend this pagination type - it is being represented by the `Carbon_Pagination_Custom` class.
+
 == Installation ==
 
 1. Install Carbon Pagination either via the WordPress.org plugin directory, or by uploading the files to your server.
