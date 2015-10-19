@@ -148,6 +148,9 @@ class Carbon_Pagination_Renderer {
 		// render the item
 		$html = $this->parse_tokens( $item->render(), $item->get_tokens() );
 
+		// allow item HTML to be filtered
+		$html = apply_filters( 'carbon_pagination_render_item_html', $html, $item );
+
 		return $html;
 	}
 
