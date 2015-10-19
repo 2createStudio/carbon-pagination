@@ -349,6 +349,7 @@ _(string). Default: **'&lt;a href="{URL}" class="paging-prev"&gt;&lt;/a&gt;'**_.
 The HTML of the previous page link. You can use the following tokens:
 
 - **{URL}** - the link URL
+- **{TITLE}** - the post title - available only for Post pagination
 
 #### next_html
 
@@ -357,6 +358,7 @@ _(string). Default: **'&lt;a href="{URL}" class="paging-next"&gt;&lt;/a&gt;'**_.
 The HTML of the next page link. You can use the following tokens:
 
 - **{URL}** - the link URL
+- **{TITLE}** - the post title - available only for Post pagination
 
 #### first_html
 
@@ -365,6 +367,7 @@ _(string). Default: **'&lt;a href="{URL}" class="paging-first"&gt;&lt;/a&gt;'**_
 The HTML of the first page link. You can use the following tokens:
 
 - **{URL}** - the link URL
+- **{TITLE}** - the post title - available only for Post pagination
 
 #### last_html
 
@@ -373,6 +376,7 @@ _(string). Default: **'&lt;a href="{URL}" class="paging-last"&gt;&lt;/a&gt;'**_.
 The HTML of the last page link. You can use the following tokens:
 
 - **{URL}** - the link URL
+- **{TITLE}** - the post title - available only for Post pagination
 
 #### number_html
 
@@ -382,6 +386,7 @@ The HTML of the page number link. You can use the following tokens:
 
 - **{URL}** - the link URL
 - **{PAGE_NUMBER}** - the particular page number
+- **{TITLE}** - the post title - available only for Post pagination
 
 #### current\_number\_html
 
@@ -391,6 +396,7 @@ The HTML of the current page number link. You can use the following tokens:
 
 - **{URL}** - the link URL
 - **{PAGE_NUMBER}** - the particular page number
+- **{TITLE}** - the post title - available only for Post pagination
 
 #### limiter_html
 
@@ -524,13 +530,13 @@ This filter allows you to modify the rendered HTML of an item.
 
 This action is called right after generating the default collection items.
 
-#### carbon\_pagination\_before\_render\_item
+#### carbon\_pagination\_before\_setup\_item
 
 **$item** *(Carbon_Pagination_Item)*. The currently rendered pagination item.
 
 This action allows you to modify the item right before its setup.
 
-#### carbon\_pagination\_after\_render\_item
+#### carbon\_pagination\_after\_setup\_item
 
 **$item** *(Carbon_Pagination_Item)*. The currently rendered pagination item.
 

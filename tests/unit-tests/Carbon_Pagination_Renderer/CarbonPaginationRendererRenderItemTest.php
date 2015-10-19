@@ -32,13 +32,13 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 		return '<strong class="bar">foo</strong>';
 	}
 
-	public function carbon_pagination_before_render_item( $item ) {
+	public function carbon_pagination_before_setup_item( $item ) {
 		$item->expects( $this->any() )
 			->method('get_tokens')
 			->will( $this->returnValue( array( 'fooBar' => 'barFoo' ) ) );
 	}
 
-	public function carbon_pagination_after_render_item( $item ) {
+	public function carbon_pagination_after_setup_item( $item ) {
 		$item->expects( $this->any() )
 			->method('get_tokens')
 			->will( $this->returnValue( array( 'fooBarTest' => 'barFooTest' ) ) );
@@ -87,35 +87,35 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 	/**
 	 * @covers Carbon_Pagination_Renderer::render_item
 	 */
-	public function testCarbonPaginationBeforeRenderItem() {
+	public function testCarbonPaginationBeforeSetupItem() {
 		$this->item->expects( $this->any() )
 			->method('render')
 			->will( $this->returnValue( '<span class="test">{fooBar}</span>' ) );
 
-		add_action( 'carbon_pagination_before_render_item', array( $this, 'carbon_pagination_before_render_item' ) );
+		add_action( 'carbon_pagination_before_setup_item', array( $this, 'carbon_pagination_before_setup_item' ) );
 
 		$expected = '<span class="test">barFoo</span>';
 		$actual = $this->renderer->render_item( $this->item );
 		$this->assertSame( $expected, $actual );
 
-		remove_action( 'carbon_pagination_before_render_item', array( $this, 'carbon_pagination_before_render_item' ) );
+		remove_action( 'carbon_pagination_before_setup_item', array( $this, 'carbon_pagination_before_setup_item' ) );
 	}
 
 	/**
 	 * @covers Carbon_Pagination_Renderer::render_item
 	 */
-	public function testCarbonPaginationAfterRenderItem() {
+	public function testCarbonPaginationAfterSetupItem() {
 		$this->item->expects( $this->any() )
 			->method('render')
 			->will( $this->returnValue( '<span class="test">{fooBarTest}</span>' ) );
 
-		add_action( 'carbon_pagination_after_render_item', array( $this, 'carbon_pagination_after_render_item' ) );
+		add_action( 'carbon_pagination_after_setup_item', array( $this, 'carbon_pagination_after_setup_item' ) );
 
 		$expected = '<span class="test">barFooTest</span>';
 		$actual = $this->renderer->render_item( $this->item );
 		$this->assertSame( $expected, $actual );
 
-		remove_action( 'carbon_pagination_after_render_item', array( $this, 'carbon_pagination_after_render_item' ) );
+		remove_action( 'carbon_pagination_after_setup_item', array( $this, 'carbon_pagination_after_setup_item' ) );
 	}
 
 }

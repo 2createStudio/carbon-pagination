@@ -143,13 +143,13 @@ class Carbon_Pagination_Renderer {
 	 */
 	public function render_item( Carbon_Pagination_Item $item ) {
 		// allow item to be modified before setup
-		do_action( 'carbon_pagination_before_render_item', $item );
+		do_action( 'carbon_pagination_before_setup_item', $item );
 
 		// setup the item
 		$item->setup();
 
 		// allow item to be modified after setup
-		do_action( 'carbon_pagination_after_render_item', $item );
+		do_action( 'carbon_pagination_after_setup_item', $item );
 
 		// render the item
 		$html = $this->parse_tokens( $item->render(), $item->get_tokens() );

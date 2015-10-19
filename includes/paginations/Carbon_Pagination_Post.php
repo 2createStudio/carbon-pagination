@@ -34,6 +34,9 @@ class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Next Entry »', 'crb' ) . '</a>',
 		);
 
+		// register additional tokens
+		add_filter( 'carbon_pagination_after_setup_item', array( $this, 'add_tokens' ) );
+
 		parent::__construct( $args );
 	}
 
@@ -79,6 +82,39 @@ class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 		$url = get_permalink( $page );
 		
 		return $url;
+	}
+
+	/**
+	 * Add tokens to all post items.
+	 * Registers the {TITLE} token for this pagination type
+	 *
+	 * @param Carbon_Pagination_Item $item The item to add tokens to.
+	 */
+	public function add_tokens( Carbon_Pagination_Item $item ) {
+		if ( ! ( $item instanceof Carbon_Pagination_Item_Page ) ) {
+			return;
+		}
+
+		$tokens = $item->get_tokens();
+		$tokens['TITLE'] = $this->get_post_title( $item );
+		$item->set_tokens( $tokens );
+	}
+
+	/**
+	 * Retrieve the title of a certain post.
+	 *
+	 * @param Carbon_Pagination_Item $item The item to add tokens to.
+	 * @return string $title The title of the item's corresponding post.
+	 */
+	public function get_post_title( Carbon_Pagination_Item $item ) {
+		$page_number = $item->get_page_number();
+
+		$pages = $this->get_pages();
+
+		$title = get_post_field( 'post_title', $pages[ $page_number ] );
+		$title = apply_filters( 'the_title', $title );
+
+		return $title;
 	}
 
 }
