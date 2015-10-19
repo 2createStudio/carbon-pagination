@@ -508,6 +508,14 @@ This filter allows you to modify the output of the items before it is rendered.
 
 This filter allows you to modify the query args of the posts that the pagination will navigate through.
 
+#### carbon\_pagination\_render\_item\_html
+
+**$html** *(string)*. The rendered HTML of the item.
+
+**$item** *(Carbon_Pagination_Item)*. The currently rendered pagination item.
+
+This filter allows you to modify the rendered HTML of an item.
+
 ### Actions
 
 #### carbon\_pagination\_collection\_after\_generate
