@@ -523,3 +523,15 @@ This filter allows you to modify the rendered HTML of an item.
 **$collection** *(Carbon_Pagination_Collection)*. The collection object.
 
 This action is called right after generating the default collection items.
+
+#### carbon\_pagination\_before\_render\_item
+
+**$item** *(Carbon_Pagination_Item)*. The currently rendered pagination item.
+
+This action allows you to modify the item right before its setup.
+
+#### carbon\_pagination\_after\_render\_item
+
+**$item** *(Carbon_Pagination_Item)*. The currently rendered pagination item.
+
+This action allows you to modify the item right after its setup.
