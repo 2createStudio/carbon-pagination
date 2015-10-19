@@ -23,13 +23,10 @@ class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 		$this->default_args = array(
 			// specify the sibling posts/pages for pagination pages
 			'pages' => $posts,
-
 			// the current post/page is the current page
 			'current_page' => array_search( get_the_ID(), $posts ) + 1,
-
 			// modify the text of the previous page link
 			'prev_html' => '<a href="{URL}" class="paging-prev">' . esc_html__( '« Previous Entry', 'crb' ) . '</a>',
-
 			// modify the text of the next page link
 			'next_html' => '<a href="{URL}" class="paging-next">' . esc_html__( 'Next Entry »', 'crb' ) . '</a>',
 		);
@@ -107,6 +104,10 @@ class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 	 * @return string $title The title of the item's corresponding post.
 	 */
 	public function get_post_title( Carbon_Pagination_Item $item ) {
+		if ( ! ( $item instanceof Carbon_Pagination_Item_Page ) ) {
+			return;
+		}
+		
 		$page_number = $item->get_page_number();
 
 		$pages = $this->get_pages();
