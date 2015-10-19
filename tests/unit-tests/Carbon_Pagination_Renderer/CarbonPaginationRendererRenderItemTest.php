@@ -28,6 +28,10 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 		unset($this->item);
 	}
 
+	public function carbon_pagination_render_item_html( $html, $item ) {
+		return '<strong class="bar">foo</strong>';
+	}
+
 	/**
 	 * @covers Carbon_Pagination_Renderer::render_item
 	 */
@@ -49,6 +53,23 @@ class CarbonPaginationRendererRenderItemTest extends WP_UnitTestCase {
 		$expected = '<span class="foo bar">bar foo</span>';
 		$actual = $this->renderer->render_item( $this->item );
 		$this->assertSame( $expected, $actual );
+	}
+
+	/**
+	 * @covers Carbon_Pagination_Renderer::render_item
+	 */
+	public function testCarbonPaginationRenderItemHtmlFilter() {
+		$this->item->expects( $this->any() )
+			->method('get_tokens')
+			->will( $this->returnValue( array() ) );
+
+		add_filter( 'carbon_pagination_render_item_html', array( $this, 'carbon_pagination_render_item_html' ), 10, 2 );
+
+		$actual = $this->renderer->render_item( $this->item );
+		$expected = $this->carbon_pagination_render_item_html( '', $this->item );
+		$this->assertSame( $expected, $actual );
+
+		remove_filter( 'carbon_pagination_render_item_html', array( $this, 'carbon_pagination_render_item_html' ), 10 );
 	}
 
 }
