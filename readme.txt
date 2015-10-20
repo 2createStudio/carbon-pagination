@@ -90,8 +90,8 @@ https://github.com/2createStudio/carbon-pagination
 
 = 1.1 =
 Introducing `carbon_pagination_render_item_html` filter hook.
-Introducing `carbon_pagination_before_render_item` action hook.
-Introducing `carbon_pagination_after_render_item` action hook.
+Introducing `carbon_pagination_before_setup_item` action hook.
+Introducing `carbon_pagination_after_setup_item` action hook.
 Implemented `{TITLE}` token for the items within `Carbon_Pagination_Post`
 Test coverage for all of the above
 `Carbon_Pagination_Post` code polishing
