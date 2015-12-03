@@ -2,8 +2,8 @@
 Contributors: 2create, tyxla
 Tags: pagination, paging, pagenavi, wp-pagenavi, page, comments, loop, pages, prev, next, first, last, carbon, admin, developer, configuration, extend, advanced
 Requires at least: 3.8
-Tested up to: 4.3.1
-Stable tag: 1.1
+Tested up to: 4.4
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,13 +88,16 @@ https://github.com/2createStudio/carbon-pagination
 
 == Changelog ==
 
+= 1.1.1 =
+Tested with WordPress 4.4.
+
 = 1.1 =
 Introducing `carbon_pagination_render_item_html` filter hook.
 Introducing `carbon_pagination_before_setup_item` action hook.
 Introducing `carbon_pagination_after_setup_item` action hook.
-Implemented `{TITLE}` token for the items within `Carbon_Pagination_Post`
-Test coverage for all of the above
-`Carbon_Pagination_Post` code polishing
+Implemented `{TITLE}` token for the items within `Carbon_Pagination_Post`.
+Test coverage for all of the above.
+`Carbon_Pagination_Post` code polishing.
 
 = 1.0 =
 Initial version.

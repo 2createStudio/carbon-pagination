@@ -2,12 +2,12 @@
 /**
  * Plugin Name: Carbon Pagination
  * Description: A basic plugin for pagination with advanced capabilities for extending.
- * Version: 1.1
+ * Version: 1.1.1
  * Author: 2create Studio
  * Author URI: http://2create.bg/
  * License: GPL2
  * Requires at least: 3.8
- * Tested up to: 4.3.1
+ * Tested up to: 4.4
  */
 
 // allows the plugin to be included as a library in themes
