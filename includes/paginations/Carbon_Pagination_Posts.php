@@ -44,9 +44,7 @@ class Carbon_Pagination_Posts extends Carbon_Pagination_HTML {
 	public function get_page_url( $page_number, $old_url = '' ) {
 		$pages = $this->get_pages();
 		$page = isset( $pages[ $page_number ] ) ? $pages[ $page_number ] : 0;
-		$url = get_pagenum_link( $page );
-
-		return $url;
+		return get_pagenum_link( $page );
 	}
 
 }

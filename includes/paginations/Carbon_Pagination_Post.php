@@ -69,11 +69,11 @@ class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 	 * @return string $url The URL to the page number.
 	 */
 	public function get_page_url( $page_number, $old_url = '' ) {
-		$pages = $this->get_pages();
+		$posts = $this->get_pages();
 		$page = 0;
 		
-		if ( isset( $pages[ $page_number ] ) ) {
-			$page = $pages[ $page_number ];
+		if ( isset( $posts[ $page_number ] ) ) {
+			$page = $posts[ $page_number ];
 		}
 		
 		$url = get_permalink( $page );
