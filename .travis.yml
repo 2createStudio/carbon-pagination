@@ -8,10 +8,12 @@ php:
   - 5.4
   - 5.5
   - 5.6
+  - 7.0
   - hhvm
 
 env:
   - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=0
   - WP_VERSION=4.3 WP_MULTISITE=0
   - WP_VERSION=4.2 WP_MULTISITE=0
 
@@ -19,6 +21,9 @@ matrix:
   include:
   - php: 5.3
     env: WP_VERSION=latest WP_MULTISITE=1
+  exclude:
+  - php: 7.0
+    env: WP_VERSION=4.2 WP_MULTISITE=0
 
 before_script:
   - mysql -e "create database IF NOT EXISTS carbon_pagination_tests;" -uroot
