@@ -2,8 +2,8 @@
 Contributors: 2create, tyxla
 Tags: pagination, paging, pagenavi, wp-pagenavi, page, comments, loop, pages, prev, next, first, last, carbon, admin, developer, configuration, extend, advanced
 Requires at least: 3.8
-Tested up to: 4.4
-Stable tag: 1.1.1
+Tested up to: 4.4.2
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ If you have an idea for a new feature, or you want to report a bug, feel free to
 https://github.com/2createStudio/carbon-pagination
 
 == Changelog ==
+
+= 1.1.2 =
+Fixing path length issue with `composer install` on Windows OS
 
 = 1.1.1 =
 Tested with WordPress 4.4.
