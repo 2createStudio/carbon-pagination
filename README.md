@@ -316,13 +316,13 @@ Whether the current page text `Page X of Y` should be displayed.
 
 _(int). Default: **-1**_.
 
-The number of page number links that should be displayed. Using `0` means only the current page item will be displayed. Using `-1` means no limit (all page number links will be displayed).
+The number of page number links that should be displayed. Using `0` means only the current page item will be displayed. Using `-1` means no limit (all page number links will be displayed). This is simmilar to the `mid_size` argument of [paginate_links](https://codex.wordpress.org/Function_Reference/paginate_links#Parameters).
 
 #### large\_page\_number\_limit
 
 _(int). Default: **0**_.
 
-The number of larger page number links that should be displayed. Larger page numbers can be: `10`, `20`, `30`, etc. Using `0` means none (no larger page number links will be displayed).
+The number of larger page number links that should be displayed. Larger page numbers can be: `10`, `20`, `30`, etc. Using `0` means none (no larger page number links will be displayed). This is simmilar to the `end_size` argument of [paginate_links](https://codex.wordpress.org/Function_Reference/paginate_links#Parameters), however it needs to be combined with `"large_page_number_interval" => 1` in order to achieve the same effect.
 
 #### large\_page\_number\_interval
 
