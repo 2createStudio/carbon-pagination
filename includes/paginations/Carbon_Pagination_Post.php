@@ -50,6 +50,7 @@ class Carbon_Pagination_Post extends Carbon_Pagination_HTML {
 			'post_type' => get_post_type( get_the_ID() ),
 			'posts_per_page'  => -1,
 			'fields' => 'ids',
+			'suppress_filters' => false,
 		);
 
 		// allow the default query args to be filtered
